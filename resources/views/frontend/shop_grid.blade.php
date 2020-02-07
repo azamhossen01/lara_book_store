@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div class="ht__bradcaump__area bg-image--6 bg-info">
+<div class="ht__bradcaump__area bg-image--6 bg-info" style="background-image:url('https://i2.wp.com/tranquilloplace.com/wp-content/uploads/2016/12/Slider-Library.png?ssl=1')">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -88,7 +88,8 @@
                         </ul>
                     </aside>
                     <aside class="wedget__categories sidebar--banner">
-                    <img src="{{asset('frontend')}}/images/others/banner_left.jpg" alt="banner images">
+                        <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">
+                    {{-- <img src="{{asset('frontend')}}/images/others/banner_left.jpg" alt="banner images"> --}}
                         <div class="text">
                             <h2>new products</h2>
                             <h6>save up to <br> <strong>40%</strong>off</h6>
@@ -125,8 +126,14 @@
                             <!-- Start Single Product -->
                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="{{asset('frontend')}}/images/books/1.jpg" alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img src="{{asset('frontend')}}/images/books/2.jpg" alt="product image"></a>
+                                    <a class="first__img" href="single-product.html">
+                                    <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">    
+                                        {{-- <img src="{{asset('frontend')}}/images/books/1.jpg" alt="product image"> --}}
+                                    </a>
+                                    <a class="second__img animation1" href="single-product.html">
+                                    <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">    
+                                        {{-- <img src="{{asset('frontend')}}/images/books/2.jpg" alt="product image"> --}}
+                                    </a>
                                     <div class="hot__box">
                                         <span class="hot-label">BEST SALLER</span>
                                     </div>
@@ -162,8 +169,14 @@
                             <!-- Start Single Product -->
                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="{{asset('frontend')}}/images/books/3.jpg" alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img src="{{asset('frontend')}}/images/books/4.jpg" alt="product image"></a>
+                                    <a class="first__img" href="single-product.html">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/8.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/3.jpg" alt="product image"> --}}
+                                    </a>
+                                    <a class="second__img animation1" href="single-product.html">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/8.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/4.jpg" alt="product image"> --}}
+                                    </a>
                                     <div class="hot__box color--2">
                                         <span class="hot-label">HOT</span>
                                     </div>
@@ -199,8 +212,14 @@
                             <!-- Start Single Product -->
                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="{{asset('frontend')}}/images/books/7.jpg" alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img src="{{asset('frontend')}}/images/books/8.jpg" alt="product image"></a>
+                                    <a class="first__img" href="single-product.html">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/7.jpg" alt="product image"> --}}
+                                    <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">
+                                    </a>
+                                    <a class="second__img animation1" href="single-product.html">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/8.jpg" alt="product image"> --}}
+                                    </a>
                                     <div class="hot__box">
                                         <span class="hot-label">HOT</span>
                                     </div>
@@ -236,8 +255,14 @@
                             <!-- Start Single Product -->
                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="{{asset('frontend')}}/images/books/9.jpg" alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img src="{{asset('frontend')}}/images/books/10.jpg" alt="product image"></a>
+                                    <a class="first__img" href="single-product.html">
+                                    <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">    
+                                        {{-- <img src="{{asset('frontend')}}/images/books/9.jpg" alt="product image"> --}}
+                                    </a>
+                                    <a class="second__img animation1" href="single-product.html">
+                                    <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">    
+                                        {{-- <img src="{{asset('frontend')}}/images/books/10.jpg" alt="product image"> --}}
+                                    </a>
                                     <div class="hot__box">
                                         <span class="hot-label">HOT</span>
                                     </div>
@@ -273,8 +298,14 @@
                             <!-- Start Single Product -->
                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="{{asset('frontend')}}/images/books/11.jpg" alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img src="{{asset('frontend')}}/images/books/2.jpg" alt="product image"></a>
+                                    <a class="first__img" href="single-product.html">
+                                    <img src="http://demo.devitems.com/boighor-v3/images/product/3.jpg" alt="">    
+                                        {{-- <img src="{{asset('frontend')}}/images/books/11.jpg" alt="product image"> --}}
+                                    </a>
+                                    <a class="second__img animation1" href="single-product.html">
+                                    <img src="http://demo.devitems.com/boighor-v3/images/product/3.jpg" alt="">    
+                                        {{-- <img src="{{asset('frontend')}}/images/books/2.jpg" alt="product image"> --}}
+                                    </a>
                                     <div class="hot__box">
                                         <span class="hot-label">BEST SALER</span>
                                     </div>
@@ -310,8 +341,14 @@
                             <!-- Start Single Product -->
                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="{{asset('frontend')}}/images/books/1.jpg" alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img src="{{asset('frontend')}}/images/books/6.jpg" alt="product image"></a>
+                                    <a class="first__img" href="single-product.html">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/3.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/1.jpg" alt="product image"> --}}
+                                    </a>
+                                    <a class="second__img animation1" href="single-product.html">
+                                    <img src="http://demo.devitems.com/boighor-v3/images/product/3.jpg" alt="">    
+                                        {{-- <img src="{{asset('frontend')}}/images/books/6.jpg" alt="product image"> --}}
+                                    </a>
                                     <div class="hot__box">
                                         <span class="hot-label">BEST SALER</span>
                                     </div>
@@ -347,8 +384,14 @@
                             <!-- Start Single Product -->
                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="{{asset('frontend')}}/images/books/3.jpg" alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img src="{{asset('frontend')}}/images/books/8.jpg" alt="product image"></a>
+                                    <a class="first__img" href="single-product.html">
+                                    <img src="http://demo.devitems.com/boighor-v3/images/product/4.jpg" alt="">    
+                                        {{-- <img src="{{asset('frontend')}}/images/books/3.jpg" alt="product image"> --}}
+                                    </a>
+                                    <a class="second__img animation1" href="single-product.html">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/4.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/8.jpg" alt="product image"> --}}
+                                    </a>
                                     <div class="hot__box">
                                         <span class="hot-label">BEST SALER</span>
                                     </div>
@@ -384,8 +427,15 @@
                             <!-- Start Single Product -->
                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="{{asset('frontend')}}/images/books/10.jpg" alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img src="{{asset('frontend')}}/images/books/2.jpg" alt="product image"></a>
+                                    <a class="first__img" href="single-product.html">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/4.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/10.jpg" alt="product image"> --}}
+                                    </a>
+                                    <a class="second__img animation1" href="single-product.html">\
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/4.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/2.jpg" alt="product image"> --}}
+                                    
+                                    </a>
                                     <div class="hot__box">
                                         <span class="hot-label">BEST SALER</span>
                                     </div>
@@ -421,8 +471,14 @@
                             <!-- Start Single Product -->
                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="{{asset('frontend')}}/images/books/7.jpg" alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img src="{{asset('frontend')}}/images/books/3.jpg" alt="product image"></a>
+                                    <a class="first__img" href="single-product.html">
+                                    <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">    
+                                        {{-- <img src="{{asset('frontend')}}/images/books/7.jpg" alt="product image"> --}}
+                                    </a>
+                                    <a class="second__img animation1" href="single-product.html">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/3.jpg" alt="product image"> --}}
+                                    </a>
                                     <div class="hot__box">
                                         <span class="hot-label">BEST SALER</span>
                                     </div>
@@ -458,8 +514,14 @@
                             <!-- Start Single Product -->
                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="{{asset('frontend')}}/images/books/1.jpg" alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img src="{{asset('frontend')}}/images/books/5.jpg" alt="product image"></a>
+                                    <a class="first__img" href="single-product.html">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/1.jpg" alt="product image"> --}}
+                                    </a>
+                                    <a class="second__img animation1" href="single-product.html">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/5.jpg" alt="product image"> --}}
+                                    </a>
                                     <div class="hot__box">
                                         <span class="hot-label">BEST SALER</span>
                                     </div>
@@ -495,8 +557,14 @@
                             <!-- Start Single Product -->
                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="{{asset('frontend')}}/images/books/9.jpg" alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img src="{{asset('frontend')}}/images/books/4.jpg" alt="product image"></a>
+                                    <a class="first__img" href="single-product.html">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/4.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/9.jpg" alt="product image"> --}}
+                                    </a>
+                                    <a class="second__img animation1" href="single-product.html">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/4.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/4.jpg" alt="product image"> --}}
+                                    </a>
                                     <div class="hot__box">
                                         <span class="hot-label">BEST SALER</span>
                                     </div>
@@ -532,8 +600,14 @@
                             <!-- Start Single Product -->
                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                    <a class="first__img" href="single-product.html"><img src="{{asset('frontend')}}/images/books/5.jpg" alt="product image"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img src="{{asset('frontend')}}/images/books/8.jpg" alt="product image"></a>
+                                    <a class="first__img" href="single-product.html">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/5.jpg" alt="product image"> --}}
+                                    </a>
+                                    <a class="second__img animation1" href="single-product.html">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/books/8.jpg" alt="product image"> --}}
+                                    </a>
                                     <div class="hot__box">
                                         <span class="hot-label">BEST SALER</span>
                                     </div>

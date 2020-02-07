@@ -29,7 +29,8 @@
                 <div class="blog-details content">
                     <article class="blog-post-details">
                         <div class="post-thumbnail">
-                            <img src="images/portfolio/big-img/1.jpg" alt="portfolio images">
+                          <img src="http://demo.devitems.com/boighor-v3/images/portfolio/big-img/1.jpg" alt="">
+                            {{-- <img src="images/portfolio/big-img/1.jpg" alt="portfolio images"> --}}
                         </div>
                         <div class="post_wrapper">
                             <div class="post_header">

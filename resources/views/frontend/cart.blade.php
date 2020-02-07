@@ -42,7 +42,10 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="product-thumbnail"><a href="#"><img src="images/product/sm-3/1.jpg" alt="product img"></a></td>
+                                    <td class="product-thumbnail"><a href="#">
+                                    <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">
+                                        {{-- <img src="images/product/sm-3/1.jpg" alt="product img"> --}}
+                                    </a></td>
                                     <td class="product-name"><a href="#">Natoque penatibus</a></td>
                                     <td class="product-price"><span class="amount">$165.00</span></td>
                                     <td class="product-quantity"><input type="number" value="1"></td>
@@ -50,7 +53,10 @@
                                     <td class="product-remove"><a href="#">X</a></td>
                                 </tr>
                                 <tr>
-                                    <td class="product-thumbnail"><a href="#"><img src="images/product/sm-3/2.jpg" alt="product img"></a></td>
+                                    <td class="product-thumbnail"><a href="#">
+                                        {{-- <img src="images/product/sm-3/2.jpg" alt="product img"> --}}
+                                    <img src="http://demo.devitems.com/boighor-v3/images/product/sm-3/1.jpg" alt="">
+                                    </a></td>
                                     <td class="product-name"><a href="#">Quisque fringilla</a></td>
                                     <td class="product-price"><span class="amount">$50.00</span></td>
                                     <td class="product-quantity"><input type="number" value="1"></td>
@@ -58,7 +64,10 @@
                                     <td class="product-remove"><a href="#">X</a></td>
                                 </tr>
                                 <tr>
-                                    <td class="product-thumbnail"><a href="#"><img src="images/product/sm-3/3.jpg" alt="product img"></a></td>
+                                    <td class="product-thumbnail"><a href="#">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/sm-3/2.jpg" alt="">
+                                        {{-- <img src="images/product/sm-3/3.jpg" alt="product img"> --}}
+                                    </a></td>
                                     <td class="product-name"><a href="#">Vestibulum suscipit</a></td>
                                     <td class="product-price"><span class="amount">$50.00</span></td>
                                     <td class="product-quantity"><input type="number" value="1"></td>

@@ -281,7 +281,7 @@
                                 <li><a href="portfolio.html">Portfolio</a>
                                     <ul>
                                         <li><a href="portfolio.html">Portfolio</a></li>
-                                        <li><a href="portfolio-details.html">Portfolio Details</a></li>
+                                        <li><a href="portfolio_detailsP">Portfolio Details</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="my-account.html">My Account</a></li>

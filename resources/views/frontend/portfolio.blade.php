@@ -43,10 +43,12 @@
                 <div class="portfolio">
                     <div class="thumb">
                         <a href="portfolio-details.html">
-                            <img src="{{asset('frontend')}}/images/portfolio/md-img/1.jpg" alt="portfolio images">
+                           <img src="https://www.desicomments.com/wp-content/uploads/2017/01/Awesome-World-Tourism-Day-Image-600x338.jpg" alt="">
+                            {{-- <img src="{{asset('frontend')}}/images/portfolio/md-img/1.jpg" alt="portfolio images"> --}}
                         </a>
                         <div class="search">
-                            <a href="{{asset('frontend')}}/images/portfolio/big-2/1.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
+                            <a href="https://www.desicomments.com/wp-content/uploads/2017/01/Awesome-World-Tourism-Day-Image-600x338.jpg" data-lightbox="grportimg" data-title="My caption">
+                                <i class="zmdi zmdi-search"></i></a>
                         </div>
                         <div class="link">
                             <a href="portfolio-details.html"><i class="fa fa-link"></i></a>
@@ -64,10 +66,11 @@
                 <div class="portfolio">
                     <div class="thumb">
                         <a href="portfolio-details.html">
-                            <img src="{{asset('frontend')}}/images/portfolio/md-img/2.jpg" alt="portfolio images">
+                            <img src="https://images.livemint.com/img/2019/05/31/600x338/e4c6bcca-82af-11e9-8ad3-51ef53c2e321_1559272818773_1559273044630.jpg" alt="">
+                            {{-- <img src="{{asset('frontend')}}/images/portfolio/md-img/2.jpg" alt="portfolio images"> --}}
                         </a>
                         <div class="search">
-                            <a href="{{asset('frontend')}}/images/portfolio/big-2/2.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
+                            <a href="https://images.livemint.com/img/2019/05/31/600x338/e4c6bcca-82af-11e9-8ad3-51ef53c2e321_1559272818773_1559273044630.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
                         </div>
                         <div class="link">
                             <a href="portfolio-details.html"><i class="fa fa-link"></i></a>
@@ -85,10 +88,11 @@
                 <div class="portfolio">
                     <div class="thumb">
                         <a href="portfolio-details.html">
-                            <img src="{{asset('frontend')}}/images/portfolio/md-img/3.jpg" alt="portfolio images">
+                           <img src="https://wbhm.org/media/2019/09/Ruffner_Mountain-600x338.jpg" alt="">
+                            {{-- <img src="{{asset('frontend')}}/images/portfolio/md-img/3.jpg" alt="portfolio images"> --}}
                         </a>
                         <div class="search">
-                            <a href="{{asset('frontend')}}/images/portfolio/big-2/3.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
+                            <a href="https://wbhm.org/media/2019/09/Ruffner_Mountain-600x338.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
                         </div>
                         <div class="link">
                             <a href="portfolio-details.html"><i class="fa fa-link"></i></a>
@@ -106,10 +110,11 @@
                 <div class="portfolio">
                     <div class="thumb">
                         <a href="portfolio-details.html">
-                            <img src="{{asset('frontend')}}/images/portfolio/md-img/4.jpg" alt="portfolio images">
+                         <img src="https://i2.wp.com/thewatershedfarm.com/wp-content/uploads/2018/09/Grounding-Cord-Meditation-600x338.png?resize=600%2C338" alt="">
+                            {{-- <img src="{{asset('frontend')}}/images/portfolio/md-img/4.jpg" alt="portfolio images"> --}}
                         </a>
                         <div class="search">
-                            <a href="{{asset('frontend')}}/images/portfolio/big-2/1.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
+                            <a href="https://i2.wp.com/thewatershedfarm.com/wp-content/uploads/2018/09/Grounding-Cord-Meditation-600x338.png?resize=600%2C338" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
                         </div>
                         <div class="link">
                             <a href="portfolio-details.html"><i class="fa fa-link"></i></a>
@@ -127,10 +132,11 @@
                 <div class="portfolio">
                     <div class="thumb">
                         <a href="portfolio-details.html">
-                            <img src="{{asset('frontend')}}/images/portfolio/md-img/5.jpg" alt="portfolio images">
+                            <img src="https://imageresizer.static9.net.au/ZCP9RI8_Ck7gDT5gptf1x0MgaCo=/600x338/smart/https%3A%2F%2Fprod.static9.net.au%2F_%2Fmedia%2FNetwork%2FImages%2F2017%2F12%2F22%2F10%2F45%2F171222forceofnature.jpg" alt="">
+                            {{-- <img src="{{asset('frontend')}}/images/portfolio/md-img/5.jpg" alt="portfolio images"> --}}
                         </a>
                         <div class="search">
-                            <a href="{{asset('frontend')}}/images/portfolio/big-2/1.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
+                            <a href="https://imageresizer.static9.net.au/ZCP9RI8_Ck7gDT5gptf1x0MgaCo=/600x338/smart/https%3A%2F%2Fprod.static9.net.au%2F_%2Fmedia%2FNetwork%2FImages%2F2017%2F12%2F22%2F10%2F45%2F171222forceofnature.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
                         </div>
                         <div class="link">
                             <a href="portfolio-details.html"><i class="fa fa-link"></i></a>
@@ -148,10 +154,11 @@
                 <div class="portfolio">
                     <div class="thumb">
                         <a href="portfolio-details.html">
-                            <img src="{{asset('frontend')}}/images/portfolio/md-img/6.jpg" alt="portfolio images">
+                           <img src="https://www.spiralnature.com/wp-content/uploads/Five-Meditations-on-Death-by-Francois-Cheng-600x338.png?x43341" alt="">
+                            {{-- <img src="{{asset('frontend')}}/images/portfolio/md-img/6.jpg" alt="portfolio images"> --}}
                         </a>
                         <div class="search">
-                            <a href="{{asset('frontend')}}/images/portfolio/big-2/2.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
+                            <a href="https://www.spiralnature.com/wp-content/uploads/Five-Meditations-on-Death-by-Francois-Cheng-600x338.png?x43341" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
                         </div>
                         <div class="link">
                             <a href="portfolio-details.html"><i class="fa fa-link"></i></a>
@@ -169,10 +176,11 @@
                 <div class="portfolio">
                     <div class="thumb">
                         <a href="portfolio-details.html">
-                            <img src="{{asset('frontend')}}/images/portfolio/md-img/7.jpg" alt="portfolio images">
+                            <img src="https://23pxcp3u31lgiybw92v8rma1-wpengine.netdna-ssl.com/wp-content/uploads/2019/04/Inspirationheader-600x338.jpg" alt="">
+                            {{-- <img src="{{asset('frontend')}}/images/portfolio/md-img/7.jpg" alt="portfolio images"> --}}
                         </a>
                         <div class="search">
-                            <a href="{{asset('frontend')}}/images/portfolio/big-2/1.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
+                            <a href="https://23pxcp3u31lgiybw92v8rma1-wpengine.netdna-ssl.com/wp-content/uploads/2019/04/Inspirationheader-600x338.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
                         </div>
                         <div class="link">
                             <a href="portfolio-details.html"><i class="fa fa-link"></i></a>
@@ -190,10 +198,11 @@
                 <div class="portfolio">
                     <div class="thumb">
                         <a href="portfolio-details.html">
-                            <img src="{{asset('frontend')}}/images/portfolio/md-img/8.jpg" alt="portfolio images">
+                         <img src="https://nosycrow.com/wp-content/uploads/2019/12/The-Monster-in-the-Lake-Twitter-Card-600x338.jpg" alt="">
+                            {{-- <img src="{{asset('frontend')}}/images/portfolio/md-img/8.jpg" alt="portfolio images"> --}}
                         </a>
                         <div class="search">
-                            <a href="{{asset('frontend')}}/images/portfolio/big-2/3.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
+                            <a href="https://nosycrow.com/wp-content/uploads/2019/12/The-Monster-in-the-Lake-Twitter-Card-600x338.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
                         </div>
                         <div class="link">
                             <a href="portfolio-details.html"><i class="fa fa-link"></i></a>
@@ -211,10 +220,11 @@
                 <div class="portfolio">
                     <div class="thumb">
                         <a href="portfolio-details.html">
-                            <img src="{{asset('frontend')}}/images/portfolio/md-img/9.jpg" alt="portfolio images">
+                         <img src="https://cdn3.whatculture.com/images/2015/04/bag-of-Bones-600x338.jpg" alt="">
+                            {{-- <img src="{{asset('frontend')}}/images/portfolio/md-img/9.jpg" alt="portfolio images"> --}}
                         </a>
                         <div class="search">
-                            <a href="{{asset('frontend')}}/images/portfolio/big-2/2.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
+                            <a href="https://cdn3.whatculture.com/images/2015/04/bag-of-Bones-600x338.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
                         </div>
                         <div class="link">
                             <a href="portfolio-details.html"><i class="fa fa-link"></i></a>
@@ -232,10 +242,11 @@
                 <div class="portfolio">
                     <div class="thumb">
                         <a href="portfolio-details.html">
-                            <img src="{{asset('frontend')}}/images/portfolio/md-img/10.jpg" alt="portfolio images">
+                           <img src="https://cdn.flickeringmyth.com/wp-content/uploads/2019/06/BlairWitch_KeyArt_Main-600x338.png" alt="">
+                            {{-- <img src="{{asset('frontend')}}/images/portfolio/md-img/10.jpg" alt="portfolio images"> --}}
                         </a>
                         <div class="search">
-                            <a href="{{asset('frontend')}}/images/portfolio/big-2/1.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
+                            <a href="https://cdn.flickeringmyth.com/wp-content/uploads/2019/06/BlairWitch_KeyArt_Main-600x338.png" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
                         </div>
                         <div class="link">
                             <a href="portfolio-details.html"><i class="fa fa-link"></i></a>
@@ -253,10 +264,11 @@
                 <div class="portfolio">
                     <div class="thumb">
                         <a href="portfolio-details.html">
-                            <img src="{{asset('frontend')}}/images/portfolio/md-img/5.jpg" alt="portfolio images">
+                          <img src="https://www.paperbackparis.com/wp-content/uploads/2018/04/nonfiction-books-to-stimulate-learning-600x338.png" alt="">
+                            {{-- <img src="{{asset('frontend')}}/images/portfolio/md-img/5.jpg" alt="portfolio images"> --}}
                         </a>
                         <div class="search">
-                            <a href="{{asset('frontend')}}/images/portfolio/big-2/1.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
+                            <a href="https://www.paperbackparis.com/wp-content/uploads/2018/04/nonfiction-books-to-stimulate-learning-600x338.png" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
                         </div>
                         <div class="link">
                             <a href="portfolio-details.html"><i class="fa fa-link"></i></a>
@@ -274,10 +286,11 @@
                 <div class="portfolio">
                     <div class="thumb">
                         <a href="portfolio-details.html">
-                            <img src="{{asset('frontend')}}/images/portfolio/md-img/7.jpg" alt="portfolio images">
+                        <img src="https://bradkay60.files.wordpress.com/2017/05/pandora-commericial-600x338.png?w=584" alt=""> 
+                            {{-- <img src="{{asset('frontend')}}/images/portfolio/md-img/7.jpg" alt="portfolio images"> --}}
                         </a>
                         <div class="search">
-                            <a href="{{asset('frontend')}}/images/portfolio/big-2/2.jpg" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
+                            <a href="https://bradkay60.files.wordpress.com/2017/05/pandora-commericial-600x338.png?w=584" data-lightbox="grportimg" data-title="My caption"><i class="zmdi zmdi-search"></i></a>
                         </div>
                         <div class="link">
                             <a href="portfolio-details.html"><i class="fa fa-link"></i></a>

@@ -32,14 +32,41 @@
                         <div class="col-lg-6 col-12">
                             <div class="wn__fotorama__wrapper">
                                 <div class="fotorama wn__fotorama__action" data-nav="thumbs">
-                                      <a href="1.jpg"><img src="{{asset('frontend')}}/images/product/1.jpg" alt=""></a>
-                                      <a href="2.jpg"><img src="{{asset('frontend')}}/images/product/2.jpg" alt=""></a>
-                                      <a href="3.jpg"><img src="{{asset('frontend')}}/images/product/3.jpg" alt=""></a>
-                                      <a href="4.jpg"><img src="{{asset('frontend')}}/images/product/4.jpg" alt=""></a>
-                                      <a href="5.jpg"><img src="{{asset('frontend')}}/images/product/5.jpg" alt=""></a>
-                                      <a href="6.jpg"><img src="{{asset('frontend')}}/images/product/6.jpg" alt=""></a>
-                                      <a href="7.jpg"><img src="{{asset('frontend')}}/images/product/7.jpg" alt=""></a>
-                                      <a href="8.jpg"><img src="{{asset('frontend')}}/images/product/8.jpg" alt=""></a>
+                                    <a href="1.jpg">
+                                          {{-- <img src="{{asset('frontend')}}/images/product/1.jpg" alt=""> --}}
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/1.jpg" alt="">
+                                    </a>
+                                    <a href="2.jpg">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/product/2.jpg" alt=""> --}}
+                                    </a>
+
+                                    <a href="3.jpg">
+                                          {{-- <img src="{{asset('frontend')}}/images/product/3.jpg" alt=""> --}}
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/3.jpg" alt="">
+                                    </a>
+
+                                    <a href="4.jpg">
+                                          {{-- <img src="{{asset('frontend')}}/images/product/4.jpg" alt=""> --}}
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/4.jpg" alt="">
+                                    </a>
+                                      <a href="5.jpg">
+                                          <img src="http://demo.devitems.com/boighor-v3/images/product/5.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/product/5.jpg" alt=""> --}}
+                                    </a>
+                                      <a href="6.jpg">
+                                          <img src="http://demo.devitems.com/boighor-v3/images/product/6.jpg" alt="">
+                                        {{-- <img src="{{asset('frontend')}}/images/product/6.jpg" alt=""> --}}
+                                    </a>
+
+                                      <a href="7.jpg">
+                                          {{-- <img src="{{asset('frontend')}}/images/product/7.jpg" alt=""> --}}
+                                    <img src="http://demo.devitems.com/boighor-v3/images/product/7.jpg" alt="">
+                                    </a>
+                                      <a href="8.jpg">
+                                          {{-- <img src="{{asset('frontend')}}/images/product/8.jpg" alt=""> --}}
+                                        <img src="http://demo.devitems.com/boighor-v3/images/product/8.jpg" alt="">
+                                        </a>
                                 </div>
                             </div>
                         </div>

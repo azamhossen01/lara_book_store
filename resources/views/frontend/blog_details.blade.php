@@ -29,7 +29,8 @@
                 <div class="blog-details content">
                     <article class="blog-post-details">
                         <div class="post-thumbnail">
-                            <img src="images/blog/big-img/1.jpg" alt="blog images">
+                          <img src="http://demo.devitems.com/boighor-v3/images/blog/big-img/1.jpg" alt="">
+                            {{-- <img src="images/blog/big-img/1.jpg" alt="blog images"> --}}
                         </div>
                         <div class="post_wrapper">
                             <div class="post_header">
@@ -143,7 +144,10 @@
                                 <li>
                                     <div class="post-wrapper d-flex">
                                         <div class="thumb">
-                                            <a href="blog-details.html"><img src="images/blog/sm-img/1.jpg" alt="blog images"></a>
+                                            <a href="blog-details.html">
+                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/1.jpg" alt="">    
+                                                {{-- <img src="images/blog/sm-img/1.jpg" alt="blog images"> --}}
+                                            </a>
                                         </div>
                                         <div class="content">
                                             <h4><a href="blog-details.html">Blog image post</a></h4>
@@ -154,7 +158,10 @@
                                 <li>
                                     <div class="post-wrapper d-flex">
                                         <div class="thumb">
-                                            <a href="blog-details.html"><img src="images/blog/sm-img/2.jpg" alt="blog images"></a>
+                                            <a href="blog-details.html">
+                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/2.jpg" alt="">    
+                                                {{-- <img src="images/blog/sm-img/2.jpg" alt="blog images"> --}}
+                                            </a>
                                         </div>
                                         <div class="content">
                                             <h4><a href="blog-details.html">Post with Gallery</a></h4>
@@ -165,7 +172,10 @@
                                 <li>
                                     <div class="post-wrapper d-flex">
                                         <div class="thumb">
-                                            <a href="blog-details.html"><img src="images/blog/sm-img/3.jpg" alt="blog images"></a>
+                                            <a href="blog-details.html">
+                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/3.jpg" alt="">    
+                                                {{-- <img src="images/blog/sm-img/3.jpg" alt="blog images"> --}}
+                                            </a>
                                         </div>
                                         <div class="content">
                                             <h4><a href="blog-details.html">Post with Video</a></h4>
@@ -176,7 +186,10 @@
                                 <li>
                                     <div class="post-wrapper d-flex">
                                         <div class="thumb">
-                                            <a href="blog-details.html"><img src="images/blog/sm-img/4.jpg" alt="blog images"></a>
+                                            <a href="blog-details.html">
+                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/4.jpg" alt="">    
+                                                {{-- <img src="images/blog/sm-img/4.jpg" alt="blog images"> --}}
+                                            </a>
                                         </div>
                                         <div class="content">
                                             <h4><a href="blog-details.html">Maecenas ultricies</a></h4>
@@ -187,7 +200,10 @@
                                 <li>
                                     <div class="post-wrapper d-flex">
                                         <div class="thumb">
-                                            <a href="blog-details.html"><img src="images/blog/sm-img/5.jpg" alt="blog images"></a>
+                                            <a href="blog-details.html">
+                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/5.jpg" alt="">    
+                                                {{-- <img src="images/blog/sm-img/5.jpg" alt="blog images"> --}}
+                                            </a>
                                         </div>
                                         <div class="content">
                                             <h4><a href="blog-details.html">Blog image post</a></h4>
@@ -206,7 +222,8 @@
                             <li>
                                 <div class="post-wrapper">
                                     <div class="thumb">
-                                        <img src="images/blog/comment/1.jpeg" alt="Comment images">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/blog/comment/1.jpeg" alt="">
+                                        {{-- <img src="images/blog/comment/1.jpeg" alt="Comment images"> --}}
                                     </div>
                                     <div class="content">
                                         <p>demo says:</p>
@@ -217,7 +234,8 @@
                             <li>
                                 <div class="post-wrapper">
                                     <div class="thumb">
-                                        <img src="images/blog/comment/1.jpeg" alt="Comment images">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/blog/comment/1.jpeg" alt="">
+                                        {{-- <img src="images/blog/comment/1.jpeg" alt="Comment images"> --}}
                                     </div>
                                     <div class="content">
                                         <p>Admin says:</p>
@@ -228,7 +246,8 @@
                             <li>
                                 <div class="post-wrapper">
                                     <div class="thumb">
-                                        <img src="images/blog/comment/1.jpeg" alt="Comment images">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/blog/comment/1.jpeg" alt="">
+                                        {{-- <img src="images/blog/comment/1.jpeg" alt="Comment images"> --}}
                                     </div>
                                     <div class="content">
                                         <p>Irin says:</p>
@@ -239,7 +258,8 @@
                             <li>
                                 <div class="post-wrapper">
                                     <div class="thumb">
-                                        <img src="images/blog/comment/1.jpeg" alt="Comment images">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/blog/comment/1.jpeg" alt="">
+                                        {{-- <img src="images/blog/comment/1.jpeg" alt="Comment images"> --}}
                                     </div>
                                     <div class="content">
                                         <p>Boighor says:</p>
@@ -250,7 +270,8 @@
                             <li>
                                 <div class="post-wrapper">
                                     <div class="thumb">
-                                        <img src="images/blog/comment/1.jpeg" alt="Comment images">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/blog/comment/1.jpeg" alt="">
+                                        {{-- <img src="images/blog/comment/1.jpeg" alt="Comment images"> --}}
                                     </div>
                                     <div class="content">
                                         <p>demo says:</p>
