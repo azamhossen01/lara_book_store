@@ -11,9 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home');
-})->name('/');
+Route::get('/','HomeController@home_page')->name('/');
+// Route::get('/', function () {
+//     return view('frontend.home');
+// })->name('/');
 Route::get('contact',function(){
     return view('frontend.contact');
 })->name('contact');
@@ -82,4 +83,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware'=>['auth']],function(){
     Route::resource('categories','CategoryController');
     Route::resource('writers','WriterController');
+    Route::resource('books','BookController');
 });

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
+use App\Writer;
+use App\Category;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class BookController extends Controller
 {
@@ -13,7 +17,10 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $books = Book::where('status',1)->get();
+        $categories = Category::where('status',1)->get();
+        $writers = Writer::where('status',1)->get();
+        return view('backend.book.index',compact('books','categories','writers'));
     }
 
     /**
@@ -34,7 +41,20 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $book = new Book;
+        $book->category_id = $request->category_id;
+        $book->writer_id = $request->writer_id;
+        $book->title = $request->title;
+        $book->price = $request->price;
+        $book->description = $request->description;
+        if($request->image){
+            $imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $request->image->move(public_path('images/books'),$imageName);
+            $book->image = $imageName;
+        }
+        $book->save();
+        Alert::alert('Success', 'Book Added Successfully', 'success');
+        return redirect()->route('books.index');
     }
 
     /**
@@ -45,7 +65,25 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        //
+        $book = Book::findOrFail($id);
+        return $book;
+        $book->category_id = $request->category_id;
+        $book->writer_id = $request->writer_id;
+        $book->title = $request->title;
+        $book->price = $request->price;
+        $book->description = $request->description;
+        if($request->image){
+            if($book->image){
+                $path = public_path('images/books/'.$book->image);
+                unlink($path);
+            }
+                $imageName = time().'.'.$request->image->getClientOriginalExtension();
+                $request->image->move(public_path('images/books'),$imageName);
+                $book->image = $imageName; 
+        }
+        $book->update();
+        Alert::alert('Success', 'Book Updated Successfully', 'success');
+        return redirect()->route('books.index');
     }
 
     /**
@@ -68,7 +106,24 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $book = Book::findOrFail($id);
+        $book->category_id = $request->category_id;
+        $book->writer_id = $request->writer_id;
+        $book->title = $request->title;
+        $book->price = $request->price;
+        $book->description = $request->description;
+        if($request->image){
+            if($book->image){
+                $path = public_path('images/books/'.$book->image);
+                unlink($path);
+            }
+                $imageName = time().'.'.$request->image->getClientOriginalExtension();
+                $request->image->move(public_path('images/books'),$imageName);
+                $book->image = $imageName; 
+        }
+        $book->update();
+        Alert::alert('Success', 'Book Updated Successfully', 'success');
+        return redirect()->route('books.index');
     }
 
     /**

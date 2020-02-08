@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
 use App\Category;
 use Illuminate\Http\Request;
 
@@ -30,5 +31,10 @@ class HomeController extends Controller
     public function shop_grid(){
         $categories = Category::where('status',1)->get();
         return view('frontend.shop_grid',compact('categories'));
+    }
+
+    public function home_page(){
+        $books = Book::where('status',1)->get();
+        return view('frontend.home',compact('books'));
     }
 }

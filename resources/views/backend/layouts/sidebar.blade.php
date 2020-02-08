@@ -31,4 +31,9 @@
         <i class="fas fa-fw fa-table"></i>
         <span>Writers</span></a>
     </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{{route('books.index')}}">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Books</span></a>
+    </li>
   </ul>

@@ -22,6 +22,7 @@ class CreateBooksTable extends Migration
             $table->float('price');
             $table->string('image');
             $table->integer('marks')->default(0);
+            $table->integer('status')->default(1);
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->foreign('writer_id')->references('id')->on('writers')->onDelete('cascade');
             $table->timestamps();
