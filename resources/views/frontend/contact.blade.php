@@ -45,7 +45,7 @@
 
 @section('content')
 
-<div class="ht__bradcaump__area bg-image--6 bg-primary">
+<div class="ht__bradcaump__area bg-image--6 bg-primary" style="background-image: url('https://www.bestfunforall.com/wallpaperbetter/imgs/Magnificent%20Library%20Hdr%20wallpaper%20%203.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

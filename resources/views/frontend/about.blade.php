@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div class="ht__bradcaump__area bg-image--3 bg-success">
+<div class="ht__bradcaump__area bg-image--3 bg-success" style="background-image: url('https://www.incimages.com/uploaded_files/image/970x450/getty_883231284_200013331818843182490_335833.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

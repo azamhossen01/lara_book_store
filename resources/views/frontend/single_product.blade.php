@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div class="ht__bradcaump__area bg-image--4 bg-warning">
+<div class="ht__bradcaump__area bg-image--4" style="background-image:url('https://static3.bigstockphoto.com/2/0/1/large1500/102920192.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

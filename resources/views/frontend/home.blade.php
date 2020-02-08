@@ -5,7 +5,7 @@
 @section('slider')
 <div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme">
     <!-- Start Single Slide -->
-    <div class="slide animation__style10 bg-image--1 fullscreen align__center--left bg-success" style="background-image:url('https://wowslider.com/sliders/demo-76/data1/images/bookshelf349946_1280.jpg')">
+    <div class="slide animation__style10 bg-image--1 fullscreen align__center--left" style="background-image:url('https://www.washingtonpost.com/resizer/hG1kJAuLjq0zSYdqA04W7bg5bpQ=/arc-anglerfish-washpost-prod-washpost/public/QQ5VZMH3GMI6THQCDVC4WPP2R4.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -23,7 +23,7 @@
     </div>
     <!-- End Single Slide -->
     <!-- Start Single Slide -->
-    <div class="slide animation__style10 bg-image--7 fullscreen align__center--left">
+    <div class="slide animation__style10 bg-image--7 fullscreen align__center--left" style="background-image:url('https://hiplatina.com/wp-content/uploads/sites/2/2018/08/Kidreadingbook-1280x720.jpg')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

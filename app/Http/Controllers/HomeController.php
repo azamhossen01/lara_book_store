@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('backend.dashboard');
+    }
+
+    public function shop_grid(){
+        $categories = Category::where('status',1)->get();
+        return view('frontend.shop_grid',compact('categories'));
     }
 }

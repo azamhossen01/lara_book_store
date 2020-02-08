@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div class="ht__bradcaump__area bg-image--5 bg-warning">
+<div class="ht__bradcaump__area bg-image--5 bg-warning" style="background-image:url('https://novelfree.net/images/banner/books_novels.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

@@ -274,35 +274,35 @@
             <div class="col-lg-12 d-none">
                 <nav class="mobilemenu__nav">
                     <ul class="meninmenu">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="{{route('/')}}">Home</a></li>
                         <li><a href="#">Pages</a>
                             <ul>
-                                <li><a href="about.html">About Page</a></li>
-                                <li><a href="portfolio.html">Portfolio</a>
+                                <li><a href="{{route('about')}}">About Page</a></li>
+                                <li><a href="{{route('portfolio')}}">Portfolio</a>
                                     <ul>
-                                        <li><a href="portfolio.html">Portfolio</a></li>
-                                        <li><a href="portfolio_detailsP">Portfolio Details</a></li>
+                                        <li><a href="{{route('portfolio')}}">Portfolio</a></li>
+                                        <li><a href="{{route('portfolio_details')}}">Portfolio Details</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="my-account.html">My Account</a></li>
-                                <li><a href="cart.html">Cart Page</a></li>
-                                <li><a href="checkout.html">Checkout Page</a></li>
-                                <li><a href="wishlist.html">Wishlist Page</a></li>
-                                <li><a href="error404.html">404 Page</a></li>
-                                <li><a href="faq.html">Faq Page</a></li>
-                                <li><a href="team.html">Team Page</a></li>
+                                <li><a href="{{route('my_account')}}">My Account</a></li>
+                                <li><a href="{{route('cart')}}">Cart Page</a></li>
+                                <li><a href="{{route('checkout')}}">Checkout Page</a></li>
+                                <li><a href="{{route('wishlist')}}">Wishlist Page</a></li>
+                                <li><a href="{{route('error404')}}">404 Page</a></li>
+                                <li><a href="{{route('faq')}}">Faq Page</a></li>
+                                <li><a href="{{route('team')}}">Team Page</a></li>
                             </ul>
                         </li>
-                        <li><a href="shop-grid.html">Shop</a>
+                        <li><a href="{{route('shop_grid')}}">Shop</a>
                             <ul>
-                                <li><a href="shop-grid.html">Shop Grid</a></li>
-                                <li><a href="single-product.html">Single Product</a></li>
+                                <li><a href="{{route('shop_grid')}}">Shop Grid</a></li>
+                                <li><a href="{{route('single_product')}}">Single Product</a></li>
                             </ul>
                         </li>
-                        <li><a href="blog.html">Blog</a>
+                        <li><a href="{{route('blog')}}">Blog</a>
                             <ul>
-                                <li><a href="blog.html">Blog Page</a></li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
+                                <li><a href="{{route('blog')}}">Blog Page</a></li>
+                                <li><a href="{{route('blog_details')}}">Blog Details</a></li>
                             </ul>
                         </li>
                     <li><a href="{{route('contact')}}">Contact</a></li>

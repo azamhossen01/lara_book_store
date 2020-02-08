@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div class="ht__bradcaump__area bg-image--4 bg-danger">
+<div class="ht__bradcaump__area bg-image--4 bg-danger" style="background-image:url('https://image.shutterstock.com/image-photo/old-book-open-on-wooden-260nw-286415012.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -34,13 +34,13 @@
                     <!-- Start Single Post -->
                     <article class="blog__post d-flex flex-wrap">
                         <div class="thumb">
-                            <a href="blog-details.html">
+                            <a href="{{route('blog_details')}}">
                                <img src="http://demo.devitems.com/boighor-v3/images/blog/blog-3/1.jpg" alt="">
                                 {{-- <img src="images/blog/blog-3/1.jpg" alt="blog images"> --}}
                             </a>
                         </div>
                         <div class="content">
-                            <h4><a href="blog-details.html">Blog image post</a></h4>
+                            <h4><a href="{{route('blog_details')}}">Blog image post</a></h4>
                             <ul class="post__meta">
                                 <li>Posts by : <a href="#">road theme</a></li>
                                 <li class="post_separator">/</li>
@@ -48,7 +48,7 @@
                             </ul>
                             <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
                             <div class="blog__btn">
-                                <a href="blog-details.html">read more</a>
+                                <a href="{{route('blog_details')}}">read more</a>
                             </div>
                         </div>
                     </article>
@@ -56,13 +56,13 @@
                     <!-- Start Single Post -->
                     <article class="blog__post d-flex flex-wrap">
                         <div class="thumb">
-                            <a href="blog-details.html">
+                            <a href="{{route('blog_details')}}">
                               <img src="http://demo.devitems.com/boighor-v3/images/blog/blog-3/2.jpg" alt="">
                                 {{-- <img src="images/blog/blog-3/2.jpg" alt="blog images"> --}}
                             </a>
                         </div>
                         <div class="content">
-                            <h4><a href="blog-details.html">Post with Gallery</a></h4>
+                            <h4><a href="{{route('blog_details')}}">Post with Gallery</a></h4>
                             <ul class="post__meta">
                                 <li>Posts by : <a href="#">road theme</a></li>
                                 <li class="post_separator">/</li>
@@ -70,7 +70,7 @@
                             </ul>
                             <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
                             <div class="blog__btn">
-                                <a href="blog-details.html">read more</a>
+                                <a href="{{route('blog_details')}}">read more</a>
                             </div>
                         </div>
                     </article>
@@ -78,13 +78,13 @@
                     <!-- Start Single Post -->
                     <article class="blog__post d-flex flex-wrap">
                         <div class="thumb">
-                            <a href="blog-details.html">
+                            <a href="{{route('blog_details')}}">
                              <img src="http://demo.devitems.com/boighor-v3/images/blog/blog-3/3.jpg" alt="">
                                 {{-- <img src="images/blog/blog-3/3.jpg" alt="blog images"> --}}
                             </a>
                         </div>
                         <div class="content">
-                            <h4><a href="blog-details.html">Post with Gallery</a></h4>
+                            <h4><a href="{{route('blog_details')}}">Post with Gallery</a></h4>
                             <ul class="post__meta">
                                 <li>Posts by : <a href="#">road theme</a></li>
                                 <li class="post_separator">/</li>
@@ -92,7 +92,7 @@
                             </ul>
                             <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
                             <div class="blog__btn">
-                                <a href="blog-details.html">read more</a>
+                                <a href="{{route('blog_details')}}">read more</a>
                             </div>
                         </div>
                     </article>
@@ -100,13 +100,13 @@
                     <!-- Start Single Post -->
                     <article class="blog__post d-flex flex-wrap">
                         <div class="thumb">
-                            <a href="blog-details.html">
+                            <a href="{{route('blog_details')}}">
                                 <img src="http://demo.devitems.com/boighor-v3/images/blog/blog-3/4.jpg" alt="">
                                 {{-- <img src="images/blog/blog-3/4.jpg" alt="blog images"> --}}
                             </a>
                         </div>
                         <div class="content">
-                            <h4><a href="blog-details.html">Blog image post</a></h4>
+                            <h4><a href="{{route('blog_details')}}">Blog image post</a></h4>
                             <ul class="post__meta">
                                 <li>Posts by : <a href="#">road theme</a></li>
                                 <li class="post_separator">/</li>
@@ -114,7 +114,7 @@
                             </ul>
                             <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
                             <div class="blog__btn">
-                                <a href="blog-details.html">read more</a>
+                                <a href="{{route('blog_details')}}">read more</a>
                             </div>
                         </div>
                     </article>
@@ -122,13 +122,13 @@
                     <!-- Start Single Post -->
                     <article class="blog__post d-flex flex-wrap">
                         <div class="thumb">
-                            <a href="blog-details.html">
+                            <a href="{{route('blog_details')}}">
                               <img src="http://demo.devitems.com/boighor-v3/images/blog/blog-3/5.jpg" alt="">
                                 {{-- <img src="images/blog/blog-3/5.jpg" alt="blog images"> --}}
                             </a>
                         </div>
                         <div class="content">
-                            <h4><a href="blog-details.html">Blog image post</a></h4>
+                            <h4><a href="{{route('blog_details')}}">Blog image post</a></h4>
                             <ul class="post__meta">
                                 <li>Posts by : <a href="#">road theme</a></li>
                                 <li class="post_separator">/</li>
@@ -136,7 +136,7 @@
                             </ul>
                             <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
                             <div class="blog__btn">
-                                <a href="blog-details.html">read more</a>
+                                <a href="{{route('blog_details')}}">read more</a>
                             </div>
                         </div>
                     </article>
@@ -144,7 +144,7 @@
                     <!-- Start Single Post -->
                     <article class="blog__post text--post">
                         <div class="content">
-                            <h4><a href="blog-details.html">Blog image post</a></h4>
+                            <h4><a href="{{route('blog_details')}}">Blog image post</a></h4>
                             <ul class="post__meta">
                                 <li>Posts by : <a href="#">road theme</a></li>
                                 <li class="post_separator">/</li>
@@ -152,7 +152,7 @@
                             </ul>
                             <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
                             <div class="blog__btn">
-                                <a href="blog-details.html">read more</a>
+                                <a href="{{route('blog_details')}}">read more</a>
                             </div>
                         </div>
                     </article>
@@ -187,13 +187,13 @@
                                 <li>
                                     <div class="post-wrapper d-flex">
                                         <div class="thumb">
-                                            <a href="blog-details.html">
+                                            <a href="{{route('blog_details')}}">
                                                 {{-- <img src="images/blog/sm-img/1.jpg" alt="blog images"> --}}
                                             <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/1.jpg" alt="">
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4><a href="blog-details.html">Blog image post</a></h4>
+                                            <h4><a href="{{route('blog_details')}}">Blog image post</a></h4>
                                             <p>	March 10, 2015</p>
                                         </div>
                                     </div>
@@ -201,13 +201,13 @@
                                 <li>
                                     <div class="post-wrapper d-flex">
                                         <div class="thumb">
-                                            <a href="blog-details.html">
+                                            <a href="{{route('blog_details')}}">
                                             <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/2.jpg" alt="">    
                                                 {{-- <img src="images/blog/sm-img/2.jpg" alt="blog images"> --}}
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4><a href="blog-details.html">Post with Gallery</a></h4>
+                                            <h4><a href="{{route('blog_details')}}">Post with Gallery</a></h4>
                                             <p>	March 10, 2015</p>
                                         </div>
                                     </div>
@@ -215,13 +215,13 @@
                                 <li>
                                     <div class="post-wrapper d-flex">
                                         <div class="thumb">
-                                            <a href="blog-details.html">
+                                            <a href="{{route('blog_details')}}">
                                             <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/3.jpg" alt="">    
                                                 {{-- <img src="images/blog/sm-img/3.jpg" alt="blog images"> --}}
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4><a href="blog-details.html">Post with Video</a></h4>
+                                            <h4><a href="{{route('blog_details')}}">Post with Video</a></h4>
                                             <p>	March 10, 2015</p>
                                         </div>
                                     </div>
@@ -229,13 +229,13 @@
                                 <li>
                                     <div class="post-wrapper d-flex">
                                         <div class="thumb">
-                                            <a href="blog-details.html">
+                                            <a href="{{route('blog_details')}}">
                                             <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/4.jpg" alt="">    
                                                 {{-- <img src="images/blog/sm-img/4.jpg" alt="blog images"> --}}
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4><a href="blog-details.html">Maecenas ultricies</a></h4>
+                                            <h4><a href="{{route('blog_details')}}">Maecenas ultricies</a></h4>
                                             <p>	March 10, 2015</p>
                                         </div>
                                     </div>
@@ -243,13 +243,13 @@
                                 <li>
                                     <div class="post-wrapper d-flex">
                                         <div class="thumb">
-                                            <a href="blog-details.html">
+                                            <a href="{{route('blog_details')}}">
                                             <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/5.jpg" alt="">    
                                                 {{-- <img src="images/blog/sm-img/5.jpg" alt="blog images"> --}}
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4><a href="blog-details.html">Blog image post</a></h4>
+                                            <h4><a href="{{route('blog_details')}}">Blog image post</a></h4>
                                             <p>	March 10, 2015</p>
                                         </div>
                                     </div>

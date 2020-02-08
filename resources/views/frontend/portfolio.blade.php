@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div class="ht__bradcaump__area bg-image--6">
+<div class="ht__bradcaump__area bg-image--6" style="background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/gettyimages-865109088-1548970937.jpg?crop=1.00xw:0.752xh;0,0.248xh&resize=480:*')">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

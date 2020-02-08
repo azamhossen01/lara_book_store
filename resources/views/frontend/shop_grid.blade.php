@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div class="ht__bradcaump__area bg-image--6 bg-info" style="background-image:url('https://i2.wp.com/tranquilloplace.com/wp-content/uploads/2016/12/Slider-Library.png?ssl=1')">
+<div class="ht__bradcaump__area bg-image--6" style="background-image:url('https://i2.wp.com/tranquilloplace.com/wp-content/uploads/2016/12/Slider-Library.png?ssl=1')">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -31,8 +31,13 @@
                     <aside class="wedget__categories poroduct--cat">
                         <h3 class="wedget__title">Product Categories</h3>
                         <ul>
-                            <li><a href="#">Biography <span>(3)</span></a></li>
-                            <li><a href="#">Business <span>(4)</span></a></li>
+                            @forelse($categories as $category) 
+                                <li><a href="#">{{$category->name}} <span>(3)</span></a></li>
+                            @empty 
+
+                            @endforelse
+                            
+                            {{-- <li><a href="#">Business <span>(4)</span></a></li>
                             <li><a href="#">Cookbooks <span>(6)</span></a></li>
                             <li><a href="#">Health & Fitness <span>(7)</span></a></li>
                             <li><a href="#">History <span>(8)</span></a></li>
@@ -46,7 +51,7 @@
                             <li><a href="#">Land of Stories <span>(34)</span></a></li>
                             <li><a href="#">Kids' Music <span>(60)</span></a></li>
                             <li><a href="#">Toys & Games <span>(3)</span></a></li>
-                            <li><a href="#">hoodies <span>(3)</span></a></li>
+                            <li><a href="#">hoodies <span>(3)</span></a></li> --}}
                         </ul>
                     </aside>
                     <aside class="wedget__categories pro--range">

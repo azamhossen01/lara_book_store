@@ -18,9 +18,10 @@ Route::get('contact',function(){
     return view('frontend.contact');
 })->name('contact');
 
-Route::get('shop_grid',function(){
-    return view('frontend.shop_grid');
-})->name('shop_grid');
+// Route::get('shop_grid',function(){
+//     return view('frontend.shop_grid');
+// })->name('shop_grid');
+Route::get('shop_grid','HomeController@shop_grid')->name('shop_grid');
 
 Route::get('single_product',function(){
     return view('frontend.single_product');
@@ -77,3 +78,8 @@ Route::get('blog_details',function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware'=>['auth']],function(){
+    Route::resource('categories','CategoryController');
+    Route::resource('writers','WriterController');
+});

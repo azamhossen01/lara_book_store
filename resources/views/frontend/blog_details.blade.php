@@ -5,7 +5,7 @@
 
 @section('content')
 
-<div class="ht__bradcaump__area bg-image--6 bg-warning">
+<div class="ht__bradcaump__area bg-image--6 bg-warning" style="background-image: url('https://bookstr.com/wp-content/uploads/2017/04/harrypotterandthesorcerersstone-feat_small.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -65,7 +65,8 @@
                             <li>
                                 <div class="wn__comment">
                                     <div class="thumb">
-                                        <img src="images/blog/comment/1.jpeg" alt="comment images">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/blog/comment/1.jpeg" alt="">
+                                        {{-- <img src="images/blog/comment/1.jpeg" alt="comment images"> --}}
                                     </div>
                                     <div class="content">
                                         <div class="comnt__author d-block d-sm-flex">
@@ -82,7 +83,8 @@
                             <li class="comment_reply">
                                 <div class="wn__comment">
                                     <div class="thumb">
-                                        <img src="images/blog/comment/1.jpeg" alt="comment images">
+                                        <img src="http://demo.devitems.com/boighor-v3/images/blog/comment/1.jpeg" alt="">
+                                        {{-- <img src="images/blog/comment/1.jpeg" alt="comment images"> --}}
                                     </div>
                                     <div class="content">
                                         <div class="comnt__author d-block d-sm-flex">
