@@ -735,20 +735,20 @@
         </div>
     </div>
     <div class="slider center">
-        <!-- Single product start -->
+        @forelse($books as $book)
         <div class="product product__style--3">
             <div class="product__thumb">
                 <a class="first__img" href="{{route('single_product')}}">
                     {{-- <img src="{{asset('frontend')}}/images/best-sell-product/1.jpg" alt="product image"> --}}
-                <img src="http://demo.devitems.com/boighor-v3/images/books/9.jpg" alt="">
+                <img src="{{asset('images/books/'.$book->image)}}" alt="">
                 </a>
             </div>
             <div class="product__content content--center">
                 <div class="action">
                     <div class="actions_inner">
                         <ul class="add_to_links">
-                            <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-                            <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
+                        <li><a class="cart" href="{{route('cart')}}"><i class="bi bi-shopping-bag4"></i></a></li>
+                        <li><a class="wishlist" href="{{route('wishlist')}}"><i class="bi bi-shopping-cart-full"></i></a></li>
                             <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
                             <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
                         </ul>
@@ -765,224 +765,8 @@
                 </div>
             </div>
         </div>
-        <!-- Single product end -->
-        <!-- Single product start -->
-        <div class="product product__style--3">
-            <div class="product__thumb">
-                <a class="first__img" href="{{route('single_product')}}">
-                <img src="http://demo.devitems.com/boighor-v3/images/books/8.jpg" alt="">    
-                    {{-- <img src="{{asset('frontend')}}/images/best-sell-product/2.jpg" alt="product image"> --}}
-                </a>
-            </div>
-            <div class="product__content content--center">
-                <div class="action">
-                    <div class="actions_inner">
-                        <ul class="add_to_links">
-                            <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-                            <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-                            <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-                            <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="product__hover--content">
-                    <ul class="rating d-flex">
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Single product end -->
-        <!-- Single product start -->
-        <div class="product product__style--3">
-            <div class="product__thumb">
-                <a class="first__img" href="{{route('single_product')}}">
-                <img src="http://demo.devitems.com/boighor-v3/images/books/5.jpg" alt="">    
-                    {{-- <img src="{{asset('frontend')}}/images/best-sell-product/3.jpg" alt="product image"> --}}
-                </a>
-            </div>
-            <div class="product__content content--center">
-                <div class="action">
-                    <div class="actions_inner">
-                        <ul class="add_to_links">
-                            <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-                            <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-                            <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-                            <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="product__hover--content">
-                    <ul class="rating d-flex">
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Single product end -->
-        <!-- Single product start -->
-        <div class="product product__style--3">
-            <div class="product__thumb">
-                <a class="first__img" href="{{route('single_product')}}">
-                <img src="http://demo.devitems.com/boighor-v3/images/books/7.jpg" alt="">    
-                    {{-- <img src="{{asset('frontend')}}/images/best-sell-product/4.jpg" alt="product image"> --}}
-                </a>
-            </div>
-            <div class="product__content content--center">
-                <div class="action">
-                    <div class="actions_inner">
-                        <ul class="add_to_links">
-                            <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-                            <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-                            <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-                            <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="product__hover--content">
-                    <ul class="rating d-flex">
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Single product end -->
-        <!-- Single product start -->
-        <div class="product product__style--3">
-            <div class="product__thumb">
-                <a class="first__img" href="{{route('single_product')}}">
-                    
-                    {{-- <img src="{{asset('frontend')}}/images/best-sell-product/5.jpg" alt="product image"> --}}
-                <img src="http://demo.devitems.com/boighor-v3/images/books/8.jpg" alt="">
-                </a>
-            </div>
-            <div class="product__content content--center">
-                <div class="action">
-                    <div class="actions_inner">
-                        <ul class="add_to_links">
-                            <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-                            <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-                            <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-                            <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="product__hover--content">
-                    <ul class="rating d-flex">
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Single product end -->
-        <!-- Single product start -->
-        <div class="product product__style--3">
-            <div class="product__thumb">
-                <a class="first__img" href="{{route('single_product')}}">
-                    <img src="http://demo.devitems.com/boighor-v3/images/books/6.jpg" alt="">
-                    {{-- <img src="{{asset('frontend')}}/images/best-sell-product/6.jpg" alt="product image"></a> --}}
-            </div>
-            <div class="product__content content--center">
-                <div class="action">
-                    <div class="actions_inner">
-                        <ul class="add_to_links">
-                            <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-                            <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-                            <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-                            <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="product__hover--content">
-                    <ul class="rating d-flex">
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Single product end -->
-        <!-- Single product start -->
-        <div class="product product__style--3">
-            <div class="product__thumb">
-                <a class="first__img" href="{{route('single_product')}}">
-                <img src="http://demo.devitems.com/boighor-v3/images/books/4.jpg" alt="">    
-                    {{-- <img src="{{asset('frontend')}}/images/best-sell-product/7.jpg" alt="product image"> --}}
-                </a>
-            </div>
-            <div class="product__content content--center">
-                <div class="action">
-                    <div class="actions_inner">
-                        <ul class="add_to_links">
-                            <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-                            <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-                            <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-                            <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="product__hover--content">
-                    <ul class="rating d-flex">
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Single product end -->
-        <!-- Single product start -->
-        <div class="product product__style--3">
-            <div class="product__thumb">
-                <a class="first__img" href="{{route('single_product')}}">
-                <img src="http://demo.devitems.com/boighor-v3/images/books/2.jpg" alt="">    
-                    {{-- <img src="{{asset('frontend')}}/images/best-sell-product/8.jpg" alt="product image"> --}}
-                </a>
-            </div>
-            <div class="product__content content--center">
-                <div class="action">
-                    <div class="actions_inner">
-                        <ul class="add_to_links">
-                            <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
-                            <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-                            <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-                            <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="product__hover--content">
-                    <ul class="rating d-flex">
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li class="on"><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                        <li><i class="fa fa-star-o"></i></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- Single product end -->
+        @empty 
+        @endforelse
     </div>
 </section>
 

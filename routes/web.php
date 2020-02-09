@@ -82,7 +82,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>['auth']],function(){
+    Route::get('change_category_status/{cat_id}','CategoryController@change_category_status')->name('change_category_status');
     Route::resource('categories','CategoryController');
+    Route::get('change_writer_status','WriterController@change_writer_status')->name('writers.status.update');
     Route::resource('writers','WriterController');
+    // Route::get('change_book_status/{book_id}','BookController@change_book_status')->name('change_book_status');
+    Route::get('change_book_status','BookController@change_book_status')->name('books.status.update');
     Route::resource('books','BookController');
 });

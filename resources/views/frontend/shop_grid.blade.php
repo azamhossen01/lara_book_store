@@ -32,7 +32,7 @@
                         <h3 class="wedget__title">Product Categories</h3>
                         <ul>
                             @forelse($categories as $category) 
-                                <li><a href="#">{{$category->name}} <span>(3)</span></a></li>
+                        <li><a href="{{route('shop_grid')}}">{{$category->name}} <span>({{count($category->books)}})</span></a></li>
                             @empty 
 
                             @endforelse

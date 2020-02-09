@@ -17,7 +17,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::where('status',1)->get();
+        $books = Book::all();
         $categories = Category::where('status',1)->get();
         $writers = Writer::where('status',1)->get();
         return view('backend.book.index',compact('books','categories','writers'));
@@ -135,5 +135,23 @@ class BookController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    // public function change_book_status($book_id){
+    //     $status = $_GET['status']?0:1;
+    //     // return $status;
+    //     $book = Book::findOrFail($book_id);
+    //     $book->status = $status;
+    //     $book->update();
+    //     return response()->json(['message' => 'User status updated successfully.']);
+    // }
+    public function change_book_status(Request $request){
+        // return $request;
+        $book_id = $request->book_id;
+        $status = $request->status;
+        $book = Book::findOrFail($book_id);
+        $book->status = $status;
+        $book->update();
+        return response()->json(['message'=>'Book status updated successfully']);
     }
 }

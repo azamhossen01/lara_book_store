@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::where('status',1)->get();
+        $categories = Category::all();
         return view('backend.category.index',compact('categories'));
     }
 
@@ -96,5 +96,14 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function change_category_status($cat_id){
+        $status = $_GET['status']?0:1;
+        // return $status;
+        $category = Category::findOrFail($cat_id);
+        $category->status = $status;
+        $category->update();
+        return response()->json(['message' => 'User status updated successfully.']);
     }
 }

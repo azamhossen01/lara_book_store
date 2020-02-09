@@ -2,6 +2,11 @@
 
 @section('title','Book')
 
+@push('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+@endpush
+
 @section('content')
 <div id="content-wrapper">
 
@@ -56,7 +61,9 @@
                 <td>{{$book->category->name}}</td>
                 <td><img src="{{asset('images/books/'.$book->image)}}" width="20%" alt=""></td>
                 <td>{{$book->price}}</td>
-                <td><span class="badge badge-{{$book->status == 1 ? 'success':'warning'}}">{{$book->status == 1 ? 'Active':'Deactive'}}</span></td>
+                <td><input type="checkbox" 
+                  {{-- onchange="change_status({{$book->id}},{{$book->status}})"  --}}
+                  data-id="{{ $book->id }}" name="status" class="js-switch" {{ $book->status == 1 ? 'checked' : '' }}></td>
                 <td>
                   <button type="button" class="btn btn-warning" onclick="edit_book({{$book->id}})">Edit</button>
                 </td>
@@ -152,7 +159,35 @@
 @endsection
 
 @push('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+  elems.forEach(function(html) {
+      let switchery = new Switchery(html,  { size: 'small' });
+  });</script>
+
   <script>
+    $(document).ready(function(){
+      $('.js-switch').change(function(){
+        var status = $(this).prop('checked') === true ? 1 : 0;
+        var book_id = $(this).data('id');
+        $.ajax({
+          type : 'get',
+          dataType : 'json',
+          data : {status:status,book_id:book_id},
+          url : "{{route('books.status.update')}}",
+          success : function(data){
+            toastr.options.closeButton = true;
+                toastr.options.closeMethod = 'fadeOut';
+                toastr.options.closeDuration = 100;
+                toastr.success(data.message);  
+          }
+        });
+      });
+    });
+
+
       function add_new_book(){
         $('#book_form').attr('action', "{{url('books')}}");
         $('#book_form').trigger('reset');
@@ -185,5 +220,22 @@
           });
         }
       }
+
+      // function change_status(cat_id,status){
+      //   if(cat_id){
+      //     $.ajax({
+      //       type : 'get',
+      //       // dataType: "json",
+      //       url : "{{url('change_book_status')}}/"+cat_id,
+      //       data : {status:status},
+      //       success : function(data){
+      //           toastr.options.closeButton = true;
+      //           toastr.options.closeMethod = 'fadeOut';
+      //           toastr.options.closeDuration = 100;
+      //           toastr.success(data.message);            
+      //       }
+      //     });
+      //   }
+      // }
   </script>
 @endpush

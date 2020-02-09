@@ -2,6 +2,11 @@
 
 @section('title','Category')
 
+@push('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+@endpush
+
 @section('content')
 <div id="content-wrapper">
 
@@ -53,7 +58,10 @@
                 <td>{{$category->name}}</td>
                 <td>{{$category->description}}</td>
                 <td>{{$category->created_at->format('F d Y')}}</td>
-                <td><span class="badge badge-{{$category->status == 1 ? 'success':'warning'}}">{{$category->status == 1 ? 'Active':'Deactive'}}</span></td>
+                <td>
+                 
+                  <input type="checkbox" onchange="change_status({{$category->id}},{{$category->status}})" data-id="{{ $category->id }}" name="status" class="js-switch" {{ $category->status == 1 ? 'checked' : '' }}>
+                </td>
                 <td>
                   <button type="button" class="btn btn-warning" onclick="edit_category({{$category->id}})">Edit</button>
                 </td>
@@ -112,6 +120,13 @@
 @endsection
 
 @push('js')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/switchery/0.8.2/switchery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>let elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+
+  elems.forEach(function(html) {
+      let switchery = new Switchery(html,  { size: 'small' });
+  });</script>
   <script>
       function add_new_category(){
         $('#category_form').attr('action', "{{url('categories')}}");
@@ -136,6 +151,22 @@
               $('#set_method').html(html);
               $('#add_button').css('display','none');
               $('#edit_button').css('display','block');
+            }
+          });
+        }
+      }
+
+      function change_status(cat_id,status){
+        if(cat_id){
+          $.ajax({
+            type : 'get',
+            url : "{{url('change_category_status')}}/"+cat_id,
+            data : {status:status},
+            success : function(data){
+              toastr.options.closeButton = true;
+                toastr.options.closeMethod = 'fadeOut';
+                toastr.options.closeDuration = 100;
+                toastr.success(data.message); 
             }
           });
         }

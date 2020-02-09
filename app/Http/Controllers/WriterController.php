@@ -15,7 +15,7 @@ class WriterController extends Controller
      */
     public function index()
     {
-        $writers = Writer::where('status',1)->get();
+        $writers = Writer::all();
         return view('backend.writer.index',compact('writers'));
     }
 
@@ -147,5 +147,20 @@ class WriterController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    // public function change_writer_status($writer_id){
+    //     $status = $_GET['status']?0:1;
+    //     // return $status;
+    //     $writer = Writer::findOrFail($writer_id);
+    //     $writer->status = $status;
+    //     $writer->update();
+    //     return response()->json(['message' => 'User status updated successfully.']);
+    // }
+    public function change_writer_status(Request $request){
+        $writer = Writer::findOrFail($request->writer_id);
+        $writer->status = $request->status;
+        $writer->update();
+        return response()->json(['message'=>'Writer status updated successfully']);
     }
 }
