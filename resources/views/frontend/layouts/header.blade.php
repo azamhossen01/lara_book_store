@@ -33,7 +33,7 @@
                                     <li><a href="{{route('shop_grid')}}">Bargain Bestsellers</a></li>
                                     <li><a href="{{route('shop_grid')}}">Activity Kits</a></li>
                                     <li><a href="{{route('shop_grid')}}">B&N Classics</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Books Under $5</a></li>
+                                    <li><a href="{{route('shop_grid')}}">Books Under BDT 5</a></li>
                                     <li><a href="{{route('shop_grid')}}">Bargain Books</a></li>
                                 </ul>
                             </div>
@@ -134,7 +134,7 @@
                                     <span>Cart Subtotal</span>
                                 </div>
                                 <div class="total_amount text-right">
-                                    <span>$66.00</span>
+                                    <span>BDT 66.00</span>
                                 </div>
                                 <div class="mini_action checkout">
                                     <a class="checkout__btn" href="cart.html">Go to Checkout</a>
@@ -147,7 +147,7 @@
                                             </div>
                                             <div class="content">
                                                 <h6><a href="product-details.html">Voyage Yoga Bag</a></h6>
-                                                <span class="prize">$30.00</span>
+                                                <span class="prize">BDT 30.00</span>
                                                 <div class="product_prize d-flex justify-content-between">
                                                     <span class="qun">Qty: 01</span>
                                                     <ul class="d-flex justify-content-end">
@@ -163,7 +163,7 @@
                                             </div>
                                             <div class="content">
                                                 <h6><a href="product-details.html">Impulse Duffle</a></h6>
-                                                <span class="prize">$40.00</span>
+                                                <span class="prize">BDT 40.00</span>
                                                 <div class="product_prize d-flex justify-content-between">
                                                     <span class="qun">Qty: 03</span>
                                                     <ul class="d-flex justify-content-end">
@@ -179,7 +179,7 @@
                                             </div>
                                             <div class="content">
                                                 <h6><a href="product-details.html">Compete Track Tote</a></h6>
-                                                <span class="prize">$40.00</span>
+                                                <span class="prize">BDT 40.00</span>
                                                 <div class="product_prize d-flex justify-content-between">
                                                     <span class="qun">Qty: 03</span>
                                                     <ul class="d-flex justify-content-end">

@@ -225,28 +225,28 @@
                         <li>Total</li>
                     </ul>
                     <ul class="order_product">
-                        <li>Buscipit at magna × 1<span>$48.00</span></li>
-                        <li>Buscipit at magna × 1<span>$48.00</span></li>
-                        <li>Buscipit at magna × 1<span>$48.00</span></li>
-                        <li>Buscipit at magna × 1<span>$48.00</span></li>
+                        <li>Buscipit at magna × 1<span>BDT 48.00</span></li>
+                        <li>Buscipit at magna × 1<span>BDT 48.00</span></li>
+                        <li>Buscipit at magna × 1<span>BDT 48.00</span></li>
+                        <li>Buscipit at magna × 1<span>BDT 48.00</span></li>
                     </ul>
                     <ul class="shipping__method">
-                        <li>Cart Subtotal <span>$48.00</span></li>
+                        <li>Cart Subtotal <span>BDT 48.00</span></li>
                         <li>Shipping 
                             <ul>
                                 <li>
                                     <input name="shipping_method[0]" data-index="0" value="legacy_flat_rate" checked="checked" type="radio">
-                                    <label>Flat Rate: $48.00</label>
+                                    <label>Flat Rate: BDT 48.00</label>
                                 </li>
                                 <li>
                                     <input name="shipping_method[0]" data-index="0" value="legacy_flat_rate" checked="checked" type="radio">
-                                    <label>Flat Rate: $48.00</label>
+                                    <label>Flat Rate: BDT 48.00</label>
                                 </li>
                             </ul>
                         </li>
                     </ul>
                     <ul class="total__amount">
-                        <li>Order Total <span>$223.00</span></li>
+                        <li>Order Total <span>BDT 223.00</span></li>
                     </ul>
                 </div>
                 <div id="accordion" class="checkout_accordion mt--30" role="tablist">

@@ -49,7 +49,7 @@
                                             <img src="http://demo.devitems.com/boighor-v3/images/product/sm-3/1.jpg" alt="">
                                         </a></td>
                                         <td class="product-name"><a href="#">Natoque penatibus</a></td>
-                                        <td class="product-price"><span class="amount">$165.00</span></td>
+                                        <td class="product-price"><span class="amount">BDT 165.00</span></td>
                                         <td class="product-stock-status"><span class="wishlist-in-stock">In Stock</span></td>
                                         <td class="product-add-to-cart"><a href="#"> Add to Cart</a></td>
                                     </tr>
@@ -60,7 +60,7 @@
                                             {{-- <img src="{{asset('frontend')}}/images/product/sm-3/2.jpg" alt=""> --}}
                                         </a></td>
                                         <td class="product-name"><a href="#">Quisque fringilla</a></td>
-                                        <td class="product-price"><span class="amount">$50.00</span></td>
+                                        <td class="product-price"><span class="amount">BDT 50.00</span></td>
                                         <td class="product-stock-status"><span class="wishlist-in-stock">In Stock</span></td>
                                         <td class="product-add-to-cart"><a href="#"> Add to Cart</a></td>
                                     </tr>
@@ -71,7 +71,7 @@
                                             {{-- <img src="{{asset('frontend')}}/images/product/sm-3/3.jpg" alt=""> --}}
                                         </a></td>
                                         <td class="product-name"><a href="#">Quisque fringilla</a></td>
-                                        <td class="product-price"><span class="amount">$65.00</span></td>
+                                        <td class="product-price"><span class="amount">BDT 65.00</span></td>
                                         <td class="product-stock-status"><span class="wishlist-in-stock">In Stock</span></td>
                                         <td class="product-add-to-cart"><a href="#"> Add to Cart</a></td>
                                     </tr>

@@ -28,13 +28,7 @@ class HomeController extends Controller
         return view('backend.dashboard');
     }
 
-    public function shop_grid(){
-        $categories = Category::where('status',1)->get();
-        return view('frontend.shop_grid',compact('categories'));
-    }
+   
 
-    public function home_page(){
-        $books = Book::where('status',1)->get();
-        return view('frontend.home',compact('books'));
-    }
+    
 }

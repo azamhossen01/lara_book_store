@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/','HomeController@home_page')->name('/');
+Route::get('/','ShopController@home_page')->name('/');
 // Route::get('/', function () {
 //     return view('frontend.home');
 // })->name('/');
@@ -22,7 +22,8 @@ Route::get('contact',function(){
 // Route::get('shop_grid',function(){
 //     return view('frontend.shop_grid');
 // })->name('shop_grid');
-Route::get('shop_grid','HomeController@shop_grid')->name('shop_grid');
+Route::get('shop_grid','ShopController@shop_grid')->name('shop_grid');
+
 
 Route::get('single_product',function(){
     return view('frontend.single_product');
