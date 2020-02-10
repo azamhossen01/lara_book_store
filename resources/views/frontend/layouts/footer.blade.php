@@ -38,13 +38,13 @@
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="copyright">
                         <div class="copy__right__inner text-left">
-                            <p>Copyright <i class="fa fa-copyright"></i> <a href="https://freethemescloud.com/">Free themes Cloud.</a> All Rights Reserved</p>
+                        <p>Copyright <i class="fa fa-copyright"></i> <a href="{{route('/')}}">Online Book Store.</a> All Rights Reserved</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="payment text-right">
-                        <img src="{{asset('frontend')}}/images/icons/payment.png" alt="" />
+                        {{-- <img src="{{asset('frontend')}}/images/icons/payment.png" alt="" /> --}}
                     </div>
                 </div>
             </div>

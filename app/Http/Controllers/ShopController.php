@@ -3,20 +3,47 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Writer;
 use App\Category;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
 {
-    public function shop_grid(){
+    public function shop_grid($cat_id){
+        // return $id;
+        $category = Category::findOrFail($cat_id);
         $categories = Category::where('status',1)->get();
-        return view('frontend.shop_grid',compact('categories'));
+        $books = Book::where(['status'=>1,['category_id',$cat_id]])->get();
+        return view('frontend.shop_grid',compact('categories','books','category'));
     }
 
     public function home_page(){
         $categories = Category::where('status',1)->get()->take(5);
+        $all_categories = Category::where('status',1)->get();
         $books = Book::where('status',1)->get();
         $recents = Book::orderBy('id', 'desc')->take(8)->get();
-        return view('frontend.home',compact('books','categories','recents'));
+        return view('frontend.home',compact('books','categories','recents','all_categories'));
+    }
+
+    public function single_product($book_id){
+        // return $book_id;
+        $categories = Category::where('status',1)->get();
+        $book = Book::findOrFail($book_id);
+        return view('frontend.single_product',compact('book','categories'));
+    }
+
+    public function writer_books($writer_id){
+        $writer = Writer::findOrFail($writer_id);
+        $categories = Category::where('status',1)->get();
+        $books = Book::where(['status'=>1,['writer_id',$writer_id]])->get();
+        
+        return view('frontend.writer_books',compact('categories','books','writer'));
+    }
+
+    public function customer_login(){
+        return view('frontend.login');
+    }
+    public function customer_register(){
+        return view('frontend.register');
     }
 }

@@ -20,6 +20,7 @@ class CreateBooksTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->float('price');
+            $table->float('discounted_price')->default(0);
             $table->string('image');
             $table->integer('marks')->default(0);
             $table->integer('status')->default(1);

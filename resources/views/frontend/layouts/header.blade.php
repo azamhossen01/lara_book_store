@@ -12,7 +12,8 @@
                 <nav class="mainmenu__nav">
                     <ul class="meninmenu d-flex justify-content-start">
                     <li class="drop with--one--item"><a href="{{route('/')}}">Home</a></li>
-                        <li class="drop"><a href="#">Shop</a>
+                    <li class="drop with--one--item"><a href="{{route('/')}}">About Us</a></li>
+                        {{-- <li class="drop"><a href="#">Shop</a>
                             <div class="megamenu mega03">
                                 <ul class="item item03">
                                     <li class="title">Shop Layout</li>
@@ -37,56 +38,69 @@
                                     <li><a href="{{route('shop_grid')}}">Bargain Books</a></li>
                                 </ul>
                             </div>
-                        </li>
-                        <li class="drop"><a href="{{route('shop_grid')}}">Books</a>
+                        </li> --}}
+                        <li class="drop"><a href="#">Books</a>
                             <div class="megamenu mega03">
                                 <ul class="item item03">
+                                    
                                     <li class="title">Categories</li>
-                                    <li><a href="{{route('shop_grid')}}">Biography </a></li>
-                                    <li><a href="{{route('shop_grid')}}">Business </a></li>
-                                    <li><a href="{{route('shop_grid')}}">Cookbooks </a></li>
-                                    <li><a href="{{route('shop_grid')}}">Health & Fitness </a></li>
-                                    <li><a href="{{route('shop_grid')}}">History </a></li>
+                                    @forelse(App\Category::where('status',1)->get()->splice(0,6) as $category) 
+                                    <li><a href="{{route('shop_grid',$category->id)}}">{{$category->name}} </a></li>
+                                    @empty 
+
+                                    @endforelse
                                 </ul>
+
                                 <ul class="item item03">
-                                    <li class="title">Customer Favourite</li>
-                                    <li><a href="{{route('shop_grid')}}">Mystery</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Religion & Inspiration</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Romance</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Fiction/Fantasy</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Sleeveless</a></li>
+                                    
+                                    <li class="title">Categories</li>
+                                    @forelse(App\Category::where('status',1)->get()->splice(6,6) as $category) 
+                                    <li><a href="{{route('shop_grid',$category->id)}}">{{$category->name}} </a></li>
+                                    @empty 
+
+                                    @endforelse
                                 </ul>
+                               
                                 <ul class="item item03">
-                                    <li class="title">Collections</li>
-                                    <li><a href="{{route('shop_grid')}}">Science </a></li>
-                                    <li><a href="{{route('shop_grid')}}">Fiction/Fantasy</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Self-Improvemen</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Home & Garden</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Humor Books</a></li>
+                                    
+                                    <li class="title">Categories</li>
+                                    @forelse(App\Category::where('status',1)->get()->splice(12,6) as $category) 
+                                    <li><a href="{{route('shop_grid',$category->id)}}">{{$category->name}} </a></li>
+                                    @empty 
+
+                                    @endforelse
                                 </ul>
                             </div>
                         </li>
-                        <li class="drop"><a href="{{route('shop_grid')}}">Kids</a>
+                        <li class="drop"><a href="#">Writer</a>
                             <div class="megamenu mega02">
                                 <ul class="item item02">
-                                    <li class="title">Top Collections</li>
-                                    <li><a href="{{route('shop_grid')}}">American Girl</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Diary Wimpy Kid</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Finding Dory</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Harry Potter</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Land of Stories</a></li>
+                                    <li class="title">All Writers</li>
+                                    @forelse(App\Writer::where('status',1)->get()->splice(0,10) as $writer)
+                                <li><a href="{{route('writer_books',$writer->id)}}">{{$writer->name}}</a></li>
+                                    @empty 
+                                    <li><a href="#">No Writer Available</a></li>
+                                    @endforelse
                                 </ul>
                                 <ul class="item item02">
+                                    <li class="title">All Writers</li>
+                                    @forelse(App\Writer::where('status',1)->get()->splice(10,10) as $writer)
+                                <li><a href="{{route('writer_books',$writer->id)}}">{{$writer->name}}</a></li>
+                                    @empty 
+                                    <li><a href="#">No Writer Available</a></li>
+                                    @endforelse
+                                </ul>
+                                {{-- <ul class="item item02">
                                     <li class="title">More For Kids</li>
                                     <li><a href="{{route('shop_grid')}}">B&N Educators</a></li>
                                     <li><a href="{{route('shop_grid')}}">B&N Kids' Club</a></li>
                                     <li><a href="{{route('shop_grid')}}">Kids' Music</a></li>
                                     <li><a href="{{route('shop_grid')}}">Toys & Games</a></li>
                                     <li><a href="{{route('shop_grid')}}">Hoodies</a></li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </li>
-                        <li class="drop"><a href="#">Pages</a>
+                        {{-- <li class="drop"><a href="#">Pages</a>
                             <div class="megamenu dropdown">
                                 <ul class="item item01">
                                 <li><a href="{{route('about')}}">About Page</a></li>
@@ -105,7 +119,7 @@
                                     <li><a href="{{route('team')}}">Team Page</a></li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> --}}
                         <li class="drop"><a href="{{route('blog')}}">Blog</a>
                             <div class="megamenu dropdown">
                                 <ul class="item item01">
@@ -115,6 +129,15 @@
                             </div>
                         </li>
                     <li><a href="{{route('contact')}}">Contact</a></li>
+                    <li class="drop"><a href="{{route('/')}}">Account</a>
+                        <div class="megamenu dropdown">
+                            <ul class="item item01">
+                                <li><a href="{{route('customer_login')}}">Login</a></li>
+                            <li><a href="{{route('customer_register')}}">Register</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    
                     </ul>
                 </nav>
             </div>
@@ -275,7 +298,9 @@
                 <nav class="mobilemenu__nav">
                     <ul class="meninmenu">
                         <li><a href="{{route('/')}}">Home</a></li>
-                        <li><a href="#">Pages</a>
+                        <li><a href="{{route('/')}}">About Us</a></li>
+                        
+                        {{-- <li><a href="#">Pages</a>
                             <ul>
                                 <li><a href="{{route('about')}}">About Page</a></li>
                                 <li><a href="{{route('portfolio')}}">Portfolio</a>
@@ -292,18 +317,18 @@
                                 <li><a href="{{route('faq')}}">Faq Page</a></li>
                                 <li><a href="{{route('team')}}">Team Page</a></li>
                             </ul>
-                        </li>
-                        <li><a href="{{route('shop_grid')}}">Shop</a>
+                        </li> --}}
+                        {{-- <li><a href="{{route('shop_grid')}}">Shop</a>
                             <ul>
                                 <li><a href="{{route('shop_grid')}}">Shop Grid</a></li>
                                 <li><a href="{{route('single_product')}}">Single Product</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                         <li><a href="{{route('blog')}}">Blog</a>
-                            <ul>
+                            {{-- <ul>
                                 <li><a href="{{route('blog')}}">Blog Page</a></li>
                                 <li><a href="{{route('blog_details')}}">Blog Details</a></li>
-                            </ul>
+                            </ul> --}}
                         </li>
                     <li><a href="{{route('contact')}}">Contact</a></li>
                     </ul>

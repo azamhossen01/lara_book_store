@@ -46,6 +46,7 @@ class BookController extends Controller
         $book->writer_id = $request->writer_id;
         $book->title = $request->title;
         $book->price = $request->price;
+        $book->discounted_price = $request->discounted_price;
         $book->description = $request->description;
         if($request->image){
             $imageName = time().'.'.$request->image->getClientOriginalExtension();
@@ -71,6 +72,7 @@ class BookController extends Controller
         $book->writer_id = $request->writer_id;
         $book->title = $request->title;
         $book->price = $request->price;
+        $book->discounted_price = $request->discounted_price;
         $book->description = $request->description;
         if($request->image){
             if($book->image){
@@ -111,6 +113,7 @@ class BookController extends Controller
         $book->writer_id = $request->writer_id;
         $book->title = $request->title;
         $book->price = $request->price;
+        $book->discounted_price = $request->discounted_price;
         $book->description = $request->description;
         if($request->image){
             if($book->image){

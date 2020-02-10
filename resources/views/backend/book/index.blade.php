@@ -118,6 +118,10 @@
                       <label for="price">Price</label>
                       <input type="number" name="price" id="price" class="form-control" placeholder="Price">
                   </div>
+                  <div class="form-group">
+                      <label for="discounted_price">Discounted Price</label>
+                      <input type="number" name="discounted_price" id="discounted_price" class="form-control" placeholder="Discounted Price">
+                  </div>
                   
                   <div class="form-group">
                     <label for="image">Image</label>
@@ -209,6 +213,7 @@
               $('#writer_id').val(data.writer_id);
               $('#description').val(data.description);
               $('#price').val(data.price);
+              $('#discounted_price').val(data.discounted_price);
               $('#edit_image').attr("src", "images/books/"+data.image);
               $('#add_new_book').modal('show');
               $('#book_form').attr('action', "{{url('books')}}/"+id);

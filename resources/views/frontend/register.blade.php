@@ -12,9 +12,9 @@
                 <div class="bradcaump__inner text-center">
                     <h2 class="bradcaump-title">My Account</h2>
                     <nav class="bradcaump-content">
-                      <a class="breadcrumb_item" href="index.html">Home</a>
-                      <span class="brd-separetor">/</span>
-                      <span class="breadcrumb_item active">My Account</span>
+                        <a class="breadcrumb_item" href="index.html">Home</a>
+                        <span class="brd-separetor">/</span>
+                        <span class="breadcrumb_item active">My Account</span>
                     </nav>
                 </div>
             </div>
@@ -26,7 +26,7 @@
 <section class="my_account_area pt--80 pb--55 bg--white">
     <div class="container">
         <div class="row">
-            <div class="col-lg-6 col-12">
+            {{-- <div class="col-lg-6 col-12">
                 <div class="my__account__wrapper">
                     <h3 class="account__title">Login</h3>
                     <form action="#">
@@ -50,20 +50,43 @@
                         </div>
                     </form>
                 </div>
-            </div>
-            <div class="col-lg-6 col-12">
+            </div> --}}
+            <div class="col-lg-12 col-12">
                 <div class="my__account__wrapper">
                     <h3 class="account__title">Register</h3>
                     <form action="#">
                         <div class="account__form">
-                            <div class="input__box">
-                                <label>Email address <span>*</span></label>
-                                <input type="email">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="input__box">
+                                        <label>Name <span>*</span></label>
+                                        <input type="text" name="name" id="name" placeholder="Write Name">
+                                    </div>
+                                    <div class="input__box">
+                                        <label>Phone<span>*</span></label>
+                                        <input type="text" name="phone" id="phone" placeholder="Write Phone">
+                                    </div>
+                                    <div class="input__box">
+                                        <label>Password<span>*</span></label>
+                                        <input type="password" name="password" id="password" placeholder="Write Password">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="input__box">
+                                        <label>Email address <span>*</span></label>
+                                        <input type="email" name="email" id="email" placeholder="Write Email">
+                                    </div>
+                                    <div class="input__box">
+                                        <label>Address <span>(optional)</span></label>
+                                        <input type="text" name="address" id="address" placeholder="Write Address">
+                                    </div>
+                                    <div class="input__box">
+                                        <label>Confirm Password<span>*</span></label>
+                                        <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Write Password">
+                                    </div>
+                                </div>
                             </div>
-                            <div class="input__box">
-                                <label>Password<span>*</span></label>
-                                <input type="password">
-                            </div>
+
                             <div class="form__btn">
                                 <button>Register</button>
                             </div>
@@ -75,6 +98,3 @@
     </div>
 </section>
 @endsection
-
-
-

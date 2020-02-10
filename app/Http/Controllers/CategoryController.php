@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
+use App\Writer;
 use App\Category;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
@@ -15,7 +19,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::get();
+        
         return view('backend.category.index',compact('categories'));
     }
 

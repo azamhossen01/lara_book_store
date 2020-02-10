@@ -22,16 +22,21 @@ Route::get('contact',function(){
 // Route::get('shop_grid',function(){
 //     return view('frontend.shop_grid');
 // })->name('shop_grid');
-Route::get('shop_grid','ShopController@shop_grid')->name('shop_grid');
+Route::get('shop_grid/{id}','ShopController@shop_grid')->name('shop_grid');
+
+Route::get('single_product/{id}','ShopController@single_product')->name('single_product');
+Route::get('writer_books/{id}','ShopController@writer_books')->name('writer_books');
+Route::get('customer_login','ShopController@customer_login')->name('customer_login');
+Route::get('customer_register','ShopController@customer_register')->name('customer_register');
 
 
-Route::get('single_product',function(){
-    return view('frontend.single_product');
-})->name('single_product');
+// Route::get('single_product',function(){
+//     return view('frontend.single_product');
+// })->name('single_product');
 
-Route::get('my_account',function(){
-    return view('frontend.my_account');
-})->name('my_account');
+// Route::get('my_account',function(){
+//     return view('frontend.my_account');
+// })->name('my_account');
 
 Route::get('cart',function(){
     return view('frontend.cart');
