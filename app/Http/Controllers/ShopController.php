@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Writer;
 use App\Category;
+use App\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ShopController extends Controller
 {
@@ -45,5 +48,26 @@ class ShopController extends Controller
     }
     public function customer_register(){
         return view('frontend.register');
+    }
+
+    public function customer_registration(Request $request){
+        // return $request;
+        $this->validate($request, [
+            'name' => 'required|min:3|max:50',
+            'email' => 'required|unique:customers',
+            'phone' => 'required',
+            'password' => 'required|confirmed|min:6',
+        ]);
+        
+
+        $customer = new Customer;
+        $customer->name = $request->name;
+        $customer->email = $request->email;
+        $customer->phone = $request->phone;
+        $customer->password = bcrypt($request->password);
+        $customer->address = $request->address;
+        $customer->save();
+        Alert::alert('Success', 'User Registration Successfull', 'success');
+        return redirect()->route('customer_login');
     }
 }

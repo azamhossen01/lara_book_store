@@ -29,18 +29,19 @@
             <div class="col-lg-6 col-12">
                 <div class="my__account__wrapper">
                     <h3 class="account__title">Login</h3>
-                    <form action="#">
+                    <form action="{{route('check_customer_login')}}" method="post">
+                    @csrf
                         <div class="account__form">
                             <div class="input__box">
                                 <label>Email address <span>*</span></label>
-                                <input type="text">
+                                <input type="email" name="email" id="email" placeholder="Write Email">
                             </div>
                             <div class="input__box">
                                 <label>Password<span>*</span></label>
-                                <input type="text">
+                                <input type="password" name="password" id="password" placeholder="Write Password">
                             </div>
                             <div class="form__btn">
-                                <button>Login</button>
+                                <button type="submit">Login</button>
                                 <label class="label-for-checkbox">
                                     <input id="rememberme" class="input-checkbox" name="rememberme" value="forever" type="checkbox">
                                     <span>Remember me</span>

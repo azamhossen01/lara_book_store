@@ -29,6 +29,10 @@ Route::get('writer_books/{id}','ShopController@writer_books')->name('writer_book
 Route::get('customer_login','ShopController@customer_login')->name('customer_login');
 Route::get('customer_register','ShopController@customer_register')->name('customer_register');
 
+//customer registration route
+Route::post('customer_registration','ShopController@customer_registration')->name('customer_registration');
+Route::post('check_customer_login','CustomerLoginController@check_customer_login')->name('check_customer_login');
+
 
 // Route::get('single_product',function(){
 //     return view('frontend.single_product');
