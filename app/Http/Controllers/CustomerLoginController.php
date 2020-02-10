@@ -10,12 +10,18 @@ class CustomerLoginController extends Controller
 {
     public function check_customer_login(Request $request){
     //return    $request;
-          $email = $request->email;
-        $password = Hash::make($request->password);
+        $email = $request->email;
+
         $customer = Customer::where(['email'=>$email])->first();
-        if(Hash::check($password, $customer->password)) {
-            return true;
+        if($customer == true){
+            if(Hash::check($request->password,$customer->password)) {
+                return redirect()->route('/');
+            } else {
+                return redirect()->back();
+            }
+        }else{
+            return redirect()->back();
         }
-        // return $customer;
+        
     }
 }
