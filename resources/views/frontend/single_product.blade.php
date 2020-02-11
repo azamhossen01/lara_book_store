@@ -242,7 +242,7 @@
                     </div>
                     <div class="row mt--60">
                         <div class="productcategory__slide--2 arrows_style owl-carousel owl-theme">
-                            @forelse($book->category->books->splice($book->id) as $book)
+                            @forelse($book->category->books as $book)
                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
                                 <a class="first__img" href="single-product.html"><img src="{{asset('images/books/'.$book->image)}}" alt="product image"  width="270px" height="340px"></a>
@@ -263,7 +263,7 @@
                                                 <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
                                                 <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
                                                 <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
-                                                <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal"><i class="bi bi-search"></i></a></li>
+                                                <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal" onclick="show_product_details({{$book->id}})"><i class="bi bi-search"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>

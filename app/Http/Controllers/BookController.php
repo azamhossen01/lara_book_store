@@ -68,24 +68,7 @@ class BookController extends Controller
     {
         $book = Book::findOrFail($id);
         return $book;
-        $book->category_id = $request->category_id;
-        $book->writer_id = $request->writer_id;
-        $book->title = $request->title;
-        $book->price = $request->price;
-        $book->discounted_price = $request->discounted_price;
-        $book->description = $request->description;
-        if($request->image){
-            if($book->image){
-                $path = public_path('images/books/'.$book->image);
-                unlink($path);
-            }
-                $imageName = time().'.'.$request->image->getClientOriginalExtension();
-                $request->image->move(public_path('images/books'),$imageName);
-                $book->image = $imageName; 
-        }
-        $book->update();
-        Alert::alert('Success', 'Book Updated Successfully', 'success');
-        return redirect()->route('books.index');
+        
     }
 
     /**
@@ -157,4 +140,6 @@ class BookController extends Controller
         $book->update();
         return response()->json(['message'=>'Book status updated successfully']);
     }
+
+    
 }

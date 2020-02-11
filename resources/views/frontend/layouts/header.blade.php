@@ -299,38 +299,42 @@
                     <ul class="meninmenu">
                         <li><a href="{{route('/')}}">Home</a></li>
                         <li><a href="{{route('/')}}">About Us</a></li>
+                        <li class="drop"><a href="#">Books</a>
+                            <ul>
+                                @forelse(App\Category::where('status',1)->get() as $category) 
+                                <li><a href="{{route('shop_grid',$category->id)}}">{{$category->name}} </a></li>
+                                @empty 
+
+                                @endforelse
+                            </ul>
+                        </li>
+                       
+                        <li class="drop"><a href="#">Writer</a>
+                            <ul>
+                               
+                                @forelse(App\Writer::where('status',1)->get() as $writer)
+                                <li><a href="{{route('writer_books',$writer->id)}}">{{$writer->name}}</a></li>
+                                @empty 
+                                <li><a href="#">No Writer Available</a></li>
+                                @endforelse
+                            </ul>
+                        </li>
                         
-                        {{-- <li><a href="#">Pages</a>
-                            <ul>
-                                <li><a href="{{route('about')}}">About Page</a></li>
-                                <li><a href="{{route('portfolio')}}">Portfolio</a>
-                                    <ul>
-                                        <li><a href="{{route('portfolio')}}">Portfolio</a></li>
-                                        <li><a href="{{route('portfolio_details')}}">Portfolio Details</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="{{route('my_account')}}">My Account</a></li>
-                                <li><a href="{{route('cart')}}">Cart Page</a></li>
-                                <li><a href="{{route('checkout')}}">Checkout Page</a></li>
-                                <li><a href="{{route('wishlist')}}">Wishlist Page</a></li>
-                                <li><a href="{{route('error404')}}">404 Page</a></li>
-                                <li><a href="{{route('faq')}}">Faq Page</a></li>
-                                <li><a href="{{route('team')}}">Team Page</a></li>
-                            </ul>
-                        </li> --}}
-                        {{-- <li><a href="{{route('shop_grid')}}">Shop</a>
-                            <ul>
-                                <li><a href="{{route('shop_grid')}}">Shop Grid</a></li>
-                                <li><a href="{{route('single_product')}}">Single Product</a></li>
-                            </ul>
-                        </li> --}}
+                    
                         <li><a href="{{route('blog')}}">Blog</a>
-                            {{-- <ul>
+                            <ul>
                                 <li><a href="{{route('blog')}}">Blog Page</a></li>
                                 <li><a href="{{route('blog_details')}}">Blog Details</a></li>
-                            </ul> --}}
+                            </ul>
                         </li>
-                    <li><a href="{{route('contact')}}">Contact</a></li>
+                  
+                        <li><a href="{{route('contact')}}">Contact</a></li>
+                        <li class="drop"><a href="{{route('/')}}">Account</a>
+                            <ul>
+                                <li><a href="{{route('customer_login')}}">Login</a></li>
+                                <li><a href="{{route('customer_register')}}">Register</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </div>

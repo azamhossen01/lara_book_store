@@ -21,7 +21,7 @@
 		@include('frontend.layouts.footer')
 		<!-- //Footer Area -->
 		<!-- QUICKVIEW PRODUCT -->
-		@yield('quick_view')
+		@include('frontend.layouts.quick_view')
 		<!-- END QUICKVIEW PRODUCT -->
 	</div>
 	<!-- //Main wrapper -->

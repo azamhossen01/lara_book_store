@@ -33,6 +33,8 @@ Route::get('customer_register','ShopController@customer_register')->name('custom
 Route::post('customer_registration','ShopController@customer_registration')->name('customer_registration');
 Route::post('check_customer_login','CustomerLoginController@check_customer_login')->name('check_customer_login');
 
+// get single book data
+Route::get('get_book','ShopController@get_book')->name('get_book');
 
 // Route::get('single_product',function(){
 //     return view('frontend.single_product');
@@ -90,6 +92,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Route::get('get_book','BookController@get_book')->name('get_book');
 Route::group(['middleware'=>['auth']],function(){
     Route::get('change_category_status/{cat_id}','CategoryController@change_category_status')->name('change_category_status');
     Route::resource('categories','CategoryController');
@@ -97,5 +100,6 @@ Route::group(['middleware'=>['auth']],function(){
     Route::resource('writers','WriterController');
     // Route::get('change_book_status/{book_id}','BookController@change_book_status')->name('change_book_status');
     Route::get('change_book_status','BookController@change_book_status')->name('books.status.update');
+    
     Route::resource('books','BookController');
 });

@@ -70,4 +70,9 @@ class ShopController extends Controller
         Alert::alert('Success', 'User Registration Successfull', 'success');
         return redirect()->route('customer_login');
     }
+
+    public function get_book(Request $request){
+        $book = Book::findOrFail($request->book_id);
+        return $book;
+    }
 }
