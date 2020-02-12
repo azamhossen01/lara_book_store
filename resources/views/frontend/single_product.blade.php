@@ -68,11 +68,19 @@
                                 <p>{{$book->description}}</p>
                                 </div>
                                 <div class="box-tocart d-flex">
+
+                                
+
                                     <span>Qty</span>
-                                    <input id="qty" class="input-text qty" name="qty" min="1" value="1" title="Qty" type="number">
-                                    <div class="addtocart__actions">
-                                        <button class="tocart" type="submit" title="Add to Cart">Add to Cart</button>
-                                    </div>
+                                    <form action="{{route('add_to_cart')}}">
+                                        <input type="hidden" name="book_id" value="{{$book->id}}">
+                                        <input id="qty" class="input-text qty" name="qty" min="1" value="1" title="Qty" type="number">
+                                        <div class="addtocart__actions">
+                                            <button class="tocart" type="submit" title="Add to Cart">Add to Cart</button>
+                                        </div>
+
+                                    </form>
+
                                     <div class="product-addto-links clearfix">
                                         <a class="wishlist" href="#"></a>
                                         <a class="compare" href="#"></a>
@@ -245,22 +253,22 @@
                             @forelse($book->category->books as $book)
                             <div class="product product__style--3 col-lg-4 col-md-4 col-sm-6 col-12">
                                 <div class="product__thumb">
-                                <a class="first__img" href="single-product.html"><img src="{{asset('images/books/'.$book->image)}}" alt="product image"  width="270px" height="340px"></a>
-                                    <a class="second__img animation1" href="single-product.html"><img src="{{asset('images/books/'.$book->image)}}" alt="product image" width="270px" height="340px"></a>
+                                <a class="first__img" href="{{route('single_product',$book->id)}}"><img src="{{asset('images/books/'.$book->image)}}" alt="product image"  width="270px" height="340px"></a>
+                                    <a class="second__img animation1" href="{{route('single_product',$book->id)}}"><img src="{{asset('images/books/'.$book->image)}}" alt="product image" width="270px" height="340px"></a>
                                     <div class="hot__box">
                                         <span class="hot-label">BEST SALLER</span>
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
-                                    <h4><a href="single-product.html">robin parrish</a></h4>
+                                    <h4><a href="{{route('single_product',$book->id)}}">{{$book->title}}</a></h4>
                                     <ul class="prize d-flex">
-                                        <li>$35.00</li>
-                                        <li class="old_prize">$35.00</li>
+                                        <li>BDT {{$book->price}}</li>
+                                        <li class="old_prize">BDT {{$book->discounted_price}}</li>
                                     </ul>
                                     <div class="action">
                                         <div class="actions_inner">
                                             <ul class="add_to_links">
-                                                <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
+                                                <li><a class="cart" href="#" onclick="add_to_cart({{$book->id}})"><i class="bi bi-shopping-bag4"></i></a></li>
                                                 <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
                                                 <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
                                                 <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal" onclick="show_product_details({{$book->id}})"><i class="bi bi-search"></i></a></li>

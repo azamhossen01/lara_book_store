@@ -10,14 +10,32 @@ use Illuminate\Http\Request;
 class CartController extends Controller
 {
     public function add_to_cart(Request $request){
+        
         $book = Book::findOrFail($request->book_id);
+        // return $book;
         $items = Cart::getContent();
+        // return $items;
+        
         foreach($items as $key=>$item){
             if($item->associatedModel->id == $book->id){
-                // return $item->quantity;
-                Cart::update($key, array(
+                if($request->qty){
+                    // return '1st';
+                    Cart::update($key, array(
+                        'quantity' => array(
+                            'relative' => false,
+                            'value' => $request->qty
+                        ),
+                      ));
+                }else{
+                    // return '2nd';
+                    Cart::update($key, array(
                     'quantity' => 1, // so if the current product has a quantity of 4, another 2 will be added so this will result to 6
                   ));
+                }
+                // return $item->quantity;
+                
+
+                
                   return;
             }
         }
@@ -42,6 +60,6 @@ class CartController extends Controller
     public function delete_to_cart(Request $request){
         // return $request->row_id;
         Cart::remove($request->row_id);
-        return true;
+        return '1';
     }
 }
