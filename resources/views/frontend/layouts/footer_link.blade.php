@@ -38,7 +38,11 @@
             url : "{{route('get_cart_data')}}",
             dataType : 'json',
             success : function(data){
-
+                var book_count = $.map(data, function(n, i) { return i; }).length;
+                $('#product_qun').text(book_count);
+                $('#cart_items').text(book_count+" items");
+                get_total();
+                console.log(data);
                 var html = ``;
                 $.each(data,function(key,value){
                     // console.log(value);
@@ -49,12 +53,12 @@
                             <a href="product-details.html"><img src="{{asset('images/books')}}/${value.associatedModel.image}" alt="product images"></a>
                         </div>
                         <div class="content">
-                            <h6><a href="#">${value.associatedModel.title}</a></h6>
+                            <h6><a href="{{url('single_product')}}/${value.associatedModel.id}">${value.associatedModel.title}</a></h6>
                             <span class="prize">BDT ${value.associatedModel.price}</span>
                             <div class="product_prize d-flex justify-content-between">
                                 <span class="qun">Qty :</span><span><input type="number" id="quantity" value="${value.quantity}" ></span>
                                 <ul class="d-flex justify-content-end">
-                                    <li><a href="#"><i class="zmdi zmdi-settings"></i></a></li>
+                                    <li><a href="{{url('single_product')}}/${value.associatedModel.id}"><i class="zmdi zmdi-settings"></i></a></li>
                                     <li><a href="#"><i class="zmdi zmdi-delete" onclick="delete_to_cart(${key})"></i></a></li>
                                 </ul>
                             </div>
@@ -70,12 +74,16 @@
        
 
     function add_to_cart(book_id,qty=false){
+        
         if(book_id){
             $.ajax({
                 type : 'get',
                 url : "{{route('add_to_cart')}}",
                 data : {book_id:book_id},
                 success : function(data){
+                    var total = "{{\Cart::getTotal()}}";
+                    alert(total);
+                $('#cart_subtotal').text("BDT "+total);
                     get_cart_data();
                     console.log(data);
                 }
@@ -91,10 +99,22 @@
                 url : "{{route('delete_to_cart')}}",
                 data : {row_id:row_id},
                 success : function(data){
+                    get_total();
                     get_cart_data();
                 }
             });
         }
+    }
+
+
+    function get_total(){
+        $.ajax({
+            type : 'get',
+            url : "{{route('get_total')}}",
+            success : function(data){
+                $('#cart_subtotal').text("BDT "+total);
+            }
+        });
     }
 </script>
 @stack('js')

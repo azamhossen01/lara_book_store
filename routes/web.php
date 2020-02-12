@@ -40,10 +40,11 @@ Route::get('get_book','ShopController@get_book')->name('get_book');
 Route::get('add_to_cart','CartController@add_to_cart')->name('add_to_cart');
 Route::get('get_cart_data','CartController@get_cart_data')->name('get_cart_data');
 Route::get('delete_to_cart','CartController@delete_to_cart')->name('delete_to_cart');
+Route::get('get_total','CartController@get_total')->name('get_total');
 
-Route::get('cart',function(){
-    return view('frontend.cart');
-})->name('cart');
+
+Route::get('cart','ShopController@cart')->name('cart');
+
 
 Route::get('checkout',function(){
     return view('frontend.checkout');

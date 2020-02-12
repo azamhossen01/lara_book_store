@@ -40,40 +40,20 @@
                                     <th class="product-remove">Remove</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr>
+                            <tbody id="add_to_cart2">
+                                
+                                {{-- <tr>
                                     <td class="product-thumbnail"><a href="#">
-                                    <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt="">
-                                        {{-- <img src="images/product/sm-3/1.jpg" alt="product img"> --}}
+                                    <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt=""> 
+                                      
                                     </a></td>
                                     <td class="product-name"><a href="#">Natoque penatibus</a></td>
                                     <td class="product-price"><span class="amount">BDT 165.00</span></td>
                                     <td class="product-quantity"><input type="number" value="1"></td>
                                     <td class="product-subtotal">BDT 165.00</td>
                                     <td class="product-remove"><a href="#">X</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="product-thumbnail"><a href="#">
-                                        {{-- <img src="images/product/sm-3/2.jpg" alt="product img"> --}}
-                                    <img src="http://demo.devitems.com/boighor-v3/images/product/sm-3/1.jpg" alt="">
-                                    </a></td>
-                                    <td class="product-name"><a href="#">Quisque fringilla</a></td>
-                                    <td class="product-price"><span class="amount">BDT 50.00</span></td>
-                                    <td class="product-quantity"><input type="number" value="1"></td>
-                                    <td class="product-subtotal">BDT 50.00</td>
-                                    <td class="product-remove"><a href="#">X</a></td>
-                                </tr>
-                                <tr>
-                                    <td class="product-thumbnail"><a href="#">
-                                        <img src="http://demo.devitems.com/boighor-v3/images/product/sm-3/2.jpg" alt="">
-                                        {{-- <img src="images/product/sm-3/3.jpg" alt="product img"> --}}
-                                    </a></td>
-                                    <td class="product-name"><a href="#">Vestibulum suscipit</a></td>
-                                    <td class="product-price"><span class="amount">BDT 50.00</span></td>
-                                    <td class="product-quantity"><input type="number" value="1"></td>
-                                    <td class="product-subtotal">BDT 50.00</td>
-                                    <td class="product-remove"><a href="#">X</a></td>
-                                </tr>
+                                </tr> --}}
+                                
                             </tbody>
                         </table>
                     </div>
@@ -112,6 +92,61 @@
 </div>
 
 @endsection
+
+@push('js')
+    <script>
+         $(document).ready(function(){
+            get_cart_info();
+    });
+
+    function get_cart_info(){
+        $.ajax({
+            type : 'get',
+            url : "{{route('get_cart_data')}}",
+            dataType : 'json',
+            success : function(data){
+                console.log(data);
+                var html = ``;
+                $.each(data,function(key,value){
+                    // console.log(value);
+                    // console.log(value.associatedModel.image);
+                    html += `
+                    <tr>
+                        <td class="product-thumbnail"><a href="#">
+                        <img src="{{asset('images/books')}}/${value.associatedModel.image}" alt=""> 
+                            
+                        </a></td>
+                        <td class="product-name"><a href="#">${value.associatedModel.title}</a></td>
+                        <td class="product-price"><span class="amount">BDT ${value.associatedModel.price}</span></td>
+                        <td class="product-quantity"><input type="number" value="${value.quantity}"></td>
+                        <td class="product-subtotal">BDT 165.00</td>
+                        <td class="product-remove"><a href="#" onclick="delete_to_cart_from_edit(${key})">X</a></td>
+                    </tr>
+                `;
+                });
+                
+                $('#add_to_cart2').html(html);
+            }
+        });
+    }
+
+
+    function delete_to_cart_from_edit(row_id){
+        // alert(row_id);
+        if(row_id){
+            $.ajax({
+                type : 'get',
+                url : "{{route('delete_to_cart')}}",
+                data : {row_id:row_id},
+                success : function(data){
+                    get_cart_info();
+                }
+            });
+        }
+    }
+    
+    </script>
+@endpush
 
 
 

@@ -6,6 +6,7 @@ use App\Book;
 use App\Writer;
 use App\Category;
 use App\Customer;
+use Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -74,5 +75,10 @@ class ShopController extends Controller
     public function get_book(Request $request){
         $book = Book::findOrFail($request->book_id);
         return $book;
+    }
+
+    public function cart(){
+        $items = Cart::getContent();
+        return view('frontend.cart',compact('items'));
     }
 }

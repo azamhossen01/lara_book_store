@@ -145,20 +145,20 @@
                 <ul class="header__sidebar__right d-flex justify-content-end align-items-center">
                     <li class="shop_search"><a class="search__active" href="#"></a></li>
                     <li class="wishlist"><a href="#"></a></li>
-                    <li class="shopcart"><a  class="cartbox_active" href="#"><span class="product_qun">3</span></a>
+                    <li class="shopcart"><a  class="cartbox_active" href="#"><span class="product_qun" id="product_qun">3</span></a>
                         <!-- Start Shopping Cart -->
                         <div class="block-minicart minicart__active" style="border:1px solid black;height:500px;overflow:scroll;overflow-y:scroll;overflow-x:hidden;">
                             
-                            <div class="minicart-content-wrapper">
+                            <div class="minicart-content-wrapper" id="jamal">
                                 <div class="micart__close">
                                     <span>close</span>
                                 </div>
                                 <div class="items-total d-flex justify-content-between">
-                                    <span>3 items</span>
+                                    <span id="cart_items"></span>
                                     <span>Cart Subtotal</span>
                                 </div>
                                 <div class="total_amount text-right">
-                                    <span>BDT 66.00</span>
+                                <span id="cart_subtotal"> </span>
                                 </div>
                                 <div class="mini_action checkout">
                                     <a class="checkout__btn" href="cart.html">Go to Checkout</a>
@@ -201,7 +201,7 @@
                                     </div>
                                 </div>
                                 <div class="mini_action cart">
-                                    <a class="cart__btn" href="cart.html">View and edit cart</a>
+                                <a class="cart__btn" href="{{route('cart')}}">View and edit cart</a>
                                 </div>
                             </div>
                         </div>

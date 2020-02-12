@@ -36,7 +36,7 @@ class CartController extends Controller
                 
 
                 
-                  return;
+                  return '1';
             }
         }
         
@@ -61,5 +61,10 @@ class CartController extends Controller
         // return $request->row_id;
         Cart::remove($request->row_id);
         return '1';
+    }
+
+    public function get_total(){
+        return Cart::getTotal();
+
     }
 }
