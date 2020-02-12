@@ -145,9 +145,10 @@
                 <ul class="header__sidebar__right d-flex justify-content-end align-items-center">
                     <li class="shop_search"><a class="search__active" href="#"></a></li>
                     <li class="wishlist"><a href="#"></a></li>
-                    <li class="shopcart"><a class="cartbox_active" href="#"><span class="product_qun">3</span></a>
+                    <li class="shopcart"><a  class="cartbox_active" href="#"><span class="product_qun">3</span></a>
                         <!-- Start Shopping Cart -->
-                        <div class="block-minicart minicart__active">
+                        <div class="block-minicart minicart__active" style="border:1px solid black;height:500px;overflow:scroll;overflow-y:scroll;overflow-x:hidden;">
+                            
                             <div class="minicart-content-wrapper">
                                 <div class="micart__close">
                                     <span>close</span>
@@ -163,24 +164,9 @@
                                     <a class="checkout__btn" href="cart.html">Go to Checkout</a>
                                 </div>
                                 <div class="single__items">
-                                    <div class="miniproduct">
-                                        <div class="item01 d-flex">
-                                            <div class="thumb">
-                                                <a href="product-details.html"><img src="{{asset('frontend')}}/images/product/sm-img/1.jpg" alt="product images"></a>
-                                            </div>
-                                            <div class="content">
-                                                <h6><a href="product-details.html">Voyage Yoga Bag</a></h6>
-                                                <span class="prize">BDT 30.00</span>
-                                                <div class="product_prize d-flex justify-content-between">
-                                                    <span class="qun">Qty: 01</span>
-                                                    <ul class="d-flex justify-content-end">
-                                                        <li><a href="#"><i class="zmdi zmdi-settings"></i></a></li>
-                                                        <li><a href="#"><i class="zmdi zmdi-delete"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item01 d-flex mt--20">
+                                    <div class="miniproduct" id="add_to_cart">
+                                        
+                                        {{-- <div class="item01 d-flex mt--20">
                                             <div class="thumb">
                                                 <a href="product-details.html"><img src="{{asset('frontend')}}/images/product/sm-img/3.jpg" alt="product images"></a>
                                             </div>
@@ -211,7 +197,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                                 <div class="mini_action cart">

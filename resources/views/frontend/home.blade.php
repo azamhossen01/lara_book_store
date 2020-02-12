@@ -80,7 +80,7 @@
                         <div class="action">
                             <div class="actions_inner">
                                 <ul class="add_to_links">
-                                    <li><a class="cart" href="cart.html"><i class="bi bi-shopping-bag4"></i></a></li>
+                                    <li><a class="cart" href="#" onclick="add_to_cart({{$book->id}})"><i class="bi bi-shopping-bag4"></i></a></li>
                                     <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
                                     <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
                                     <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal" onclick="show_product_details({{$book->id}})"><i class="bi bi-search"></i></a></li>
@@ -409,7 +409,79 @@
 
 
 @push('js')
-    
+<script>
+    $(document).ready(function(){
+        get_cart_data();
+    });
+
+
+
+    function get_cart_data(){
+        $.ajax({
+            type : 'get',
+            url : "{{route('get_cart_data')}}",
+            dataType : 'json',
+            success : function(data){
+
+                var html = ``;
+                $.each(data,function(key,value){
+                    // console.log(value);
+                    // console.log(value.associatedModel.image);
+                    html += `
+                    <div class="item01 d-flex">
+                        <div class="thumb">
+                            <a href="product-details.html"><img src="{{asset('images/books')}}/${value.associatedModel.image}" alt="product images"></a>
+                        </div>
+                        <div class="content">
+                            <h6><a href="#">${value.associatedModel.title}</a></h6>
+                            <span class="prize">BDT ${value.associatedModel.price}</span>
+                            <div class="product_prize d-flex justify-content-between">
+                                <span class="qun">Qty :</span><span><input type="number" id="quantity" value="${value.quantity}" ></span>
+                                <ul class="d-flex justify-content-end">
+                                    <li><a href="#"><i class="zmdi zmdi-settings"></i></a></li>
+                                    <li><a href="#"><i class="zmdi zmdi-delete" onclick="delete_to_cart(${key})"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                });
+                
+                $('#add_to_cart').html(html);
+            }
+        });
+    }
+       
+
+    function add_to_cart(book_id,qty=false){
+        if(book_id){
+            $.ajax({
+                type : 'get',
+                url : "{{route('add_to_cart')}}",
+                data : {book_id:book_id},
+                success : function(data){
+                    get_cart_data();
+                    console.log(data);
+                }
+            });
+        }
+    }
+
+    function delete_to_cart(row_id){
+        // alert(row_id);
+        if(row_id){
+            $.ajax({
+                type : 'get',
+                url : "{{route('delete_to_cart')}}",
+                data : {row_id:row_id},
+                success : function(data){
+                    // alert(data);
+                    get_cart_data();
+                }
+            });
+        }
+    }
+</script>
 @endpush
 
 

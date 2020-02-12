@@ -36,13 +36,10 @@ Route::post('check_customer_login','CustomerLoginController@check_customer_login
 // get single book data
 Route::get('get_book','ShopController@get_book')->name('get_book');
 
-// Route::get('single_product',function(){
-//     return view('frontend.single_product');
-// })->name('single_product');
-
-// Route::get('my_account',function(){
-//     return view('frontend.my_account');
-// })->name('my_account');
+// cart route
+Route::get('add_to_cart','CartController@add_to_cart')->name('add_to_cart');
+Route::get('get_cart_data','CartController@get_cart_data')->name('get_cart_data');
+Route::get('delete_to_cart','CartController@delete_to_cart')->name('delete_to_cart');
 
 Route::get('cart',function(){
     return view('frontend.cart');
