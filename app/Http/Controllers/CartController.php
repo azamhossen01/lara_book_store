@@ -65,6 +65,10 @@ class CartController extends Controller
 
     public function get_total(){
         return Cart::getTotal();
+    }
 
+    public function get_sub_total(Request $request){
+        $book = Cart::get($request->row_id);
+        return ($book->price * $request->qty);
     }
 }

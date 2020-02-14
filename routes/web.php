@@ -41,6 +41,7 @@ Route::get('add_to_cart','CartController@add_to_cart')->name('add_to_cart');
 Route::get('get_cart_data','CartController@get_cart_data')->name('get_cart_data');
 Route::get('delete_to_cart','CartController@delete_to_cart')->name('delete_to_cart');
 Route::get('get_total','CartController@get_total')->name('get_total');
+Route::get('get_sub_total','CartController@get_sub_total')->name('get_sub_total');
 
 
 Route::get('cart','ShopController@cart')->name('cart');

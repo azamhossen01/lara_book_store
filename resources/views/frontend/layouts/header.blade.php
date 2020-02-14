@@ -145,7 +145,7 @@
                 <ul class="header__sidebar__right d-flex justify-content-end align-items-center">
                     <li class="shop_search"><a class="search__active" href="#"></a></li>
                     <li class="wishlist"><a href="#"></a></li>
-                    <li class="shopcart"><a  class="cartbox_active" href="#"><span class="product_qun" id="product_qun">3</span></a>
+                    <li class="shopcart"><a  class="cartbox_active" href="#"><span class="product_qun" id="product_qun"></span></a>
                         <!-- Start Shopping Cart -->
                         <div class="block-minicart minicart__active" style="border:1px solid black;height:500px;overflow:scroll;overflow-y:scroll;overflow-x:hidden;">
                             

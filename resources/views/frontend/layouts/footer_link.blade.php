@@ -33,6 +33,7 @@
 
 
     function get_cart_data(){
+       get_total();
         $.ajax({
             type : 'get',
             url : "{{route('get_cart_data')}}",
@@ -41,8 +42,7 @@
                 var book_count = $.map(data, function(n, i) { return i; }).length;
                 $('#product_qun').text(book_count);
                 $('#cart_items').text(book_count+" items");
-                get_total();
-                console.log(data);
+              
                 var html = ``;
                 $.each(data,function(key,value){
                     // console.log(value);
@@ -56,7 +56,7 @@
                             <h6><a href="{{url('single_product')}}/${value.associatedModel.id}">${value.associatedModel.title}</a></h6>
                             <span class="prize">BDT ${value.associatedModel.price}</span>
                             <div class="product_prize d-flex justify-content-between">
-                                <span class="qun">Qty :</span><span><input type="number" id="quantity" value="${value.quantity}" ></span>
+                                <span class="qun">Qty : ${value.quantity}</span>
                                 <ul class="d-flex justify-content-end">
                                     <li><a href="{{url('single_product')}}/${value.associatedModel.id}"><i class="zmdi zmdi-settings"></i></a></li>
                                     <li><a href="#"><i class="zmdi zmdi-delete" onclick="delete_to_cart(${key})"></i></a></li>
@@ -81,11 +81,12 @@
                 url : "{{route('add_to_cart')}}",
                 data : {book_id:book_id},
                 success : function(data){
-                    var total = "{{\Cart::getTotal()}}";
-                    alert(total);
-                $('#cart_subtotal').text("BDT "+total);
+                    // var total = "{{\Cart::getTotal()}}";
+                    
+                get_total();
+               
                     get_cart_data();
-                    console.log(data);
+                    // console.log(data);
                 }
             });
         }
@@ -112,7 +113,10 @@
             type : 'get',
             url : "{{route('get_total')}}",
             success : function(data){
-                $('#cart_subtotal').text("BDT "+total);
+                console.log(data);
+                
+                $('#cart_subtotal').text("BDT "+data);
+                
             }
         });
     }

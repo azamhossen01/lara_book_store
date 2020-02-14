@@ -60,8 +60,8 @@
                 </form> 
                 <div class="cartbox__btn">
                     <ul class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
-                        <li><a href="#">Coupon Code</a></li>
-                        <li><a href="#">Apply Code</a></li>
+                        {{-- <li><a href="#">Coupon Code</a></li>
+                        <li><a href="#">Apply Code</a></li> --}}
                         <li><a href="#">Update Cart</a></li>
                         <li><a href="#">Check Out</a></li>
                     </ul>
@@ -117,9 +117,9 @@
                             
                         </a></td>
                         <td class="product-name"><a href="#">${value.associatedModel.title}</a></td>
-                        <td class="product-price"><span class="amount">BDT ${value.associatedModel.price}</span></td>
-                        <td class="product-quantity"><input type="number" value="${value.quantity}"></td>
-                        <td class="product-subtotal">BDT 165.00</td>
+                        <td class="product-price"><span class="amount">BDT ${value.price}</span></td>
+                        <td class="product-quantity"><input type="number" value="${value.quantity}"  onchange="get_sub_total(this.value,${key})"></td>
+                        <td class="product-subtotal" id="product_subtotal">BDT ${(value.quantity * value.price)}</td>
                         <td class="product-remove"><a href="#" onclick="delete_to_cart_from_edit(${key})">X</a></td>
                     </tr>
                 `;
@@ -140,6 +140,20 @@
                 data : {row_id:row_id},
                 success : function(data){
                     get_cart_info();
+                }
+            });
+        }
+    }
+
+    function get_sub_total(qty,row_id){
+        if(qty && row_id){
+            $.ajax({
+                type : 'get',
+                url : "{{route('get_sub_total')}}",
+                data : {qty:qty,row_id:row_id},
+                success : function(data){
+                    console.log(data);
+                    $('#product_subtotal').text("BDT "+data);
                 }
             });
         }
