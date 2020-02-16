@@ -42,14 +42,13 @@ Route::get('get_cart_data','CartController@get_cart_data')->name('get_cart_data'
 Route::get('delete_to_cart','CartController@delete_to_cart')->name('delete_to_cart');
 Route::get('get_total','CartController@get_total')->name('get_total');
 Route::get('get_sub_total','CartController@get_sub_total')->name('get_sub_total');
+Route::get('checkout','CartController@checkout')->name('checkout');
+Route::post('update_cart_data','CartController@update_cart_data')->name('update_cart_data');
 
 
 Route::get('cart','ShopController@cart')->name('cart');
 
 
-Route::get('checkout',function(){
-    return view('frontend.checkout');
-})->name('checkout');
 
 Route::get('wishlist',function(){
     return view('frontend.wishlist');

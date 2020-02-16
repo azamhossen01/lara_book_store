@@ -27,7 +27,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-sm-12 ol-lg-12">
-                <form action="#">               
+                            <form action="{{route('update_cart_data')}}" method="post"> 
+                            @csrf 
                     <div class="table-content wnro__table table-responsive">
                         <table>
                             <thead>
@@ -40,30 +41,24 @@
                                     <th class="product-remove">Remove</th>
                                 </tr>
                             </thead>
-                            <tbody id="add_to_cart2">
+                       
+                                <tbody id="add_to_cart2">
                                 
-                                {{-- <tr>
-                                    <td class="product-thumbnail"><a href="#">
-                                    <img src="http://demo.devitems.com/boighor-v3/images/product/2.jpg" alt=""> 
-                                      
-                                    </a></td>
-                                    <td class="product-name"><a href="#">Natoque penatibus</a></td>
-                                    <td class="product-price"><span class="amount">BDT 165.00</span></td>
-                                    <td class="product-quantity"><input type="number" value="1"></td>
-                                    <td class="product-subtotal">BDT 165.00</td>
-                                    <td class="product-remove"><a href="#">X</a></td>
-                                </tr> --}}
-                                
-                            </tbody>
+                               
+                                </tbody>
+                            
+                            
                         </table>
                     </div>
-                </form> 
+               
                 <div class="cartbox__btn">
                     <ul class="cart__btn__list d-flex flex-wrap flex-md-nowrap flex-lg-nowrap justify-content-between">
                         {{-- <li><a href="#">Coupon Code</a></li>
                         <li><a href="#">Apply Code</a></li> --}}
-                        <li><a href="#">Update Cart</a></li>
-                        <li><a href="#">Check Out</a></li>
+                        <li><button type="submit" class="btn btn-success">Update Cart</button></li>
+                    <li><a href="{{route('checkout')}}">Check Out</a></li>
+
+                    </form> 
                     </ul>
                 </div>
             </div>
@@ -74,16 +69,16 @@
                     <div class="cartbox-total d-flex justify-content-between">
                         <ul class="cart__total__list">
                             <li>Cart total</li>
-                            <li>Sub Total</li>
+                            {{-- <li>Sub Total</li> --}}
                         </ul>
                         <ul class="cart__total__tk">
-                            <li>BDT 70</li>
-                            <li>BDT 70</li>
+                            <li id="cart_total"></li>
+                            {{-- <li>BDT 70</li> --}}
                         </ul>
                     </div>
                     <div class="cart__total__amount">
                         <span>Grand Total</span>
-                        <span>BDT 140</span>
+                        <span id="grand_total"></span>
                     </div>
                 </div>
             </div>
@@ -97,6 +92,7 @@
     <script>
          $(document).ready(function(){
             get_cart_info();
+            get_total_on_edit();
     });
 
     function get_cart_info(){
@@ -118,7 +114,8 @@
                         </a></td>
                         <td class="product-name"><a href="#">${value.associatedModel.title}</a></td>
                         <td class="product-price"><span class="amount">BDT ${value.price}</span></td>
-                        <td class="product-quantity"><input type="number" value="${value.quantity}"  onchange="get_sub_total(this.value,${key})"></td>
+                        <td class="product-quantity"><input type="number" name="qty[]" value="${value.quantity}"  onchange="get_sub_total(this.value,${key})"></td>
+                        <input type="hidden" name="row_ids[]" value="${key}" />
                         <td class="product-subtotal" id="product_subtotal">BDT ${(value.quantity * value.price)}</td>
                         <td class="product-remove"><a href="#" onclick="delete_to_cart_from_edit(${key})">X</a></td>
                     </tr>
@@ -140,6 +137,8 @@
                 data : {row_id:row_id},
                 success : function(data){
                     get_cart_info();
+                    get_cart_data();
+                    get_total_on_edit();
                 }
             });
         }
@@ -154,10 +153,27 @@
                 success : function(data){
                     console.log(data);
                     $('#product_subtotal').text("BDT "+data);
+                    get_total_on_edit();
                 }
             });
         }
     }
+
+    function get_total_on_edit(){
+        $.ajax({
+            type : 'get',
+            url : "{{route('get_total')}}",
+            success : function(data){
+                console.log(data);
+                
+                $('#grand_total').text("BDT "+data);
+                $('#cart_total').text("BDT "+data);
+                
+            }
+        });
+    }
+
+    
     
     </script>
 @endpush

@@ -55,7 +55,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="checkout_info">
+                    {{-- <div class="checkout_info">
                         <span>Have a coupon? </span>
                         <a class="showcoupon" href="#">Click here to enter your code</a>
                     </div>
@@ -66,11 +66,12 @@
                                 <button>Apply coupon</button>
                             </div>
                         </form>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
-        <div class="row">
+        
+        {{-- <div class="row">
             <div class="col-lg-6 col-12">
                 <div class="customer_details">
                     <h3>Billing details</h3>
@@ -293,7 +294,7 @@
                 </div>
 
             </div>
-        </div>
+        </div> --}}
     </div>
 </section>
 

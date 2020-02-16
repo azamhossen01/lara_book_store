@@ -71,4 +71,22 @@ class CartController extends Controller
         $book = Cart::get($request->row_id);
         return ($book->price * $request->qty);
     }
+
+    public function update_cart_data(Request $request){
+        foreach($request->row_ids as $key=>$row_id){
+            Cart::update($row_id, array(
+                'quantity' => array(
+                    'relative' => false,
+                    'value' => $request->qty[$key]
+                ),
+              ));
+        }
+        return redirect()->back();
+    }
+
+    public function checkout(Request $request){
+         $value = $request->session()->get('key'); 
+         return $value;
+        // return view('frontend.checkout');
+    }
 }
