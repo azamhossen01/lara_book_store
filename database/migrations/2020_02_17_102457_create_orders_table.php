@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('shipping_id');
+            $table->float('total');
             $table->integer('status')->default(0);
             $table->timestamps();
         });
