@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Customer;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
@@ -63,10 +65,23 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $customer = new Customer;
+        $customer->user_id = $user->id;
+        $customer->name = $data['name'];
+        $customer->email = $data['email'];
+        $customer->phone = $data['phone'];
+        $customer->password = bcrypt($data['password']);
+        $customer->address = $data['address'];
+        $customer->save();
+        Alert::alert('Success', 'Customer Registration Successfull', 'success');
+        // return redirect()->route('customer_login');
+        return $user;
+
     }
 }

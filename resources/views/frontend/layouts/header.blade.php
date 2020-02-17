@@ -132,8 +132,18 @@
                     <li class="drop"><a href="{{route('/')}}">Account</a>
                         <div class="megamenu dropdown">
                             <ul class="item item01">
-                                <li><a href="{{route('customer_login')}}">Login</a></li>
+                            @if(Auth::check() == true)
+                            <li><a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                              document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                             @csrf
+                            </form>  
+                            </li>
+                            @else 
+                            <li><a href="{{route('customer_login')}}">Login</a></li>
                             <li><a href="{{route('customer_register')}}">Register</a></li>
+                            @endif
                             </ul>
                         </div>
                     </li>

@@ -25,115 +25,51 @@
 <!-- Start Checkout Area -->
 <section class="wn__checkout__area section-padding--lg bg__white">
     <div class="container">
+        @if(Auth::check() == true)
         <div class="row">
-            <div class="col-lg-12">
-                <div class="wn_checkout_wrap">
-                    <div class="checkout_info">
-                        <span>Returning customer ?</span>
-                        <a class="showlogin" href="#">Click here to login</a>
-                    </div>
-                    <div class="checkout_login">
-                        <form class="wn__checkout__form" action="#">
-                            <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing & Shipping section.</p>
-
-                            <div class="input__box">
-                                <label>Username or email <span>*</span></label>
-                                <input type="text">
-                            </div>
-
-                            <div class="input__box">
-                                <label>password <span>*</span></label>
-                                <input type="password">
-                            </div>
-                            <div class="form__btn">
-                                <button>Login</button>
-                                <label class="label-for-checkbox">
-                                    <input id="rememberme" name="rememberme" value="forever" type="checkbox">
-                                    <span>Remember me</span>
-                                </label>
-                                <a href="#">Lost your password?</a>
-                            </div>
-                        </form>
-                    </div>
-                    {{-- <div class="checkout_info">
-                        <span>Have a coupon? </span>
-                        <a class="showcoupon" href="#">Click here to enter your code</a>
-                    </div>
-                    <div class="checkout_coupon">
-                        <form action="#">
-                            <div class="form__coupon">
-                                <input type="text" placeholder="Coupon code">
-                                <button>Apply coupon</button>
-                            </div>
-                        </form>
-                    </div> --}}
-                </div>
-            </div>
-        </div>
-        
-        {{-- <div class="row">
             <div class="col-lg-6 col-12">
                 <div class="customer_details">
                     <h3>Billing details</h3>
                     <div class="customar__field">
-                        <div class="margin_between">
-                            <div class="input_box space_between">
-                                <label>First name <span>*</span></label>
-                                <input type="text">
+                        {{-- <div class="margin_between"> --}}
+                            <div class="input_box">
+                                <label>Full name <span>*</span></label>
+                            <input type="text" required value="{{Auth::user()->name}}" name="name">
                             </div>
-                            <div class="input_box space_between">
-                                <label>last name <span>*</span></label>
-                                <input type="text">
-                            </div>
-                        </div>
+                            
+                        {{-- </div> --}}
                         <div class="input_box">
                             <label>Company name <span>*</span></label>
-                            <input type="text">
+                            <input type="text" name="company_name">
                         </div>
                         <div class="input_box">
                             <label>Country<span>*</span></label>
-                            <select class="select__option">
-                                <option>Select a country…</option>
-                                <option>Afghanistan</option>
-                                <option>American Samoa</option>
-                                <option>Anguilla</option>
-                                <option>American Samoa</option>
-                                <option>Antarctica</option>
-                                <option>Antigua and Barbuda</option>
-                            </select>
+                            <input type="text" name="country">
                         </div>
                         <div class="input_box">
                             <label>Address <span>*</span></label>
-                            <input type="text" placeholder="Street address">
+                        <input type="text" required placeholder="Street address" name="address" value="{{Auth::user()->customer->address}}">
                         </div>
-                        <div class="input_box">
-                            <input type="text" placeholder="Apartment, suite, unit etc. (optional)">
-                        </div>
+                        {{-- <div class="input_box">
+                            <input type="text"  placeholder="Apartment, suite, unit etc. (optional)">
+                        </div> --}}
                         <div class="input_box">
                             <label>District<span>*</span></label>
-                            <select class="select__option">
-                                <option>Select a country…</option>
-                                <option>Afghanistan</option>
-                                <option>American Samoa</option>
-                                <option>Anguilla</option>
-                                <option>American Samoa</option>
-                                <option>Antarctica</option>
-                                <option>Antigua and Barbuda</option>
-                            </select>
+                            <input type="text" name="district">
                         </div>
                         <div class="input_box">
                             <label>Postcode / ZIP <span>*</span></label>
-                            <input type="text">
+                            <input type="text" name="postal_code">
                         </div>
                         <div class="margin_between">
                             <div class="input_box space_between">
                                 <label>Phone <span>*</span></label>
-                                <input type="text">
+                            <input type="text" required name="phone" value="{{Auth::user()->customer->phone}}">
                             </div>
 
                             <div class="input_box space_between">
                                 <label>Email address <span>*</span></label>
-                                <input type="email">
+                            <input type="email" name="email" value="{{Auth::user()->customer->email}}">
                             </div>
                         </div>
                     </div>
@@ -150,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="customer_details mt--20">
+                {{-- <div class="customer_details mt--20">
                     <div class="differt__address">
                         <input name="ship_to_different_address" value="1" type="checkbox">
                         <span>Ship to a different address ?</span>
@@ -216,7 +152,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="col-lg-6 col-12 md-mt-40 sm-mt-40">
                 <div class="wn__order__box">
@@ -226,14 +162,18 @@
                         <li>Total</li>
                     </ul>
                     <ul class="order_product">
+                        @forelse($items as $key=>$item)
+                    <li>{{$item->associatedModel->title}} × {{$item->quantity}}<span>BDT {{$item->price*$item->quantity}}</span></li>
+                        @empty 
+
+                        @endforelse
+                        {{-- <li>Buscipit at magna × 1<span>BDT 48.00</span></li>
                         <li>Buscipit at magna × 1<span>BDT 48.00</span></li>
-                        <li>Buscipit at magna × 1<span>BDT 48.00</span></li>
-                        <li>Buscipit at magna × 1<span>BDT 48.00</span></li>
-                        <li>Buscipit at magna × 1<span>BDT 48.00</span></li>
+                        <li>Buscipit at magna × 1<span>BDT 48.00</span></li> --}}
                     </ul>
                     <ul class="shipping__method">
-                        <li>Cart Subtotal <span>BDT 48.00</span></li>
-                        <li>Shipping 
+                        <li>Cart Subtotal <span>BDT {{$sub_total}}</span></li>
+                        {{-- <li>Shipping 
                             <ul>
                                 <li>
                                     <input name="shipping_method[0]" data-index="0" value="legacy_flat_rate" checked="checked" type="radio">
@@ -244,10 +184,10 @@
                                     <label>Flat Rate: BDT 48.00</label>
                                 </li>
                             </ul>
-                        </li>
+                        </li> --}}
                     </ul>
                     <ul class="total__amount">
-                        <li>Order Total <span>BDT 223.00</span></li>
+                    <li>Order Total <span>BDT {{$sub_total}}</span></li>
                     </ul>
                 </div>
                 <div id="accordion" class="checkout_accordion mt--30" role="tablist">
@@ -294,7 +234,55 @@
                 </div>
 
             </div>
-        </div> --}}
+        </div>
+        @else 
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="wn_checkout_wrap">
+                    <div class="checkout_info">
+                        <span>Returning customer ?</span>
+                        <a class="showlogin" href="#">Click here to login</a>
+                    </div>
+                    <div class="checkout_login">
+                        <form class="wn__checkout__form" action="#">
+                            <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing & Shipping section.</p>
+
+                            <div class="input__box">
+                                <label>Username or email <span>*</span></label>
+                                <input type="text">
+                            </div>
+
+                            <div class="input__box">
+                                <label>password <span>*</span></label>
+                                <input type="password">
+                            </div>
+                            <div class="form__btn">
+                                <button>Login</button>
+                                <label class="label-for-checkbox">
+                                    <input id="rememberme" name="rememberme" value="forever" type="checkbox">
+                                    <span>Remember me</span>
+                                </label>
+                                <a href="#">Lost your password?</a>
+                            </div>
+                        </form>
+                    </div>
+                    {{-- <div class="checkout_info">
+                        <span>Have a coupon? </span>
+                        <a class="showcoupon" href="#">Click here to enter your code</a>
+                    </div>
+                    <div class="checkout_coupon">
+                        <form action="#">
+                            <div class="form__coupon">
+                                <input type="text" placeholder="Coupon code">
+                                <button>Apply coupon</button>
+                            </div>
+                        </form>
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+        @endif
+        
     </div>
 </section>
 

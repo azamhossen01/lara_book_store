@@ -85,8 +85,9 @@ class CartController extends Controller
     }
 
     public function checkout(Request $request){
-         $value = $request->session()->get('key'); 
-         return $value;
-        // return view('frontend.checkout');
+        $items = Cart::getContent();
+        $sub_total = Cart::getSubTotal();
+        // return $sub_total;
+         return view('frontend.checkout',compact('items','sub_total'));
     }
 }

@@ -88,10 +88,10 @@ Route::get('blog_details',function(){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('admin');
 
 // Route::get('get_book','BookController@get_book')->name('get_book');
-Route::group(['middleware'=>['auth']],function(){
+Route::group(['middleware'=>['auth','admin']],function(){
     Route::get('change_category_status/{cat_id}','CategoryController@change_category_status')->name('change_category_status');
     Route::resource('categories','CategoryController');
     Route::get('change_writer_status','WriterController@change_writer_status')->name('writers.status.update');
