@@ -36,4 +36,19 @@
         <i class="fas fa-fw fa-table"></i>
         <span>Books</span></a>
     </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{{route('customers.index')}}">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Customers</span></a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{{route('orders.index')}}">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Orders</span></a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="{{route('blogs.index')}}">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Blogs</span></a>
+    </li>
   </ul>

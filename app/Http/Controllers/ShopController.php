@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Cart;
+use App\Blog;
 use App\Book;
 use App\Writer;
 use App\Category;
 use App\Customer;
-use Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -26,7 +27,8 @@ class ShopController extends Controller
         $all_categories = Category::where('status',1)->get();
         $books = Book::where('status',1)->get();
         $recents = Book::orderBy('id', 'desc')->take(8)->get();
-        return view('frontend.home',compact('books','categories','recents','all_categories'));
+        $blogs = Blog::orderBy('id', 'desc')->take(3)->get();
+        return view('frontend.home',compact('books','categories','recents','all_categories','blogs'));
     }
 
     public function single_product($book_id){
@@ -81,4 +83,18 @@ class ShopController extends Controller
         $items = Cart::getContent();
         return view('frontend.cart',compact('items'));
     }
+
+    public function blog(){
+        $blogs = Blog::where('status',1)->get();
+        $recent_blogs = Blog::orderBy('id', 'desc')->take(5)->get();
+        return view('frontend.blog',compact('blogs','recent_blogs'));
+    }
+
+    public function blog_details($id){
+        $blog = Blog::findOrFail($id);
+        $recent_blogs = Blog::orderBy('id', 'desc')->take(5)->get();
+        return view('frontend.blog_details',compact('blog','recent_blogs'));
+    }
+
+
 }

@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Book;
-// use Darryldecode\Cart\Cart;
 use Cart;
+// use Darryldecode\Cart\Cart;
+use App\Book;
+use App\Order;
+use App\Shipping;
+use Carbon\Carbon;
+use App\OrderDetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CartController extends Controller
 {
@@ -89,5 +96,42 @@ class CartController extends Controller
         $sub_total = Cart::getSubTotal();
         // return $sub_total;
          return view('frontend.checkout',compact('items','sub_total'));
+    }
+
+    public function order_placed(Request $request){
+        
+        // return $request;
+        $shipping = new Shipping;
+        $shipping->customer_id = Auth::user()->customer->id;
+        $shipping->name = $request->name;
+        $shipping->email = $request->email;
+        $shipping->phone = $request->phone;
+        $shipping->address = $request->address;
+        $shipping->company_name = $request->company_name;
+        $shipping->country = $request->country;
+        $shipping->district = $request->district;
+        $shipping->postal_code = $request->postal_code;
+        $shipping->save();
+        
+        $order = new Order;
+        $order->shipping_id = $shipping->id;
+        $order->customer_id = Auth::user()->customer->id;
+        $order->payment_method = $request->payment_method;
+        $order->transaction_id = $request->transaction_id;
+        $order->total = Cart::getTotal();
+        $order->save();
+
+        $items = Cart::getContent();
+        foreach($items as $key=>$item){
+            $order_detail = new OrderDetail;
+            $order_detail->order_id = $order->id;
+            $order_detail->book_id = $item->associatedModel->id;
+            $order_detail->qty = $item->quantity;
+            $order_detail->sub_total = ($item->price*$item->quantity);
+            $order_detail->save();
+        }
+        Cart::clear();
+        Alert::alert('Successs', 'Order Placed Successfully', 'success');
+        return redirect()->route('/');
     }
 }

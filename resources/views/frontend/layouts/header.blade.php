@@ -120,13 +120,13 @@
                                 </ul>
                             </div>
                         </li> --}}
-                        <li class="drop"><a href="{{route('blog')}}">Blog</a>
-                            <div class="megamenu dropdown">
+                        <li class="drop"><a href="{{route('blog')}}">News</a>
+                            {{-- <div class="megamenu dropdown">
                                 <ul class="item item01">
                                     <li><a href="{{route('blog')}}">Blog Page</a></li>
                                 <li><a href="{{route('blog_details')}}">Blog Details</a></li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </li>
                     <li><a href="{{route('contact')}}">Contact</a></li>
                     <li class="drop"><a href="{{route('/')}}">Account</a>
@@ -171,7 +171,7 @@
                                 <span id="cart_subtotal"> </span>
                                 </div>
                                 <div class="mini_action checkout">
-                                    <a class="checkout__btn" href="cart.html">Go to Checkout</a>
+                                <a class="checkout__btn" href="{{route('checkout')}}">Go to Checkout</a>
                                 </div>
                                 <div class="single__items">
                                     <div class="miniproduct" id="add_to_cart">
@@ -317,11 +317,11 @@
                         </li>
                         
                     
-                        <li><a href="{{route('blog')}}">Blog</a>
-                            <ul>
+                        <li><a href="{{route('blog')}}">News</a>
+                            {{-- <ul>
                                 <li><a href="{{route('blog')}}">Blog Page</a></li>
                                 <li><a href="{{route('blog_details')}}">Blog Details</a></li>
-                            </ul>
+                            </ul> --}}
                         </li>
                   
                         <li><a href="{{route('contact')}}">Contact</a></li>

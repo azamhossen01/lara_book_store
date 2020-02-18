@@ -30,6 +30,8 @@
             <div class="col-lg-6 col-12">
                 <div class="customer_details">
                     <h3>Billing details</h3>
+                <form action="{{route('order_placed')}}" method="post">
+                    @csrf
                     <div class="customar__field">
                         {{-- <div class="margin_between"> --}}
                             <div class="input_box">
@@ -73,7 +75,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="create__account">
+                    <button class="btn btn-success" type="submit">Place Order</button>
+               
+                    {{-- <div class="create__account">
                         <div class="wn__accountbox">
                             <input class="input-checkbox" name="createaccount" value="1" type="checkbox">
                             <span>Create an account ?</span>
@@ -84,8 +88,10 @@
                                 <input type="text" placeholder="password">
                             </form>
                         </div>
-                    </div>
+                    </div> --}}
+
                 </div>
+
                 {{-- <div class="customer_details mt--20">
                     <div class="differt__address">
                         <input name="ship_to_different_address" value="1" type="checkbox">
@@ -153,6 +159,7 @@
                         </div>
                     </div>
                 </div> --}}
+
             </div>
             <div class="col-lg-6 col-12 md-mt-40 sm-mt-40">
                 <div class="wn__order__box">
@@ -191,7 +198,34 @@
                     </ul>
                 </div>
                 <div id="accordion" class="checkout_accordion mt--30" role="tablist">
-                    <div class="payment">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Payment Methods</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12 ml-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="payment_method" required type="radio" value="0" id="cash_payment" checked>
+                                        <label class="form-check-label" for="cash_payment">
+                                          Cash On Delivery
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input"  name="payment_method" type="radio" value="1" id="bkash_payment" >
+                                        <label class="form-check-label" for="bkash_payment">
+                                          Bkash Payment
+                                        </label>
+                                      </div>
+                                      <div class="form-group" id="transaction_no" style="display:none">
+                                          <input type="text"  name="transaction_id" id="transaction_id" placeholder="Transaction ID" class="form-control">
+                                      </div>
+                                      
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- <div class="payment">
                         <div class="che__header" role="tab" id="headingOne">
                               <a class="checkout__title" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                                 <span>Direct Bank Transfer</span>
@@ -220,8 +254,8 @@
                         <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
                               <div class="payment-body">Pay with cash upon delivery.</div>
                         </div>
-                    </div>
-                    <div class="payment">
+                    </div> --}}
+                    {{-- <div class="payment">
                         <div class="che__header" role="tab" id="headingFour">
                               <a class="collapsed checkout__title" data-toggle="collapse" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                                 <span>PayPal <img src="{{asset('frontend')}}/images/icons/payment.png" alt="payment images"> </span>
@@ -230,9 +264,9 @@
                         <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour" data-parent="#accordion">
                               <div class="payment-body">Pay with cash upon delivery.</div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
-
+            </form>
             </div>
         </div>
         @else 
@@ -287,6 +321,37 @@
 </section>
 
 @endsection
+
+@push('js')
+
+    <script>
+        // $('#defaultCheck2').click(function(){
+        //         if($(this).prop("checked") == true){
+        //         $('#transaction_no').show();
+        //         $("#transaction_id").prop('required',true);
+        //         $("#defaultCheck1").prop('required',false);
+        //     }
+        //     else if($(this).prop("checked") == false){
+        //         $('#transaction_no').hide();
+        //         $("#transaction_id").prop('required',false);
+        //         $("#defaultCheck1").prop('required',true);
+        //     }
+        // });
+        $('#bkash_payment').click(function(){
+            $('#transaction_no').show();
+            $("#cash_payment").prop('required',false);
+            $("#transaction_id").prop('required',true);
+        });
+
+        $('#cash_payment').click(function(){
+            $('#transaction_no').hide();
+            $("#transaction_id").prop('required',false);
+           
+            
+        });
+    </script>
+
+@endpush
 
 
 
