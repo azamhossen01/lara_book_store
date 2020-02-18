@@ -61,31 +61,65 @@
                         </div>
                     </article>
                     <div class="comments_area">
-                        <h3 class="comment__title">1 comment</h3>
+                        <h3 class="comment__title">{{count($blog->comments)}} comment/s</h3>
                         <ul class="comment__list">
+                            @forelse($comments as $key=>$comment)
                             <li>
                                 <div class="wn__comment">
                                     <div class="thumb">
                                         <img src="http://demo.devitems.com/boighor-v3/images/blog/comment/1.jpeg" alt="">
-                                        {{-- <img src="images/blog/comment/1.jpeg" alt="comment images"> --}}
                                     </div>
                                     <div class="content">
                                         <div class="comnt__author d-block d-sm-flex">
-                                            <span><a href="#">admin</a> Post author</span>
-                                            <span>October 6, 2014 at 9:26 am</span>
+                                        <span><a href="#">{{$comment->user?$comment->user->name:'Unknown'}}</a> Post author</span>
+                                        <span>{{$comment->created_at->format('F d, Y  H:i a')}}</span>
+                                            {{-- <span>October 6, 2014 at 9:26 am</span> --}}
                                             <div class="reply__btn">
-                                                <a href="#">Reply</a>
+                                                <a href="javascript:void(0)" onclick="open_replay_box({{$comment->id}})">Reply</a>
                                             </div>
                                         </div>
-                                        <p>Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit</p>
+                                    <p>{{$comment->comment}}</p>
+                                    {{-- replaies start here --}}
+                                    @forelse($comment->replaies as $key=>$replay)
+                                    <div class="wn__comment">
+                                        <div class="thumb">
+                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/comment/1.jpeg" alt="">
+                                        </div>
+                                        <div class="content">
+                                            <div class="comnt__author d-block d-sm-flex">
+                                                <span><a href="">{{$replay->user?$replay->user->name:'Unknown'}}</a> Replay On Post</span>
+                                                <span>{{$replay->created_at->format('F d, Y  H:i a')}}</span>
+                                            </div>
+                                        <p>{{$replay->comment}}</p>
+                                        </div>
+                                    </div>
+                                    @empty 
+
+                                    @endforelse
+                                    {{-- replaies end here --}}
+                                    <form action="{{route('post_comment')}}" method="post">
+                                        @csrf 
+                                        <input type="hidden" name="blog_id" value="{{$blog->id}}">
+                                        <input type="hidden" name="user_id" value="{{Auth::id()}}">
+                                        <input type="hidden" name="parent_id" value="{{$comment->id}}">
+                                        <input type="hidden" name="is_replay" value=1>
+                                        <div class="form-group" style="display:none" id="replay_box{{$comment->id}}">
+                                            <input type="text" placeholder="Replay" name="replay" class="form-control">
+                                            <button type="submit" class="btn btn-success mt-2 btn-sm">Replay</button>
+                                        </div>
+                                        
+                                    </form>
                                     </div>
                                 </div>
                             </li>
-                            <li class="comment_reply">
+                            @empty 
+                            <h3>No Comment</h3>
+                            @endforelse
+
+                            {{-- <li class="comment_reply">
                                 <div class="wn__comment">
                                     <div class="thumb">
                                         <img src="http://demo.devitems.com/boighor-v3/images/blog/comment/1.jpeg" alt="">
-                                        {{-- <img src="images/blog/comment/1.jpeg" alt="comment images"> --}}
                                     </div>
                                     <div class="content">
                                         <div class="comnt__author d-block d-sm-flex">
@@ -98,29 +132,34 @@
                                         <p>Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit</p>
                                     </div>
                                 </div>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                     <div class="comment_respond">
-                        <h3 class="reply_title">Leave a Reply <small><a href="#">Cancel reply</a></small></h3>
-                        <form class="comment__form" action="#">
+                        <h3 class="reply_title">Leave a Comment <small><a href="#">Cancel reply</a></small></h3>
+                    <form class="comment__form" action="{{route('post_comment')}}" method="post">
+                        @csrf 
+                    <input type="hidden" name="blog_id" value="{{$blog->id}}">
+                    <input type="hidden" name="user_id" value="{{Auth::id()}}">
+                    <input type="hidden" name="is_replay" value=0>
                             <p>Your email address will not be published.Required fields are marked </p>
                             <div class="input__box">
                                 <textarea name="comment" placeholder="Your comment here"></textarea>
                             </div>
                             <div class="input__wrapper clearfix">
                                 <div class="input__box name one--third">
-                                    <input type="text" placeholder="name">
+                                <input type="text" placeholder="name" value="{{Auth::check()?Auth::user()->name:''}}" name="name">
                                 </div>
                                 <div class="input__box email one--third">
-                                    <input type="email" placeholder="email">
+                                <input type="email" placeholder="email" value="{{Auth::check()?Auth::user()->email:''}}" name="email">
                                 </div>
-                                <div class="input__box website one--third">
+                                {{-- <div class="input__box website one--third">
                                     <input type="text" placeholder="website">
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="submite__btn">
-                                <a href="#">Post Comment</a>
+                                {{-- <a href="#">Post Comment</a> --}}
+                                <button type="submit" class="btn btn-warning">Post Comment</button>
                             </div>
                         </form>
                     </div>
@@ -266,6 +305,16 @@
 </div>
 
 @endsection
+
+@push('js')
+
+<script>
+    function open_replay_box(comment_id){
+        $('#replay_box'+comment_id).toggle();
+    }
+</script>
+
+@endpush
 
 
 

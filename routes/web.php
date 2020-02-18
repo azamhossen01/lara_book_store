@@ -40,6 +40,9 @@ Route::get('get_book','ShopController@get_book')->name('get_book');
 Route::get('blog_details/{blog_id}','ShopController@blog_details')->name('blog_details');
 Route::get('blog','ShopController@blog')->name('blog');
 
+// blog comment
+Route::post('post_comment','ShopController@post_comment')->name('post_comment');
+
 // cart route
 Route::get('add_to_cart','CartController@add_to_cart')->name('add_to_cart');
 Route::get('get_cart_data','CartController@get_cart_data')->name('get_cart_data');

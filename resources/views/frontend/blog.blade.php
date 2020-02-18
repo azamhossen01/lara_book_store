@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="bradcaump__inner text-center">
-                    <h2 class="bradcaump-title">Blog Page</h2>
+                    <h2 class="bradcaump-title">News Page</h2>
                     <nav class="bradcaump-content">
                       <a class="breadcrumb_item" href="index.html">Home</a>
                       <span class="brd-separetor">/</span>
@@ -41,7 +41,7 @@
                         <div class="content">
                         <h4><a href="{{route('blog_details',$blog->id)}}">{{$blog->title}}</a></h4>
                             <ul class="post__meta">
-                            <li>Posts by : <a href="{{route('blog_details',$blog->id)}}">road theme</a></li>
+                            <li>Posts by : <a href="{{route('blog_details',$blog->id)}}">Admin</a></li>
                                 <li class="post_separator">/</li>
                             <li>{{$blog->created_at->format('M d, Y')}}</li>
                             </ul>
@@ -88,14 +88,14 @@
                                 <li>
                                     <div class="post-wrapper d-flex">
                                         <div class="thumb">
-                                            <a href="blog-details.html">
+                                            <a href="{{route('blog_details',$r_blog->id)}}">
                                             <img src="{{asset('images/blogs/'.$r_blog->image)}}" width="100%" alt="">    
                                               
                                             </a>
                                         </div>
                                         <div class="content">
-                                        <h4><a href="blog-details.html">{{$blog->title}}</a></h4>
-                                        <p>	{{$blog->created_at->format('M d, Y')}}</p>
+                                        <h4><a href="{{route('blog_details',$r_blog->id)}}">{{$r_blog->title}}</a></h4>
+                                        <p>	{{$r_blog->created_at->format('M d, Y')}}</p>
                                         </div>
                                     </div>
                                 </li>

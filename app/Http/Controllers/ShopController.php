@@ -6,6 +6,7 @@ use Cart;
 use App\Blog;
 use App\Book;
 use App\Writer;
+use App\Comment;
 use App\Category;
 use App\Customer;
 use Illuminate\Http\Request;
@@ -92,8 +93,26 @@ class ShopController extends Controller
 
     public function blog_details($id){
         $blog = Blog::findOrFail($id);
+        $comments = $blog->comments->where('parent_id',null);
         $recent_blogs = Blog::orderBy('id', 'desc')->take(5)->get();
-        return view('frontend.blog_details',compact('blog','recent_blogs'));
+        return view('frontend.blog_details',compact('blog','recent_blogs','comments'));
+    }
+
+    public function post_comment(Request $request){
+        // return $request;
+        $message = $request->comment??$request->replay;
+        // return $message;
+        $comment = new Comment;
+        $comment->user_id = $request->user_id;
+        $comment->blog_id = $request->blog_id;
+        $comment->parent_id = $request->parent_id;
+        $comment->name = $request->name;
+        $comment->email = $request->email;
+        $comment->comment = $message;
+        $comment->is_replay = $request->is_replay;
+        // return $comment;
+        $comment->save();
+        return redirect()->back();
     }
 
 

@@ -297,7 +297,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section__title text-center">
-                    <h2 class="title__be--2">Our <span class="color--theme">Blog</span></h2>
+                    <h2 class="title__be--2">Our <span class="color--theme">News</span></h2>
                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered lebmid alteration in some ledmid form</p>
                 </div>
             </div>
@@ -315,7 +315,7 @@
                             <div class="post-meta">
                                 <ul>
                                     <li><a href="#"><i class="bi bi-love"></i>72</a></li>
-                                    <li><a href="#"><i class="bi bi-chat-bubble"></i>27</a></li>
+                                <li><a href="{{route('blog_details',$blog->id)}}"><i class="bi bi-chat-bubble"></i>{{count($blog->comments)}}</a></li>
                                 </ul>
                             </div>
                         </div>
