@@ -138,7 +138,7 @@
                         </div>
                         <!-- End Shopping Cart -->
                     </li>
-                    <li class="setting__bar__icon"><a class="setting__active" href="#"></a>
+                    {{-- <li class="setting__bar__icon"><a class="setting__active" href="#"></a>
                         <div class="searchbar__content setting__block">
                             <div class="content-inner">
                                 <div class="switcher-currency">
@@ -205,7 +205,7 @@
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>
