@@ -115,5 +115,9 @@ class ShopController extends Controller
         return redirect()->back();
     }
 
+    public function about(){
+        return view('frontend.about');
+    }
+
 
 }

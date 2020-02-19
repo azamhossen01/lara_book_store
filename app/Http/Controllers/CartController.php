@@ -17,7 +17,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 class CartController extends Controller
 {
     public function add_to_cart(Request $request){
-        
+        // return $request;
         $book = Book::findOrFail($request->book_id);
         // return $book;
         $items = Cart::getContent();
@@ -25,7 +25,7 @@ class CartController extends Controller
         
         foreach($items as $key=>$item){
             if($item->associatedModel->id == $book->id){
-                if($request->qty){
+                if($request->qty > 1){
                     // return '1st';
                     Cart::update($key, array(
                         'quantity' => array(

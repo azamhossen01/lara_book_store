@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title',"$category->name")
+@section('title',"Book Store")
 
 
 @section('content')
@@ -113,12 +113,13 @@
                             <div class="orderby__wrapper">
                                 <span>Sort By</span>
                                 <select class="shot__byselect">
-                                    <option>Default sorting</option>
+                                    {{-- <option>Default sorting</option>
                                     <option>HeadPhone</option>
                                     <option>Furniture</option>
-                                    <option>Jewellery</option>
-                                    <option>Handmade</option>
-                                    <option>Kids</option>
+                                    <option>Jewellery</option> --}}
+                                    <option>Default sorting</option>
+                                    <option>Low Price</option>
+                                    <option>High Price</option>
                                 </select>
                             </div>
                         </div>
@@ -149,7 +150,7 @@
                                     <div class="action">
                                         <div class="actions_inner">
                                             <ul class="add_to_links">
-                                                <li><a class="cart" href="#" onclick="add_to_cart({{$book->id}})"><i class="bi bi-shopping-bag4"></i></a></li>
+                                                <li><a class="cart" href="JavaScript:Void(0);" onclick="add_to_cart({{$book->id}})"><i class="bi bi-shopping-bag4"></i></a></li>
                                                 <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
                                                 <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
                                                 <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal" onclick="show_product_details({{$book->id}})"><i class="bi bi-search"></i></a></li>

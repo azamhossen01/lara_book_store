@@ -12,9 +12,9 @@
                 <nav class="mainmenu__nav">
                     <ul class="meninmenu d-flex justify-content-start">
                     <li class="drop with--one--item"><a href="{{route('/')}}" class="text-light">Home</a></li>
-                    <li class="drop with--one--item"><a href="{{route('/')}}" class="text-light">About Us</a></li>
+                    <li class="drop with--one--item"><a href="{{route('about')}}" class="text-light">About Us</a></li>
                        
-                        <li class="drop"><a href="#" class="text-light">Books</a>
+                        <li class="drop"><a href="JavaScript:Void(0);" class="text-light">Books</a>
                             <div class="megamenu mega03">
                                 <ul class="item item03">
                                     
@@ -47,14 +47,14 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="drop"><a href="#" class="text-light">Writer</a>
+                        <li class="drop"><a href="JavaScript:Void(0);" class="text-light">Writer</a>
                             <div class="megamenu mega02">
                                 <ul class="item item02">
                                     <li class="title">All Writers</li>
                                     @forelse(App\Writer::where('status',1)->get()->splice(0,10) as $writer)
                                 <li><a href="{{route('writer_books',$writer->id)}}">{{$writer->name}}</a></li>
                                     @empty 
-                                    <li><a href="#">No Writer Available</a></li>
+                                    <li><a href="JavaScript:Void(0);">No Writer Available</a></li>
                                     @endforelse
                                 </ul>
                                 <ul class="item item02">
@@ -62,7 +62,7 @@
                                     @forelse(App\Writer::where('status',1)->get()->splice(10,10) as $writer)
                                 <li><a href="{{route('writer_books',$writer->id)}}">{{$writer->name}}</a></li>
                                     @empty 
-                                    <li><a href="#">No Writer Available</a></li>
+                                    <li><a href="JavaScript:Void(0);">No Writer Available</a></li>
                                     @endforelse
                                 </ul>
                                 {{-- <ul class="item item02">
@@ -80,7 +80,7 @@
                            
                         </li>
                     <li><a href="{{route('contact')}}" class="text-light">Contact</a></li>
-                    <li class="drop"><a href="{{route('/')}}" class="text-light">Account</a>
+                    <li class="drop"><a href="JavaScript:Void(0);" class="text-light">Account</a>
                         <div class="megamenu dropdown">
                             <ul class="item item01">
                             @if(Auth::check() == true)
@@ -104,9 +104,9 @@
             </div>
             <div class="col-md-6 col-sm-6 col-6 col-lg-2">
                 <ul class="header__sidebar__right d-flex justify-content-end align-items-center">
-                    <li class="shop_search"><a class="search__active" href="#"></a></li>
-                    <li class="wishlist"><a href="#" class="text-light"></a></li>
-                    <li class="shopcart"><i class="fa fa-shopping-cart fa-2x text-light"></i><a  class="cartbox_active" href="#"><span class="product_qun" id="product_qun"></span></a>
+                    <li class="shop_search"><a class="search__active" href="JavaScript:Void(0);"></a></li>
+                    <li class="wishlist"><a href="JavaScript:Void(0);" class="text-light"></a></li>
+                    <li class="shopcart"><i class="fa fa-shopping-cart fa-2x text-light"></i><a  class="cartbox_active" href="JavaScript:Void(0);"><span class="product_qun" id="product_qun"></span></a>
                         <!-- Start Shopping Cart -->
                         <div class="block-minicart minicart__active" style="border:1px solid black;height:500px;overflow:scroll;overflow-y:scroll;overflow-x:hidden;">
                             
@@ -215,8 +215,8 @@
                 <nav class="mobilemenu__nav">
                     <ul class="meninmenu">
                         <li><a href="{{route('/')}}">Home</a></li>
-                        <li><a href="{{route('/')}}">About Us</a></li>
-                        <li class="drop"><a href="#">Books</a>
+                        <li><a href="{{route('about')}}">About Us</a></li>
+                        <li class="drop"><a href="JavaScript:Void(0);">Books</a>
                             <ul>
                                 @forelse(App\Category::where('status',1)->get() as $category) 
                                 <li><a href="{{route('shop_grid',$category->id)}}">{{$category->name}} </a></li>
@@ -226,13 +226,13 @@
                             </ul>
                         </li>
                        
-                        <li class="drop"><a href="#">Writer</a>
+                        <li class="drop"><a href="JavaScript:Void(0);">Writer</a>
                             <ul>
                                
                                 @forelse(App\Writer::where('status',1)->get() as $writer)
                                 <li><a href="{{route('writer_books',$writer->id)}}">{{$writer->name}}</a></li>
                                 @empty 
-                                <li><a href="#">No Writer Available</a></li>
+                                <li><a href="JavaScript:Void(0);">No Writer Available</a></li>
                                 @endforelse
                             </ul>
                         </li>

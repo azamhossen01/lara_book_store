@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title','Checkout')
+@section('title','Book Store')
 
 
 @section('content')
@@ -275,23 +275,24 @@
                 <div class="wn_checkout_wrap">
                     <div class="checkout_info">
                         <span>Returning customer ?</span>
-                        <a class="showlogin" href="#">Click here to login</a>
+                        <a class="showlogin" href="JavaScript:void(0)">Click here to login</a>
                     </div>
                     <div class="checkout_login">
-                        <form class="wn__checkout__form" action="#">
+                    <form class="wn__checkout__form" action="{{route('login')}}" method="post">
+                        @csrf 
                             <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new customer please proceed to the Billing & Shipping section.</p>
 
                             <div class="input__box">
-                                <label>Username or email <span>*</span></label>
-                                <input type="text">
+                                <label>email <span>*</span></label>
+                                <input type="text" name="email">
                             </div>
 
                             <div class="input__box">
                                 <label>password <span>*</span></label>
-                                <input type="password">
+                                <input type="password" name="password">
                             </div>
                             <div class="form__btn">
-                                <button>Login</button>
+                                <button type="submit">Login</button>
                                 <label class="label-for-checkbox">
                                     <input id="rememberme" name="rememberme" value="forever" type="checkbox">
                                     <span>Remember me</span>

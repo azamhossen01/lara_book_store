@@ -43,6 +43,9 @@ Route::get('blog','ShopController@blog')->name('blog');
 // blog comment
 Route::post('post_comment','ShopController@post_comment')->name('post_comment');
 
+// about page
+Route::get('about','ShopController@about')->name('about');
+
 // cart route
 Route::get('add_to_cart','CartController@add_to_cart')->name('add_to_cart');
 Route::get('get_cart_data','CartController@get_cart_data')->name('get_cart_data');
@@ -70,9 +73,9 @@ Route::get('faq',function(){
     return view('frontend.faq');
 })->name('faq');
 
-Route::get('about',function(){
-    return view('frontend.about');
-})->name('about');
+// Route::get('about',function(){
+//     return view('frontend.about');
+// })->name('about');
 
 Route::get('portfolio',function(){
     return view('frontend.portfolio');

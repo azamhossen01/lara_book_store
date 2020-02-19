@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title','Home')
+@section('title','Book Store')
 
 @section('slider')
 <div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme">
@@ -50,7 +50,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section__title text-center">
-                    <h2 class="title__be--2">New <span class="color--theme">Books</span></h2>
+                    <h2 class="title__be--2">latest <span class="color--theme">Books</span></h2>
                     <p>These are new books in our collection.</p>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                         <div class="action">
                             <div class="actions_inner">
                                 <ul class="add_to_links">
-                                    <li><a class="cart" href="#" onclick="add_to_cart({{$book->id}})"><i class="bi bi-shopping-bag4"></i></a></li>
+                                    <li><a class="cart" href="JavaScript:Void(0);" onclick="add_to_cart({{$book->id}})"><i class="bi bi-shopping-bag4"></i></a></li>
                                     <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
                                     <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
                                     <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal" onclick="show_product_details({{$book->id}})"><i class="bi bi-search"></i></a></li>
@@ -185,7 +185,7 @@
                                     <div class="action">
                                         <div class="actions_inner">
                                             <ul class="add_to_links">
-                                            <li><a class="cart" href="#" onclick="add_to_cart({{$book->id}})"><i class="bi bi-shopping-bag4"></i></a></li>
+                                            <li><a class="cart" href="JavaScript:Void(0);" onclick="add_to_cart({{$book->id}})"><i class="bi bi-shopping-bag4"></i></a></li>
                                             <li><a class="wishlist" href="{{route('wishlist')}}"><i class="bi bi-shopping-cart-full"></i></a></li>
                                                 <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
                                                 <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal" onclick="show_product_details({{$book->id}})"><i class="bi bi-search"></i></a></li>

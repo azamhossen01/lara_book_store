@@ -79,8 +79,9 @@
             $.ajax({
                 type : 'get',
                 url : "{{route('add_to_cart')}}",
-                data : {book_id:book_id},
+                data : {book_id:book_id,qty:qty},
                 success : function(data){
+                    console.log(data);
                     // var total = "{{\Cart::getTotal()}}";
                     
                 get_total();

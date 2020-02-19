@@ -1,11 +1,11 @@
 @extends('frontend.layouts.app')
 
-@section('title','About')
+@section('title','Book Store')
 
 
 @section('content')
 
-<div class="ht__bradcaump__area bg-image--3 bg-success" style="background-image: url('https://www.incimages.com/uploaded_files/image/970x450/getty_883231284_200013331818843182490_335833.jpg')">
+<div class="ht__bradcaump__area bg-image--3 bg-success" style="background-image: url('https://franchiseindia.s3.ap-south-1.amazonaws.com/uploads/content/edu/art/5cac6b9e846ce.jpeg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -106,7 +106,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                 <div class="wn__team">
                     <div class="thumb">
-                        <img src="http://demo.devitems.com/boighor-v3/images/about/team/1.jpg" alt="">
+                        <img src="https://b7.pngbarn.com/png/722/477/computer-icons-user-profile-avatar-png-clip-art-thumbnail.png" alt="">
                         {{-- <img src="{{asset('frontend')}}/images/about/team/1.jpg" alt="Team images"> --}}
                     </div>
                     <div class="content text-center">
@@ -127,7 +127,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                 <div class="wn__team">
                     <div class="thumb">
-                        <img src="http://demo.devitems.com/boighor-v3/images/about/team/2.jpg" alt="">
+                        <img src="https://b7.pngbarn.com/png/722/477/computer-icons-user-profile-avatar-png-clip-art-thumbnail.png" alt="">
                         {{-- <img src="{{asset('frontend')}}/images/about/team/2.jpg" alt="Team images"> --}}
                     </div>
                     <div class="content text-center">
@@ -148,7 +148,7 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-12">
                 <div class="wn__team">
                     <div class="thumb">
-                        <img src="http://demo.devitems.com/boighor-v3/images/about/team/3.jpg" alt="">
+                        <img src="https://b7.pngbarn.com/png/722/477/computer-icons-user-profile-avatar-png-clip-art-thumbnail.png" alt="">
                         {{-- <img src="{{asset('frontend')}}/images/about/team/3.jpg" alt="Team images"> --}}
                     </div>
                     <div class="content text-center">
