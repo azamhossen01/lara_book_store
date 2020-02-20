@@ -132,6 +132,6 @@ class CartController extends Controller
         }
         Cart::clear();
         Alert::alert('Successs', 'Order Placed Successfully', 'success');
-        return redirect()->route('/');
+        return redirect()->route('/')->with('order_placed');
     }
 }
