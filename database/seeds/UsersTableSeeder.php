@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -13,7 +14,10 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        // DB::table('users')->insert([
+            
+        // ]);
+        User::create([
             'is_admin' => 1,
             'name' => 'MD. Admin Khan',
             'email' => 'admin@gmail.com',
