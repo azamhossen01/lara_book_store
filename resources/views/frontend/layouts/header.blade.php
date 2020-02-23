@@ -1,4 +1,4 @@
-<header id="wn__header" class="header__area header__absolute sticky__header">
+<header id="wn__header" class="header__area header__absolute sticky__header bg-dark">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-6 col-sm-6 col-6 col-lg-2">
@@ -11,35 +11,10 @@
             <div class="col-lg-8 d-none d-lg-block">
                 <nav class="mainmenu__nav">
                     <ul class="meninmenu d-flex justify-content-start">
-                    <li class="drop with--one--item"><a href="{{route('/')}}">Home</a></li>
-                    <li class="drop with--one--item"><a href="{{route('/')}}">About Us</a></li>
-                        {{-- <li class="drop"><a href="#">Shop</a>
-                            <div class="megamenu mega03">
-                                <ul class="item item03">
-                                    <li class="title">Shop Layout</li>
-                                <li><a href="{{route('shop_grid')}}">Shop Grid</a></li>
-                                <li><a href="{{route('single_product')}}">Single Product</a></li>
-                                </ul>
-                                <ul class="item item03">
-                                    <li class="title">Shop Page</li>
-                                <li><a href="{{route('my_account')}}">My Account</a></li>
-                                <li><a href="{{route('cart')}}">Cart Page</a></li>
-                                <li><a href="{{route('checkout')}}">Checkout Page</a></li>
-                                <li><a href="{{route('wishlist')}}">Wishlist Page</a></li>
-                                <li><a href="{{route('error404')}}">404 Page</a></li>
-                                <li><a href="{{route('faq')}}">Faq Page</a></li>
-                                </ul>
-                                <ul class="item item03">
-                                    <li class="title">Bargain Books</li>
-                                    <li><a href="{{route('shop_grid')}}">Bargain Bestsellers</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Activity Kits</a></li>
-                                    <li><a href="{{route('shop_grid')}}">B&N Classics</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Books Under BDT 5</a></li>
-                                    <li><a href="{{route('shop_grid')}}">Bargain Books</a></li>
-                                </ul>
-                            </div>
-                        </li> --}}
-                        <li class="drop"><a href="#">Books</a>
+                    <li class="drop with--one--item"><a href="{{route('/')}}" class="text-light">Home</a></li>
+                    <li class="drop with--one--item"><a href="{{route('about')}}" class="text-light">About Us</a></li>
+                       
+                        <li class="drop"><a href="JavaScript:Void(0);" class="text-light">Books</a>
                             <div class="megamenu mega03">
                                 <ul class="item item03">
                                     
@@ -72,14 +47,14 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="drop"><a href="#">Writer</a>
+                        <li class="drop"><a href="JavaScript:Void(0);" class="text-light">Writer</a>
                             <div class="megamenu mega02">
                                 <ul class="item item02">
                                     <li class="title">All Writers</li>
                                     @forelse(App\Writer::where('status',1)->get()->splice(0,10) as $writer)
                                 <li><a href="{{route('writer_books',$writer->id)}}">{{$writer->name}}</a></li>
                                     @empty 
-                                    <li><a href="#">No Writer Available</a></li>
+                                    <li><a href="JavaScript:Void(0);">No Writer Available</a></li>
                                     @endforelse
                                 </ul>
                                 <ul class="item item02">
@@ -87,7 +62,7 @@
                                     @forelse(App\Writer::where('status',1)->get()->splice(10,10) as $writer)
                                 <li><a href="{{route('writer_books',$writer->id)}}">{{$writer->name}}</a></li>
                                     @empty 
-                                    <li><a href="#">No Writer Available</a></li>
+                                    <li><a href="JavaScript:Void(0);">No Writer Available</a></li>
                                     @endforelse
                                 </ul>
                                 {{-- <ul class="item item02">
@@ -100,36 +75,12 @@
                                 </ul> --}}
                             </div>
                         </li>
-                        {{-- <li class="drop"><a href="#">Pages</a>
-                            <div class="megamenu dropdown">
-                                <ul class="item item01">
-                                <li><a href="{{route('about')}}">About Page</a></li>
-                                    <li class="label2"><a href="{{route('portfolio')}}">Portfolio</a>
-                                        <ul>
-                                            <li><a href="{{route('portfolio')}}">Portfolio</a></li>
-                                        <li><a href="{{route('portfolio_details')}}">Portfolio Details</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="{{route('my_account')}}">My Account</a></li>
-                                    <li><a href="{{route('cart')}}">Cart Page</a></li>
-                                    <li><a href="{{route('checkout')}}">Checkout Page</a></li>
-                                    <li><a href="{{route('wishlist')}}">Wishlist Page</a></li>
-                                    <li><a href="{{route('error404')}}">404 Page</a></li>
-                                    <li><a href="{{route('faq')}}">Faq Page</a></li>
-                                    <li><a href="{{route('team')}}">Team Page</a></li>
-                                </ul>
-                            </div>
-                        </li> --}}
-                        <li class="drop"><a href="{{route('blog')}}">Blog</a>
-                            <div class="megamenu dropdown">
-                                <ul class="item item01">
-                                    <li><a href="{{route('blog')}}">Blog Page</a></li>
-                                <li><a href="{{route('blog_details')}}">Blog Details</a></li>
-                                </ul>
-                            </div>
+                       
+                        <li class="drop"><a href="{{route('blog')}}" class="text-light">News</a>
+                           
                         </li>
-                    <li><a href="{{route('contact')}}">Contact</a></li>
-                    <li class="drop"><a href="{{route('/')}}">Account</a>
+                    <li><a href="{{route('contact')}}" class="text-light">Contact</a></li>
+                    <li class="drop"><a href="JavaScript:Void(0);" class="text-light">Account</a>
                         <div class="megamenu dropdown">
                             <ul class="item item01">
                             @if(Auth::check() == true)
@@ -153,15 +104,16 @@
             </div>
             <div class="col-md-6 col-sm-6 col-6 col-lg-2">
                 <ul class="header__sidebar__right d-flex justify-content-end align-items-center">
-                    <li class="shop_search"><a class="search__active" href="#"></a></li>
-                    <li class="wishlist"><a href="#"></a></li>
-                    <li class="shopcart"><a  class="cartbox_active" href="#"><span class="product_qun" id="product_qun"></span></a>
+                    <li class="shop_search"><a class="search__active" href="JavaScript:Void(0);"></a></li>
+                    <li class="wishlist"><a href="JavaScript:Void(0);" class="text-light"></a></li>
+                    <li class="shopcart"><i class="fa fa-shopping-cart fa-2x text-light"></i><a  class="cartbox_active" href="JavaScript:Void(0);"><span class="product_qun" id="product_qun"></span></a>
                         <!-- Start Shopping Cart -->
                         <div class="block-minicart minicart__active" style="border:1px solid black;height:500px;overflow:scroll;overflow-y:scroll;overflow-x:hidden;">
                             
                             <div class="minicart-content-wrapper" id="jamal">
                                 <div class="micart__close">
                                     <span>close</span>
+                                    
                                 </div>
                                 <div class="items-total d-flex justify-content-between">
                                     <span id="cart_items"></span>
@@ -171,43 +123,12 @@
                                 <span id="cart_subtotal"> </span>
                                 </div>
                                 <div class="mini_action checkout">
-                                    <a class="checkout__btn" href="cart.html">Go to Checkout</a>
+                                <a class="checkout__btn" href="{{route('checkout')}}">Go to Checkout</a>
                                 </div>
                                 <div class="single__items">
                                     <div class="miniproduct" id="add_to_cart">
                                         
-                                        {{-- <div class="item01 d-flex mt--20">
-                                            <div class="thumb">
-                                                <a href="product-details.html"><img src="{{asset('frontend')}}/images/product/sm-img/3.jpg" alt="product images"></a>
-                                            </div>
-                                            <div class="content">
-                                                <h6><a href="product-details.html">Impulse Duffle</a></h6>
-                                                <span class="prize">BDT 40.00</span>
-                                                <div class="product_prize d-flex justify-content-between">
-                                                    <span class="qun">Qty: 03</span>
-                                                    <ul class="d-flex justify-content-end">
-                                                        <li><a href="#"><i class="zmdi zmdi-settings"></i></a></li>
-                                                        <li><a href="#"><i class="zmdi zmdi-delete"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="item01 d-flex mt--20">
-                                            <div class="thumb">
-                                                <a href="product-details.html"><img src="{{asset('frontend')}}/images/product/sm-img/2.jpg" alt="product images"></a>
-                                            </div>
-                                            <div class="content">
-                                                <h6><a href="product-details.html">Compete Track Tote</a></h6>
-                                                <span class="prize">BDT 40.00</span>
-                                                <div class="product_prize d-flex justify-content-between">
-                                                    <span class="qun">Qty: 03</span>
-                                                    <ul class="d-flex justify-content-end">
-                                                        <li><a href="#"><i class="zmdi zmdi-settings"></i></a></li>
-                                                        <li><a href="#"><i class="zmdi zmdi-delete"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div> --}}
+                                  
                                     </div>
                                 </div>
                                 <div class="mini_action cart">
@@ -217,7 +138,7 @@
                         </div>
                         <!-- End Shopping Cart -->
                     </li>
-                    <li class="setting__bar__icon"><a class="setting__active" href="#"></a>
+                    {{-- <li class="setting__bar__icon"><a class="setting__active" href="#"></a>
                         <div class="searchbar__content setting__block">
                             <div class="content-inner">
                                 <div class="switcher-currency">
@@ -284,7 +205,7 @@
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </li> --}}
                 </ul>
             </div>
         </div>
@@ -294,8 +215,8 @@
                 <nav class="mobilemenu__nav">
                     <ul class="meninmenu">
                         <li><a href="{{route('/')}}">Home</a></li>
-                        <li><a href="{{route('/')}}">About Us</a></li>
-                        <li class="drop"><a href="#">Books</a>
+                        <li><a href="{{route('about')}}">About Us</a></li>
+                        <li class="drop"><a href="JavaScript:Void(0);">Books</a>
                             <ul>
                                 @forelse(App\Category::where('status',1)->get() as $category) 
                                 <li><a href="{{route('shop_grid',$category->id)}}">{{$category->name}} </a></li>
@@ -305,23 +226,23 @@
                             </ul>
                         </li>
                        
-                        <li class="drop"><a href="#">Writer</a>
+                        <li class="drop"><a href="JavaScript:Void(0);">Writer</a>
                             <ul>
                                
                                 @forelse(App\Writer::where('status',1)->get() as $writer)
                                 <li><a href="{{route('writer_books',$writer->id)}}">{{$writer->name}}</a></li>
                                 @empty 
-                                <li><a href="#">No Writer Available</a></li>
+                                <li><a href="JavaScript:Void(0);">No Writer Available</a></li>
                                 @endforelse
                             </ul>
                         </li>
                         
                     
-                        <li><a href="{{route('blog')}}">Blog</a>
-                            <ul>
+                        <li><a href="{{route('blog')}}">News</a>
+                            {{-- <ul>
                                 <li><a href="{{route('blog')}}">Blog Page</a></li>
                                 <li><a href="{{route('blog_details')}}">Blog Details</a></li>
-                            </ul>
+                            </ul> --}}
                         </li>
                   
                         <li><a href="{{route('contact')}}">Contact</a></li>

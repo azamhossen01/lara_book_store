@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title','Blog')
+@section('title','Book Store')
 
 
 @section('content')
@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="bradcaump__inner text-center">
-                    <h2 class="bradcaump-title">Blog Page</h2>
+                    <h2 class="bradcaump-title">News Page</h2>
                     <nav class="bradcaump-content">
                       <a class="breadcrumb_item" href="index.html">Home</a>
                       <span class="brd-separetor">/</span>
@@ -31,132 +31,32 @@
                     <div class="page__header">
                         <h2>Category Archives: HTML</h2>
                     </div>
-                    <!-- Start Single Post -->
+                    @forelse($blogs as $blog)
                     <article class="blog__post d-flex flex-wrap">
                         <div class="thumb">
-                            <a href="{{route('blog_details')}}">
-                               <img src="http://demo.devitems.com/boighor-v3/images/blog/blog-3/1.jpg" alt="">
-                                {{-- <img src="images/blog/blog-3/1.jpg" alt="blog images"> --}}
+                            <a href="{{route('blog_details',$blog->id)}}">
+                            <img src="{{asset('images/blogs/'.$blog->image)}}" alt="">
                             </a>
                         </div>
                         <div class="content">
-                            <h4><a href="{{route('blog_details')}}">Blog image post</a></h4>
+                        <h4><a href="{{route('blog_details',$blog->id)}}">{{$blog->title}}</a></h4>
                             <ul class="post__meta">
-                                <li>Posts by : <a href="#">road theme</a></li>
+                            <li>Posts by : <a href="{{route('blog_details',$blog->id)}}">Admin</a></li>
                                 <li class="post_separator">/</li>
-                                <li>Mar 10 2018</li>
+                            <li>{{$blog->created_at->format('M d, Y')}}</li>
                             </ul>
-                            <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
+                        <p>{{str_limit($blog->description,150)}}</p>
                             <div class="blog__btn">
-                                <a href="{{route('blog_details')}}">read more</a>
+                                <a href="{{route('blog_details',$blog->id)}}">read more</a>
                             </div>
                         </div>
                     </article>
-                    <!-- End Single Post -->
-                    <!-- Start Single Post -->
-                    <article class="blog__post d-flex flex-wrap">
-                        <div class="thumb">
-                            <a href="{{route('blog_details')}}">
-                              <img src="http://demo.devitems.com/boighor-v3/images/blog/blog-3/2.jpg" alt="">
-                                {{-- <img src="images/blog/blog-3/2.jpg" alt="blog images"> --}}
-                            </a>
-                        </div>
-                        <div class="content">
-                            <h4><a href="{{route('blog_details')}}">Post with Gallery</a></h4>
-                            <ul class="post__meta">
-                                <li>Posts by : <a href="#">road theme</a></li>
-                                <li class="post_separator">/</li>
-                                <li>Mar 10 2018</li>
-                            </ul>
-                            <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
-                            <div class="blog__btn">
-                                <a href="{{route('blog_details')}}">read more</a>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- End Single Post -->
-                    <!-- Start Single Post -->
-                    <article class="blog__post d-flex flex-wrap">
-                        <div class="thumb">
-                            <a href="{{route('blog_details')}}">
-                             <img src="http://demo.devitems.com/boighor-v3/images/blog/blog-3/3.jpg" alt="">
-                                {{-- <img src="images/blog/blog-3/3.jpg" alt="blog images"> --}}
-                            </a>
-                        </div>
-                        <div class="content">
-                            <h4><a href="{{route('blog_details')}}">Post with Gallery</a></h4>
-                            <ul class="post__meta">
-                                <li>Posts by : <a href="#">road theme</a></li>
-                                <li class="post_separator">/</li>
-                                <li>Mar 10 2018</li>
-                            </ul>
-                            <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
-                            <div class="blog__btn">
-                                <a href="{{route('blog_details')}}">read more</a>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- End Single Post -->
-                    <!-- Start Single Post -->
-                    <article class="blog__post d-flex flex-wrap">
-                        <div class="thumb">
-                            <a href="{{route('blog_details')}}">
-                                <img src="http://demo.devitems.com/boighor-v3/images/blog/blog-3/4.jpg" alt="">
-                                {{-- <img src="images/blog/blog-3/4.jpg" alt="blog images"> --}}
-                            </a>
-                        </div>
-                        <div class="content">
-                            <h4><a href="{{route('blog_details')}}">Blog image post</a></h4>
-                            <ul class="post__meta">
-                                <li>Posts by : <a href="#">road theme</a></li>
-                                <li class="post_separator">/</li>
-                                <li>Mar 10 2018</li>
-                            </ul>
-                            <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
-                            <div class="blog__btn">
-                                <a href="{{route('blog_details')}}">read more</a>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- End Single Post -->
-                    <!-- Start Single Post -->
-                    <article class="blog__post d-flex flex-wrap">
-                        <div class="thumb">
-                            <a href="{{route('blog_details')}}">
-                              <img src="http://demo.devitems.com/boighor-v3/images/blog/blog-3/5.jpg" alt="">
-                                {{-- <img src="images/blog/blog-3/5.jpg" alt="blog images"> --}}
-                            </a>
-                        </div>
-                        <div class="content">
-                            <h4><a href="{{route('blog_details')}}">Blog image post</a></h4>
-                            <ul class="post__meta">
-                                <li>Posts by : <a href="#">road theme</a></li>
-                                <li class="post_separator">/</li>
-                                <li>Mar 10 2018</li>
-                            </ul>
-                            <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
-                            <div class="blog__btn">
-                                <a href="{{route('blog_details')}}">read more</a>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- End Single Post -->
-                    <!-- Start Single Post -->
-                    <article class="blog__post text--post">
-                        <div class="content">
-                            <h4><a href="{{route('blog_details')}}">Blog image post</a></h4>
-                            <ul class="post__meta">
-                                <li>Posts by : <a href="#">road theme</a></li>
-                                <li class="post_separator">/</li>
-                                <li>Mar 10 2018</li>
-                            </ul>
-                            <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus Praesent ornare tortor amet.</p>
-                            <div class="blog__btn">
-                                <a href="{{route('blog_details')}}">read more</a>
-                            </div>
-                        </div>
-                    </article>
-                    <!-- End Single Post -->
+                    @empty 
+                    <h3>No News</h3>
+                    @endforelse
+                    
+                   
+                   
                 </div>
                 <ul class="wn__pagination">
                     <li class="active"><a href="#">1</a></li>
@@ -184,76 +84,25 @@
                         <h3 class="widget-title">Recent</h3>
                         <div class="recent-posts">
                             <ul>
+                                @forelse($recent_blogs as $key=>$r_blog)
                                 <li>
                                     <div class="post-wrapper d-flex">
                                         <div class="thumb">
-                                            <a href="{{route('blog_details')}}">
-                                                {{-- <img src="images/blog/sm-img/1.jpg" alt="blog images"> --}}
-                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/1.jpg" alt="">
+                                            <a href="{{route('blog_details',$r_blog->id)}}">
+                                            <img src="{{asset('images/blogs/'.$r_blog->image)}}" width="100%" alt="">    
+                                              
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4><a href="{{route('blog_details')}}">Blog image post</a></h4>
-                                            <p>	March 10, 2015</p>
+                                        <h4><a href="{{route('blog_details',$r_blog->id)}}">{{$r_blog->title}}</a></h4>
+                                        <p>	{{$r_blog->created_at->format('M d, Y')}}</p>
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="post-wrapper d-flex">
-                                        <div class="thumb">
-                                            <a href="{{route('blog_details')}}">
-                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/2.jpg" alt="">    
-                                                {{-- <img src="images/blog/sm-img/2.jpg" alt="blog images"> --}}
-                                            </a>
-                                        </div>
-                                        <div class="content">
-                                            <h4><a href="{{route('blog_details')}}">Post with Gallery</a></h4>
-                                            <p>	March 10, 2015</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="post-wrapper d-flex">
-                                        <div class="thumb">
-                                            <a href="{{route('blog_details')}}">
-                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/3.jpg" alt="">    
-                                                {{-- <img src="images/blog/sm-img/3.jpg" alt="blog images"> --}}
-                                            </a>
-                                        </div>
-                                        <div class="content">
-                                            <h4><a href="{{route('blog_details')}}">Post with Video</a></h4>
-                                            <p>	March 10, 2015</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="post-wrapper d-flex">
-                                        <div class="thumb">
-                                            <a href="{{route('blog_details')}}">
-                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/4.jpg" alt="">    
-                                                {{-- <img src="images/blog/sm-img/4.jpg" alt="blog images"> --}}
-                                            </a>
-                                        </div>
-                                        <div class="content">
-                                            <h4><a href="{{route('blog_details')}}">Maecenas ultricies</a></h4>
-                                            <p>	March 10, 2015</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="post-wrapper d-flex">
-                                        <div class="thumb">
-                                            <a href="{{route('blog_details')}}">
-                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/5.jpg" alt="">    
-                                                {{-- <img src="images/blog/sm-img/5.jpg" alt="blog images"> --}}
-                                            </a>
-                                        </div>
-                                        <div class="content">
-                                            <h4><a href="{{route('blog_details')}}">Blog image post</a></h4>
-                                            <p>	March 10, 2015</p>
-                                        </div>
-                                    </div>
-                                </li>
+                                @empty 
+                                <li>No Recent News</li>
+                                @endforelse
+                                
                             </ul>
                         </div>
                     </aside>

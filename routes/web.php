@@ -36,6 +36,16 @@ Route::post('check_customer_login','CustomerLoginController@check_customer_login
 // get single book data
 Route::get('get_book','ShopController@get_book')->name('get_book');
 
+// blog
+Route::get('blog_details/{blog_id}','ShopController@blog_details')->name('blog_details');
+Route::get('blog','ShopController@blog')->name('blog');
+
+// blog comment
+Route::post('post_comment','ShopController@post_comment')->name('post_comment');
+
+// about page
+Route::get('about','ShopController@about')->name('about');
+
 // cart route
 Route::get('add_to_cart','CartController@add_to_cart')->name('add_to_cart');
 Route::get('get_cart_data','CartController@get_cart_data')->name('get_cart_data');
@@ -45,6 +55,7 @@ Route::get('get_sub_total','CartController@get_sub_total')->name('get_sub_total'
 Route::get('checkout','CartController@checkout')->name('checkout');
 Route::post('update_cart_data','CartController@update_cart_data')->name('update_cart_data');
 
+Route::post('order_placed','CartController@order_placed')->name('order_placed');
 
 Route::get('cart','ShopController@cart')->name('cart');
 
@@ -62,9 +73,9 @@ Route::get('faq',function(){
     return view('frontend.faq');
 })->name('faq');
 
-Route::get('about',function(){
-    return view('frontend.about');
-})->name('about');
+// Route::get('about',function(){
+//     return view('frontend.about');
+// })->name('about');
 
 Route::get('portfolio',function(){
     return view('frontend.portfolio');
@@ -78,13 +89,13 @@ Route::get('team',function(){
     return view('frontend.team');
 })->name('team');
 
-Route::get('blog',function(){
-    return view('frontend.blog');
-})->name('blog');
+// Route::get('blog',function(){
+//     return view('frontend.blog');
+// })->name('blog');
 
-Route::get('blog_details',function(){
-    return view('frontend.blog_details');
-})->name('blog_details');
+// Route::get('blog_details',function(){
+//     return view('frontend.blog_details');
+// })->name('blog_details');
 
 Auth::routes();
 
@@ -98,6 +109,9 @@ Route::group(['middleware'=>['auth','admin']],function(){
     Route::resource('writers','WriterController');
     // Route::get('change_book_status/{book_id}','BookController@change_book_status')->name('change_book_status');
     Route::get('change_book_status','BookController@change_book_status')->name('books.status.update');
-    
+    Route::get('change_blog_status/{blog_id}','BlogController@change_blog_status')->name('change_blog_status');
     Route::resource('books','BookController');
+    Route::resource('customers','CustomerController');
+    Route::resource('orders','OrderController');
+    Route::resource('blogs','BlogController');
 });

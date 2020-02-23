@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title','Contact')
+@section('title','Book Store')
 
 {{-- @section('slider')
 <div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme bg-success">

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.app')
 
-@section('title','Blog Details')
+@section('title','Book Store')
 
 
 @section('content')
@@ -29,27 +29,28 @@
                 <div class="blog-details content">
                     <article class="blog-post-details">
                         <div class="post-thumbnail">
-                          <img src="http://demo.devitems.com/boighor-v3/images/blog/big-img/1.jpg" alt="">
+                        <img src="{{asset('images/blogs/'.$blog->image)}}" width="100%" alt="">
                             {{-- <img src="images/blog/big-img/1.jpg" alt="blog images"> --}}
                         </div>
                         <div class="post_wrapper">
                             <div class="post_header">
-                                <h2>International activities of the Book</h2>
+                            <h2>{{$blog->title}}</h2>
                                 <div class="blog-date-categori">
                                     <ul>
-                                        <li>June 27, 2018</li>
-                                        <li><a href="#" title="Posts by boighor" rel="author">boighor</a></li>
+                                    <li>{{$blog->created_at->format('M d, Y')}}</li>
+                                    <li><a href="{{route('/')}}" title="Posts by boighor" rel="author">Admin</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="post_content">
-                                <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio. Nunc id leo ultrices, mollis ligula in, finibus tortor. Mauris eu dui ut lectus fermentum eleifend. Pellentesque faucibus sem ante, non malesuada odio varius nec. Suspendisse potenti. Proin consectetur aliquam odio nec fringilla. Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit amet ligula condimentum sagittis.</p>
+                                {{-- <p>Donec vitae hendrerit arcu, sit amet faucibus nisl. Crastoup pretium arcu ex. Aenean posuere libero eu augue rhoncus. Praesent ornare tortor ac ante egestas hendrerit. Aliquam et metus pharetra, bibendum massa nec, fermentum odio. Nunc id leo ultrices, mollis ligula in, finibus tortor. Mauris eu dui ut lectus fermentum eleifend. Pellentesque faucibus sem ante, non malesuada odio varius nec. Suspendisse potenti. Proin consectetur aliquam odio nec fringilla. Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit amet ligula condimentum sagittis.</p>
 
                                 <blockquote>Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmod tempor deo incididunt labo dolor magna aliqua. Ut enim ad minim veniam quis nostrud geolans work.</blockquote>
 
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehendrit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of to magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehnderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dser mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore of to magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehnderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dser mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo.</p> --}}
+                                <p>{{$blog->description}}</p>
 
                             </div>
                             <ul class="blog_meta">
@@ -60,31 +61,65 @@
                         </div>
                     </article>
                     <div class="comments_area">
-                        <h3 class="comment__title">1 comment</h3>
+                        <h3 class="comment__title">{{count($blog->comments)}} comment/s</h3>
                         <ul class="comment__list">
+                            @forelse($comments as $key=>$comment)
                             <li>
                                 <div class="wn__comment">
                                     <div class="thumb">
                                         <img src="http://demo.devitems.com/boighor-v3/images/blog/comment/1.jpeg" alt="">
-                                        {{-- <img src="images/blog/comment/1.jpeg" alt="comment images"> --}}
                                     </div>
                                     <div class="content">
                                         <div class="comnt__author d-block d-sm-flex">
-                                            <span><a href="#">admin</a> Post author</span>
-                                            <span>October 6, 2014 at 9:26 am</span>
+                                        <span><a href="#">{{$comment->user?$comment->user->name:'Unknown'}}</a> Post author</span>
+                                        <span>{{$comment->created_at->format('F d, Y  H:i a')}}</span>
+                                            {{-- <span>October 6, 2014 at 9:26 am</span> --}}
                                             <div class="reply__btn">
-                                                <a href="#">Reply</a>
+                                                <a href="javascript:void(0)" onclick="open_replay_box({{$comment->id}})">Reply</a>
                                             </div>
                                         </div>
-                                        <p>Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit</p>
+                                    <p>{{$comment->comment}}</p>
+                                    {{-- replaies start here --}}
+                                    @forelse($comment->replaies as $key=>$replay)
+                                    <div class="wn__comment">
+                                        <div class="thumb">
+                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/comment/1.jpeg" alt="">
+                                        </div>
+                                        <div class="content">
+                                            <div class="comnt__author d-block d-sm-flex">
+                                                <span><a href="">{{$replay->user?$replay->user->name:'Unknown'}}</a> Replay On Post</span>
+                                                <span>{{$replay->created_at->format('F d, Y  H:i a')}}</span>
+                                            </div>
+                                        <p>{{$replay->comment}}</p>
+                                        </div>
+                                    </div>
+                                    @empty 
+
+                                    @endforelse
+                                    {{-- replaies end here --}}
+                                    <form action="{{route('post_comment')}}" method="post">
+                                        @csrf 
+                                        <input type="hidden" name="blog_id" value="{{$blog->id}}">
+                                        <input type="hidden" name="user_id" value="{{Auth::id()}}">
+                                        <input type="hidden" name="parent_id" value="{{$comment->id}}">
+                                        <input type="hidden" name="is_replay" value=1>
+                                        <div class="form-group" style="display:none" id="replay_box{{$comment->id}}">
+                                            <input type="text" placeholder="Replay" name="replay" class="form-control">
+                                            <button type="submit" class="btn btn-success mt-2 btn-sm">Replay</button>
+                                        </div>
+                                        
+                                    </form>
                                     </div>
                                 </div>
                             </li>
-                            <li class="comment_reply">
+                            @empty 
+                            <h3>No Comment</h3>
+                            @endforelse
+
+                            {{-- <li class="comment_reply">
                                 <div class="wn__comment">
                                     <div class="thumb">
                                         <img src="http://demo.devitems.com/boighor-v3/images/blog/comment/1.jpeg" alt="">
-                                        {{-- <img src="images/blog/comment/1.jpeg" alt="comment images"> --}}
                                     </div>
                                     <div class="content">
                                         <div class="comnt__author d-block d-sm-flex">
@@ -97,29 +132,34 @@
                                         <p>Sed interdum at justo in efficitur. Vivamus gravida volutpat sodales. Fusce ornare sit</p>
                                     </div>
                                 </div>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                     <div class="comment_respond">
-                        <h3 class="reply_title">Leave a Reply <small><a href="#">Cancel reply</a></small></h3>
-                        <form class="comment__form" action="#">
+                        <h3 class="reply_title">Leave a Comment <small><a href="#">Cancel reply</a></small></h3>
+                    <form class="comment__form" action="{{route('post_comment')}}" method="post">
+                        @csrf 
+                    <input type="hidden" name="blog_id" value="{{$blog->id}}">
+                    <input type="hidden" name="user_id" value="{{Auth::id()}}">
+                    <input type="hidden" name="is_replay" value=0>
                             <p>Your email address will not be published.Required fields are marked </p>
                             <div class="input__box">
                                 <textarea name="comment" placeholder="Your comment here"></textarea>
                             </div>
                             <div class="input__wrapper clearfix">
                                 <div class="input__box name one--third">
-                                    <input type="text" placeholder="name">
+                                <input type="text" placeholder="name" value="{{Auth::check()?Auth::user()->name:''}}" name="name">
                                 </div>
                                 <div class="input__box email one--third">
-                                    <input type="email" placeholder="email">
+                                <input type="email" placeholder="email" value="{{Auth::check()?Auth::user()->email:''}}" name="email">
                                 </div>
-                                <div class="input__box website one--third">
+                                {{-- <div class="input__box website one--third">
                                     <input type="text" placeholder="website">
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="submite__btn">
-                                <a href="#">Post Comment</a>
+                                {{-- <a href="#">Post Comment</a> --}}
+                                <button type="submit" class="btn btn-warning">Post Comment</button>
                             </div>
                         </form>
                     </div>
@@ -143,76 +183,24 @@
                         <h3 class="widget-title">Recent</h3>
                         <div class="recent-posts">
                             <ul>
+                                @forelse($recent_blogs as $key=>$r_blog)
                                 <li>
                                     <div class="post-wrapper d-flex">
                                         <div class="thumb">
                                             <a href="blog-details.html">
-                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/1.jpg" alt="">    
-                                                {{-- <img src="images/blog/sm-img/1.jpg" alt="blog images"> --}}
+                                            <img src="{{asset('images/blogs/'.$r_blog->image)}}" width="100%" alt="">    
+                                              
                                             </a>
                                         </div>
                                         <div class="content">
-                                            <h4><a href="blog-details.html">Blog image post</a></h4>
-                                            <p>	March 10, 2015</p>
+                                        <h4><a href="blog-details.html">{{$blog->title}}</a></h4>
+                                        <p>	{{$blog->created_at->format('M d, Y')}}</p>
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="post-wrapper d-flex">
-                                        <div class="thumb">
-                                            <a href="blog-details.html">
-                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/2.jpg" alt="">    
-                                                {{-- <img src="images/blog/sm-img/2.jpg" alt="blog images"> --}}
-                                            </a>
-                                        </div>
-                                        <div class="content">
-                                            <h4><a href="blog-details.html">Post with Gallery</a></h4>
-                                            <p>	March 10, 2015</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="post-wrapper d-flex">
-                                        <div class="thumb">
-                                            <a href="blog-details.html">
-                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/3.jpg" alt="">    
-                                                {{-- <img src="images/blog/sm-img/3.jpg" alt="blog images"> --}}
-                                            </a>
-                                        </div>
-                                        <div class="content">
-                                            <h4><a href="blog-details.html">Post with Video</a></h4>
-                                            <p>	March 10, 2015</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="post-wrapper d-flex">
-                                        <div class="thumb">
-                                            <a href="blog-details.html">
-                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/4.jpg" alt="">    
-                                                {{-- <img src="images/blog/sm-img/4.jpg" alt="blog images"> --}}
-                                            </a>
-                                        </div>
-                                        <div class="content">
-                                            <h4><a href="blog-details.html">Maecenas ultricies</a></h4>
-                                            <p>	March 10, 2015</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="post-wrapper d-flex">
-                                        <div class="thumb">
-                                            <a href="blog-details.html">
-                                            <img src="http://demo.devitems.com/boighor-v3/images/blog/sm-img/5.jpg" alt="">    
-                                                {{-- <img src="images/blog/sm-img/5.jpg" alt="blog images"> --}}
-                                            </a>
-                                        </div>
-                                        <div class="content">
-                                            <h4><a href="blog-details.html">Blog image post</a></h4>
-                                            <p>	March 10, 2015</p>
-                                        </div>
-                                    </div>
-                                </li>
+                                @empty 
+                                <li>No Recent News</li>
+                                @endforelse
                             </ul>
                         </div>
                     </aside>
@@ -317,6 +305,16 @@
 </div>
 
 @endsection
+
+@push('js')
+
+<script>
+    function open_replay_box(comment_id){
+        $('#replay_box'+comment_id).toggle();
+    }
+</script>
+
+@endpush
 
 
 

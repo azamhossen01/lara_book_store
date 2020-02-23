@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Cart;
+use App\Blog;
 use App\Book;
 use App\Writer;
+use App\Comment;
 use App\Category;
 use App\Customer;
-use Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -26,7 +28,8 @@ class ShopController extends Controller
         $all_categories = Category::where('status',1)->get();
         $books = Book::where('status',1)->get();
         $recents = Book::orderBy('id', 'desc')->take(8)->get();
-        return view('frontend.home',compact('books','categories','recents','all_categories'));
+        $blogs = Blog::orderBy('id', 'desc')->take(3)->get();
+        return view('frontend.home',compact('books','categories','recents','all_categories','blogs'));
     }
 
     public function single_product($book_id){
@@ -81,4 +84,40 @@ class ShopController extends Controller
         $items = Cart::getContent();
         return view('frontend.cart',compact('items'));
     }
+
+    public function blog(){
+        $blogs = Blog::where('status',1)->get();
+        $recent_blogs = Blog::orderBy('id', 'desc')->take(5)->get();
+        return view('frontend.blog',compact('blogs','recent_blogs'));
+    }
+
+    public function blog_details($id){
+        $blog = Blog::findOrFail($id);
+        $comments = $blog->comments->where('parent_id',null);
+        $recent_blogs = Blog::orderBy('id', 'desc')->take(5)->get();
+        return view('frontend.blog_details',compact('blog','recent_blogs','comments'));
+    }
+
+    public function post_comment(Request $request){
+        // return $request;
+        $message = $request->comment??$request->replay;
+        // return $message;
+        $comment = new Comment;
+        $comment->user_id = $request->user_id;
+        $comment->blog_id = $request->blog_id;
+        $comment->parent_id = $request->parent_id;
+        $comment->name = $request->name;
+        $comment->email = $request->email;
+        $comment->comment = $message;
+        $comment->is_replay = $request->is_replay;
+        // return $comment;
+        $comment->save();
+        return redirect()->back();
+    }
+
+    public function about(){
+        return view('frontend.about');
+    }
+
+
 }

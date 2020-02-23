@@ -1,11 +1,11 @@
 @extends('frontend.layouts.app')
 
-@section('title','Home')
+@section('title','Book Store')
 
 @section('slider')
 <div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme">
     <!-- Start Single Slide -->
-    <div class="slide animation__style10 bg-image--1 fullscreen align__center--left" style="background-image:url('https://www.washingtonpost.com/resizer/hG1kJAuLjq0zSYdqA04W7bg5bpQ=/arc-anglerfish-washpost-prod-washpost/public/QQ5VZMH3GMI6THQCDVC4WPP2R4.jpg')">
+    <div class="slide animation__style10 bg-image--1 fullscreen align__center--left" style="background-image:url({{asset('frontend/images/slider2.jpg')}})">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -23,7 +23,7 @@
     </div>
     <!-- End Single Slide -->
     <!-- Start Single Slide -->
-    <div class="slide animation__style10 bg-image--7 fullscreen align__center--left" style="background-image:url('https://hiplatina.com/wp-content/uploads/sites/2/2018/08/Kidreadingbook-1280x720.jpg')">
+    <div class="slide animation__style10 bg-image--7 fullscreen align__center--left" style="background-image:url({{asset('frontend/images/slider1.jpg')}})">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -50,7 +50,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section__title text-center">
-                    <h2 class="title__be--2">New <span class="color--theme">Books</span></h2>
+                    <h2 class="title__be--2">latest <span class="color--theme">Books</span></h2>
                     <p>These are new books in our collection.</p>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                         <div class="action">
                             <div class="actions_inner">
                                 <ul class="add_to_links">
-                                    <li><a class="cart" href="#" onclick="add_to_cart({{$book->id}})"><i class="bi bi-shopping-bag4"></i></a></li>
+                                    <li><a class="cart" href="JavaScript:Void(0);" onclick="add_to_cart({{$book->id}})"><i class="bi bi-shopping-bag4"></i></a></li>
                                     <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
                                     <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
                                     <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal" onclick="show_product_details({{$book->id}})"><i class="bi bi-search"></i></a></li>
@@ -185,7 +185,7 @@
                                     <div class="action">
                                         <div class="actions_inner">
                                             <ul class="add_to_links">
-                                            <li><a class="cart" href="#" onclick="add_to_cart({{$book->id}})"><i class="bi bi-shopping-bag4"></i></a></li>
+                                            <li><a class="cart" href="JavaScript:Void(0);" onclick="add_to_cart({{$book->id}})"><i class="bi bi-shopping-bag4"></i></a></li>
                                             <li><a class="wishlist" href="{{route('wishlist')}}"><i class="bi bi-shopping-cart-full"></i></a></li>
                                                 <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
                                                 <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal" onclick="show_product_details({{$book->id}})"><i class="bi bi-search"></i></a></li>
@@ -297,30 +297,35 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section__title text-center">
-                    <h2 class="title__be--2">Our <span class="color--theme">Blog</span></h2>
+                    <h2 class="title__be--2">Our <span class="color--theme">News</span></h2>
                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered lebmid alteration in some ledmid form</p>
                 </div>
             </div>
         </div>
         <div class="row mt--50">
+            @forelse($blogs as $key=>$blog)
             <div class="col-md-6 col-lg-4 col-sm-12">
                 <div class="post__itam">
                     <div class="content">
-                        <h3><a href="blog-details.html">International activities of the Frankfurt Book </a></h3>
-                        <p>We are proud to announce the very first the edition of the frankfurt news.We are proud to announce the very first of  edition of the fault frankfurt news for us.</p>
+                    <h3><a href="{{route('blog_details',$blog->id)}}">{{$blog->title}} </a></h3>
+                    <p>{{str_limit($blog->description,200)}}</p>
                         <div class="post__time">
-                            <span class="day">Dec 06, 18</span>
+                        <span class="day">{{$blog->created_at->format('M d, Y')}}</span>
+                            {{-- <span class="day">Dec 06, 18</span> --}}
                             <div class="post-meta">
                                 <ul>
                                     <li><a href="#"><i class="bi bi-love"></i>72</a></li>
-                                    <li><a href="#"><i class="bi bi-chat-bubble"></i>27</a></li>
+                                <li><a href="{{route('blog_details',$blog->id)}}"><i class="bi bi-chat-bubble"></i>{{count($blog->comments)}}</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 col-sm-12">
+            @empty 
+            <h3>No News Available</h3>
+            @endforelse 
+            {{-- <div class="col-md-6 col-lg-4 col-sm-12">
                 <div class="post__itam">
                     <div class="content">
                         <h3><a href="blog-details.html">Reading has a signficant info  number of benefits</a></h3>
@@ -353,7 +358,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>
