@@ -55,7 +55,7 @@ class ShopController extends Controller
     }
 
     public function customer_registration(Request $request){
-        return $request;
+        // return $request;
         $this->validate($request, [
             'name' => 'required|min:3|max:50',
             'email' => 'required|unique:customers',

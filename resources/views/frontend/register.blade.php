@@ -30,7 +30,7 @@
             <div class="col-lg-12 col-12">
                 <div class="my__account__wrapper">
                     <h3 class="account__title">Register</h3>
-                    <form action="{{route('register')}}" method="post">
+                    <form action="{{route('customer_registration')}}" method="post">
                     @csrf 
                         <div class="account__form">
                             <div class="row">

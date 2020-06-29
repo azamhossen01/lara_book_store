@@ -29,7 +29,7 @@
             <div class="col-lg-6 col-12">
                 <div class="my__account__wrapper">
                     <h3 class="account__title">Login</h3>
-                    <form action="{{route('login')}}" method="post">
+                    <form action="{{route('check_customer_login')}}" method="post">
                     @csrf
                         <div class="account__form">
                             <div class="input__box">
