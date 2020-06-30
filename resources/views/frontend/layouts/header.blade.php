@@ -98,6 +98,9 @@
                             </ul>
                         </div>
                     </li>
+                    @if(Auth::check() == true)
+                    <li><a href="{{route('order_history')}}" class="text-light">Orders</a></li>
+                    @endif
                     
                     </ul>
                 </nav>

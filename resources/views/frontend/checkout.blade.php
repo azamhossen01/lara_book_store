@@ -170,7 +170,8 @@
                     </ul>
                     <ul class="order_product">
                         @forelse($items as $key=>$item)
-                    <li>{{$item->associatedModel->title}} × {{$item->quantity}}<span>BDT {{$item->price*$item->quantity}}</span></li>
+                        
+                    <li>{{$item->associatedModel->title}} ({{$item->price}}) × {{$item->quantity}}<span>BDT {{$item->price*$item->quantity}}</span></li>
                         @empty 
 
                         @endforelse
@@ -234,7 +235,7 @@
                         <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                             <div class="payment-body">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</div>
                         </div>
-                    </div>
+                    </div>`
                     <div class="payment">
                         <div class="che__header" role="tab" id="headingTwo">
                               <a class="collapsed checkout__title" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">

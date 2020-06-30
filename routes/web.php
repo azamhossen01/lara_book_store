@@ -46,6 +46,9 @@ Route::post('post_comment','ShopController@post_comment')->name('post_comment');
 // about page
 Route::get('about','ShopController@about')->name('about');
 
+//order history
+Route::get('order_history','ShopController@order_history')->name('order_history');
+
 // cart route
 Route::get('add_to_cart','CartController@add_to_cart')->name('add_to_cart');
 Route::get('get_cart_data','CartController@get_cart_data')->name('get_cart_data');

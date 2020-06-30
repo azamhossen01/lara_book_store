@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Cart;
 use App\Blog;
 use App\Book;
+use App\Order;
 use App\Writer;
 use App\Comment;
 use App\Category;
 use App\Customer;
+use Darryldecode\Cart\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -117,6 +119,12 @@ class ShopController extends Controller
 
     public function about(){
         return view('frontend.about');
+    }
+
+    public function order_history(Request $request){
+        $orders = Order::where('customer_id',Auth::user()->customer->id)->get();
+        // return $orders;
+        return view('frontend.order_history',compact('orders'));
     }
 
 
