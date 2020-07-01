@@ -18,7 +18,9 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('customer_id');
             $table->unsignedBigInteger('shipping_id');
             $table->float('total')->nullable();
-            $table->integer('payment_method')->comment('0=cash on delivery, 1=bkash payment'); 
+            $table->double('delivery_charge',6,2)->nullable();
+            $table->string('purchase_type');
+            $table->string('payment_method'); 
             $table->string('transaction_id')->nullable();
             $table->integer('status')->default(0);
             $table->timestamps();

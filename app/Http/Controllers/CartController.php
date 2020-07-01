@@ -116,6 +116,10 @@ class CartController extends Controller
         $order = new Order;
         $order->shipping_id = $shipping->id;
         $order->customer_id = Auth::user()->customer->id;
+        if($request->payment_method !== 'pickup_method'){
+            $order->delivery_charge = 70;
+        }
+        $order->purchase_type = $request->purchase_type;
         $order->payment_method = $request->payment_method;
         $order->transaction_id = $request->transaction_id;
         $order->total = Cart::getTotal();

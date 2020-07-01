@@ -181,6 +181,7 @@
                     </ul>
                     <ul class="shipping__method">
                         <li>Cart Subtotal <span>BDT {{$sub_total}}</span></li>
+                        <li id="delivey_charge">Delivery Charge <span>BDT 70</span></li>
                         {{-- <li>Shipping 
                             <ul>
                                 <li>
@@ -201,21 +202,52 @@
                 <div id="accordion" class="checkout_accordion mt--30" role="tablist">
                     <div class="card">
                         <div class="card-header">
+                            <h3>Purchase Type</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-12 ml-3">
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="purchase_type" required type="radio" value="borrow_book" id="borrow_book" checked>
+                                        <label class="form-check-label" for="borrow_book">
+                                          Borrow Book (Get back 70% when return)
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input"  name="purchase_type" type="radio" value="full_purchase" id="full_purchase" >
+                                        <label class="form-check-label" for="full_purchase">
+                                          Full Purchase
+                                        </label>
+                                      </div>
+                                      
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="card">
+                        <div class="card-header">
                             <h3>Payment Methods</h3>
                         </div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-12 ml-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" name="payment_method" required type="radio" value="0" id="cash_payment" checked>
+                                        <input class="form-check-input" name="payment_method" required type="radio" value="cash_on_delivery" id="cash_payment" checked>
                                         <label class="form-check-label" for="cash_payment">
                                           Cash On Delivery
                                         </label>
                                       </div>
                                       <div class="form-check">
-                                        <input class="form-check-input"  name="payment_method" type="radio" value="1" id="bkash_payment" >
+                                        <input class="form-check-input"  name="payment_method" type="radio" value="bkash" id="bkash_payment" >
                                         <label class="form-check-label" for="bkash_payment">
                                           Bkash Payment
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input"  name="payment_method" type="radio" value="pickup_method" id="pickup_method" >
+                                        <label class="form-check-label" for="pickup_method">
+                                          Pickup Method
                                         </label>
                                       </div>
                                       <div class="form-group" id="transaction_no" style="display:none">
@@ -235,7 +267,7 @@
                         <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
                             <div class="payment-body">Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won’t be shipped until the funds have cleared in our account.</div>
                         </div>
-                    </div>`
+                    </div>
                     <div class="payment">
                         <div class="che__header" role="tab" id="headingTwo">
                               <a class="collapsed checkout__title" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -343,13 +375,20 @@
             $('#transaction_no').show();
             $("#cash_payment").prop('required',false);
             $("#transaction_id").prop('required',true);
+            $('#delivey_charge').show();
         });
 
         $('#cash_payment').click(function(){
             $('#transaction_no').hide();
             $("#transaction_id").prop('required',false);
+            $('#delivey_charge').show();
            
             
+        });
+
+        $('#pickup_method').click(()=>{
+            $('#transaction_no').hide();
+            $('#delivey_charge').hide();
         });
     </script>
 
