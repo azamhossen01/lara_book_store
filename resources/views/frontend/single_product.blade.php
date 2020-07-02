@@ -52,7 +52,7 @@
                         <div class="col-lg-6 col-12">
                             <div class="product__info__main">
                             <h1>{{$book->title}}</h1>
-                                <div class="product-reviews-summary d-flex">
+                                <!-- <div class="product-reviews-summary d-flex">
                                     <ul class="rating-summary d-flex">
                                         <li><i class="zmdi zmdi-star-outline"></i></li>
                                         <li><i class="zmdi zmdi-star-outline"></i></li>
@@ -60,7 +60,7 @@
                                         <li class="off"><i class="zmdi zmdi-star-outline"></i></li>
                                         <li class="off"><i class="zmdi zmdi-star-outline"></i></li>
                                     </ul>
-                                </div>
+                                </div> -->
                                 <div class="price-box">
                                 <span>BDT {{$book->price}}</span>
                                 </div>
@@ -71,28 +71,28 @@
 
                                 
 
-                                    <span>Qty</span>
+                                    <!-- <span>Qty</span> -->
                                     <form action="{{route('add_to_cart')}}">
                                         <input type="hidden" name="book_id" id="book_id" value="{{$book->id}}">
-                                        <input id="qty" class="input-text qty" name="qty" min="1" value="1" title="Qty" type="number">
+                                        <!-- <input readonly id="qty" class="input-text qty" name="qty" min="1" value="1" title="Qty" type="number"> -->
                                         <div class="addtocart__actions">
                                             <button class="tocart" type="button" id="add_single_book" title="Add to Cart">Add to Cart</button>
                                         </div>
 
                                     </form>
 
-                                    <div class="product-addto-links clearfix">
+                                    <!-- <div class="product-addto-links clearfix">
                                         <a class="wishlist" href="#"></a>
                                         <a class="compare" href="#"></a>
-                                    </div>
+                                    </div> -->
                                 </div>
-                                <div class="product_meta">
+                                <!-- <div class="product_meta">
                                     <span class="posted_in">Categories: 
                                         <a href="#">Adventure</a>, 
                                         <a href="#">Kids' Music</a>
                                     </span>
-                                </div>
-                                <div class="product-share">
+                                </div> -->
+                                <!-- <div class="product-share">
                                     <ul>
                                         <li class="categories-title">Share :</li>
                                         <li>
@@ -116,7 +116,7 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -269,13 +269,13 @@
                                         <div class="actions_inner">
                                             <ul class="add_to_links">
                                                 <li><a class="cart" href="JavaScript:Void(0);" onclick="add_to_cart({{$book->id}})"><i class="bi bi-shopping-bag4"></i></a></li>
-                                                <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
-                                                <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li>
+                                                <!-- <li><a class="wishlist" href="wishlist.html"><i class="bi bi-shopping-cart-full"></i></a></li>
+                                                <li><a class="compare" href="#"><i class="bi bi-heart-beat"></i></a></li> -->
                                                 <li><a data-toggle="modal" title="Quick View" class="quickview modal-view detail-link" href="#productmodal" onclick="show_product_details({{$book->id}})"><i class="bi bi-search"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="product__hover--content">
+                                    <!-- <div class="product__hover--content">
                                         <ul class="rating d-flex">
                                             <li class="on"><i class="fa fa-star-o"></i></li>
                                             <li class="on"><i class="fa fa-star-o"></i></li>
@@ -283,7 +283,7 @@
                                             <li><i class="fa fa-star-o"></i></li>
                                             <li><i class="fa fa-star-o"></i></li>
                                         </ul>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             @empty 

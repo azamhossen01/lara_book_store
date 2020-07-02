@@ -14,6 +14,7 @@
                     success : function(data){
                         console.log(data);
                         $('#book_title').text(data.title);
+                        $('#book_id').val(data.id);
                         $('#book_image').attr("src", "{{asset('images/books')}}/"+data.image);
                         $('#price').text('BDT '+data.price);
                         $('#discounted_price').text('BDT '+data.discounted_price);

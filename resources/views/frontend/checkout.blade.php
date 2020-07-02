@@ -196,7 +196,7 @@
                         </li> --}}
                     </ul>
                     <ul class="total__amount">
-                    <li>Order Total <span>BDT {{$sub_total}}</span></li>
+                    <li>Order Total  <span id="order_total"> {{$sub_total}}</span></li>
                     </ul>
                 </div>
                 <div id="accordion" class="checkout_accordion mt--30" role="tablist">
@@ -371,24 +371,33 @@
         //         $("#defaultCheck1").prop('required',true);
         //     }
         // });
+        $(document).ready(()=>{
+            
+         total = $('#order_total').text();
+         total_with_delivery_charge = (parseInt(total)+70);
+        //  total_without_delivery_charge = (parseInt(total)-70);
+        $('#order_total').text('BDT ' + total_with_delivery_charge);
+        });
         $('#bkash_payment').click(function(){
             $('#transaction_no').show();
             $("#cash_payment").prop('required',false);
             $("#transaction_id").prop('required',true);
             $('#delivey_charge').show();
+            $('#order_total').text('BDT ' + total_with_delivery_charge);
         });
 
         $('#cash_payment').click(function(){
             $('#transaction_no').hide();
             $("#transaction_id").prop('required',false);
             $('#delivey_charge').show();
-           
+            $('#order_total').text('BDT ' + total_with_delivery_charge);
             
         });
 
         $('#pickup_method').click(()=>{
             $('#transaction_no').hide();
             $('#delivey_charge').hide();
+            $('#order_total').text('BDT ' + total);
         });
     </script>
 

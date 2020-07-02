@@ -36,10 +36,11 @@
                                     <span class="old-price" id="discounted_price">$45.00</span>
                                 </div>
                             </div>
+                            <input type="hidden" id="book_id">
                             <div class="quick-desc" id="description">
                                 Designed for simplicity and made from high quality materials. Its sleek geometry and material combinations creates a modern look.
                             </div>
-                            <div class="select__color">
+                            <!-- <div class="select__color">
                                 <h2>Select color</h2>
                                 <ul class="color__list">
                                     <li class="red"><a title="Red" href="#">Red</a></li>
@@ -68,9 +69,9 @@
                                         <li class="tumblr"><a href="#" class="tumblr social-icon"><i class="zmdi zmdi-tumblr"></i></a></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="addtocart-btn">
-                                <a href="#">Add to cart</a>
+                                <a href="javascript:void(0)" onclick="myFunc()">Add to cart</a>
                             </div>
                         </div>
                     </div>
@@ -79,3 +80,9 @@
         </div>
     </div>
 </div>
+<script>
+    function myFunc(){
+        var book_id = $('#book_id').val();
+        add_to_cart(book_id);
+    }
+</script>
