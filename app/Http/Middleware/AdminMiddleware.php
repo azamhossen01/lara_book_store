@@ -19,6 +19,9 @@ class AdminMiddleware
         if(Auth::check() && Auth::user()->is_admin == 1){
             return $next($request);
         }
+        elseif(Auth::check() && Auth::user()->is_admin == 0){
+            return redirect()->route('checkout');
+        }
         return redirect()->route('/');
     }
 }

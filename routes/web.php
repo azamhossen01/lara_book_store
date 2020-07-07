@@ -62,7 +62,8 @@ Route::post('order_placed','CartController@order_placed')->name('order_placed');
 
 Route::get('cart','ShopController@cart')->name('cart');
 
-
+//route for return request book
+Route::get('book_return','ShopController@book_return')->name('book_return');
 
 Route::get('wishlist',function(){
     return view('frontend.wishlist');

@@ -128,5 +128,12 @@ class ShopController extends Controller
         return view('frontend.order_history',compact('orders'));
     }
 
+    public function book_return(){
+        $customer_id = Auth::user()->customer->id;
+        return $customer_id;
+        return Auth::user()->customer;
+        return view('frontend.book_return');
+    }
+
 
 }

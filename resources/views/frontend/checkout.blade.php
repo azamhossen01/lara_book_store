@@ -307,8 +307,13 @@
             <div class="col-lg-12">
                 <div class="wn_checkout_wrap">
                     <div class="checkout_info">
-                        <span>Returning customer ?</span>
+                        <span>Already Registered ?</span>
                         <a class="showlogin" href="JavaScript:void(0)">Click here to login</a>
+                    </div>
+                    <div class="checkout_info">
+                        <span>Don't you have register yet ?</span>
+                        <a class="" href="{{route('customer_register')}}" style="color: #e59285;
+    font-size: 12px;">Click here to register</a>
                     </div>
                     <div class="checkout_login">
                     <form class="wn__checkout__form" action="{{route('login')}}" method="post">

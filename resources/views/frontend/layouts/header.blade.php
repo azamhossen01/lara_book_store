@@ -84,6 +84,8 @@
                         <div class="megamenu dropdown">
                             <ul class="item item01">
                             @if(Auth::check() == true)
+                            <li><a href="{{route('book_return')}}">Book Return</a></li>
+                            <li><a href="{{route('order_history')}}">Order History</a></li>
                             <li><a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                               document.getElementById('logout-form').submit();">Logout</a>
@@ -98,9 +100,10 @@
                             </ul>
                         </div>
                     </li>
-                    @if(Auth::check() == true)
+                    <!-- @if(Auth::check() == true)
+                    <li><a href="{{route('book_return')}}" class="text-light">Return</a></li>
                     <li><a href="{{route('order_history')}}" class="text-light">Orders</a></li>
-                    @endif
+                    @endif -->
                     
                     </ul>
                 </nav>
@@ -255,6 +258,10 @@
                                 <li><a href="{{route('customer_register')}}">Register</a></li>
                             </ul>
                         </li>
+                        @if(Auth::check() == true)
+                    <li><a href="{{route('order_history')}}" class="text-light">Orders</a></li>
+                    <li><a href="{{route('book_return')}}" class="text-light">Book Return</a></li>
+                    @endif
                     </ul>
                 </nav>
             </div>
