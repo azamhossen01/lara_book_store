@@ -3024,7 +3024,8 @@ h3.widget-title-modal {
   font-size: 60px;
 }
 .slide .slider__content h2 {
-  color: #3c3c3c;
+  /* color: #3c3c3c; */
+  color: #f1c40f;
   font-size: 68px;
   font-family: poppins;
   font-weight: 700;

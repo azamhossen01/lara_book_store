@@ -5,15 +5,15 @@
 @section('slider')
 <div class="slider-area brown__nav slider--15 slide__activation slide__arrow01 owl-carousel owl-theme">
     <!-- Start Single Slide -->
-    <div class="slide animation__style10 bg-image--1 fullscreen align__center--left" style="background-image:url({{asset('frontend/images/slider2.jpg')}})">
+    <div class="slide animation__style10 bg-image--1 fullscreen align__center--left" style="background-image:url({{asset('frontend/images/slider1.jpg')}})">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="slider__content">
                         <div class="contentbox">
-                            <h2>Buy <span>your </span></h2>
-                            <h2>favourite <span>Book </span></h2>
-                            <h2>from <span>Here </span></h2>
+                            <h2>Easily <span>Buy & </span></h2>
+                            <h2>Return <span>Book </span></h2>
+                            <h2>from <span>Home </span></h2>
                                <a class="shopbtn" href="#">shop now</a>
                         </div>
                     </div>
@@ -23,15 +23,31 @@
     </div>
     <!-- End Single Slide -->
     <!-- Start Single Slide -->
-    <div class="slide animation__style10 bg-image--7 fullscreen align__center--left" style="background-image:url({{asset('frontend/images/slider1.jpg')}})">
+    <div class="slide animation__style10 bg-image--7 fullscreen align__center--left" style="background-image:url({{asset('frontend/images/slider2.jpg')}})">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="slider__content">
                         <div class="contentbox">
-                            <h2>Buy <span>your </span></h2>
-                            <h2>favourite <span>Book </span></h2>
-                            <h2>from <span>Here </span></h2>
+                            <h2>Get <span>70% </span></h2>
+                            <h2>Back <span>When </span></h2>
+                            <h2>Return <span>Book </span></h2>
+                               <a class="shopbtn" href="#">shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slide animation__style10 bg-image--7 fullscreen align__center--left" style="background-image:url({{asset('frontend/images/slider3.jpg')}})">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="slider__content">
+                        <div class="contentbox">
+                            <h2>Get <span>All </span></h2>
+                            <h2>Kinds of <span>Books </span></h2>
+                            <h2>from Us <span> Order Online</span></h2>
                                <a class="shopbtn" href="#">shop now</a>
                         </div>
                     </div>
@@ -107,7 +123,7 @@
 </section>
 <!-- Start BEst Seller Area -->
 <!-- Start NEwsletter Area -->
-<section class="wn__newsletter__area bg-image--2 bg-info" style="background-image:url('https://st3.depositphotos.com/6396642/15998/v/1600/depositphotos_159981324-stock-illustration-book-open-book-with-heart.jpg')">
+<section class="wn__newsletter__area bg-image--2 bg-info" style="background-image:url({{asset('frontend/images/banner1.jpg')}})">
     <div class="container">
         <div class="row">
             <div class="col-lg-7 offset-lg-5 col-md-12 col-12 ptb--150">
