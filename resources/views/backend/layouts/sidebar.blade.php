@@ -47,6 +47,11 @@
         <span>Orders</span></a>
     </li>
     <li class="nav-item">
+    <a class="nav-link" href="{{route('book_return_index')}}">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Book Return</span></a>
+    </li>
+    <li class="nav-item">
     <a class="nav-link" href="{{route('blogs.index')}}">
         <i class="fas fa-fw fa-table"></i>
         <span>Blogs</span></a>

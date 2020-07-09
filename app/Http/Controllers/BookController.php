@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Writer;
 use App\Category;
+use App\BookReturn;
+use App\OrderDetail;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -139,6 +141,23 @@ class BookController extends Controller
         $book->status = $status;
         $book->update();
         return response()->json(['message'=>'Book status updated successfully']);
+    }
+
+    public function book_return_index(){
+        $book_returns = BookReturn::where('status',0)->get();
+        return view('backend.book_return.index',compact('book_returns'));
+    }
+
+    public function complete_book_return($id){
+        $book_return = BookReturn::find($id);
+        $book_return->update([
+            'status' => 1
+        ]);
+        $order_detail = OrderDetail::where([['order_id',$book_return->order_id],['book_id',$book_return->book_id]])->first();
+        $order_detail->update([
+            'status' => 'complete'
+        ]);
+        return redirect()->back();
     }
 
     

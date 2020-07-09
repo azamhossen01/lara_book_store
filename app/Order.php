@@ -13,4 +13,8 @@ class Order extends Model
     public function shipping(){
         return $this->belongsTo(Shipping::class);
     }
+
+    public function orderDetails(){
+        return $this->hasMany(OrderDetail::class);
+    }
 }

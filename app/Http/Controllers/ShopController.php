@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use Cart;
 use App\Blog;
 use App\Book;
 use App\Order;
 use App\Writer;
 use App\Comment;
 use App\Category;
-use App\Customer;
 // use Darryldecode\Cart\Cart;
-use Cart;
+use App\Customer;
+use App\BookReturn;
+use App\OrderDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -130,9 +132,32 @@ class ShopController extends Controller
 
     public function book_return(){
         $customer_id = Auth::user()->customer->id;
-        return $customer_id;
-        return Auth::user()->customer;
-        return view('frontend.book_return');
+        $orders = Order::where([['customer_id',$customer_id],['purchase_type','borrow_book']])->get();
+        // return $orders->first()->orderDetails->where('status','pending');
+        // return Auth::user()->customer;
+        return view('frontend.book_return',compact('orders'));
+    }
+
+    public function submit_book_return(Request $request){
+        // return $request;
+        $this->validate($request,[
+            'order_detail_id' => 'required'
+        ]);
+        foreach($request->order_detail_id as $od_id){
+            $orderDetail = OrderDetail::find($od_id);
+            // return $orderDetail;
+            $orderDetail->update([
+                'status' => 'complete'
+            ]);
+            BookReturn::create([
+                'customer_id' => Auth::user()->customer->id,
+                'order_id' => $orderDetail->order_id,
+                'book_id' => $orderDetail->book_id,
+                'bkash_number' => $request->bkash_number,
+                'bkash_type' => $request->bkash_type
+            ]);
+        }
+        return redirect()->back();
     }
 
 

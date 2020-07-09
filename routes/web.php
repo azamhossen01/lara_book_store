@@ -64,6 +64,7 @@ Route::get('cart','ShopController@cart')->name('cart');
 
 //route for return request book
 Route::get('book_return','ShopController@book_return')->name('book_return');
+Route::post('submit_book_return','ShopController@submit_book_return')->name('submit_book_return');
 
 Route::get('wishlist',function(){
     return view('frontend.wishlist');
@@ -114,6 +115,10 @@ Route::group(['middleware'=>['auth','admin']],function(){
     // Route::get('change_book_status/{book_id}','BookController@change_book_status')->name('change_book_status');
     Route::get('change_book_status','BookController@change_book_status')->name('books.status.update');
     Route::get('change_blog_status/{blog_id}','BlogController@change_blog_status')->name('change_blog_status');
+
+    Route::get('book_return_index','BookController@book_return_index')->name('book_return_index');
+    Route::get('complete_book_return/{id}','BookController@complete_book_return')->name('complete_book_return');
+
     Route::resource('books','BookController');
     Route::resource('customers','CustomerController');
     Route::resource('orders','OrderController');

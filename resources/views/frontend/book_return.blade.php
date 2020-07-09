@@ -10,11 +10,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="bradcaump__inner text-center">
-                    <h2 class="bradcaump-title">Order History</h2>
+                    <h2 class="bradcaump-title">Book Return</h2>
                     <nav class="bradcaump-content">
                         <a class="breadcrumb_item" href="index.html">Home</a>
                         <span class="brd-separetor">/</span>
-                        <span class="breadcrumb_item active">Order History</span>
+                        <span class="breadcrumb_item active">Book Return</span>
                     </nav>
                 </div>
             </div>
@@ -28,26 +28,63 @@
         @if(Auth::check() == true)
         <div class="row">
             <div class="col-lg-6 col-12">
-                
-            <h1>Order History</h1>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>#SL</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($orders as $key=>$order)
-                        <tr>
-                            <td>{{$key+1}}</td>
-                            <td>{{$order->total}}</td>
-                        </tr>
-                    @empty 
 
-                    @endforelse
-                </tbody>
-            </table>
+                <h1>Book Return</h1>
+<form action="{{route('submit_book_return')}}" method="post">
+@csrf
+  <table class="table table-bordered">
+
+                    <tbody>
+                        @forelse($orders as $order)
+                        <tr>
+                            <th>{{$order->created_at->format('F d Y')}}</th>
+                            <td>
+                                @forelse($order->orderDetails->where('status','pending') as $od)
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="checkbox" class="form-check-input" name="order_detail_id[]" value="{{$od->id}}">{{$od->book->title}}
+                                    </label>
+                                </div>
+                                @empty
+
+                                @endforelse
+                            </td>
+                        </tr>
+                        @empty
+
+                        @endforelse
+                    </tbody>
+
+                </table>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" required name="bkash_number" placeholder="Bkash Number">
+                </div>
+                <div class="form-control">
+                <div class="row">
+                                <div class="col-lg-12 ml-3">
+                <label for="bkash_type">Bkash Type</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="bkash_type"  type="radio" value="personal" id="personal" checked>
+                                        <label class="form-check-label" for="personal">
+                                          Personal
+                                        </label>
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input"  name="bkash_type" type="radio" value="agent" id="agent" >
+                                        <label class="form-check-label" for="agent">
+                                          Agent
+                                        </label>
+                                      </div>
+                                      
+                                </div>
+                            </div>
+                </div>
+<br>
+                <button class="btn btn-primary" type="submit">Submit</button>
+
+</form>
+              
             </div>
 
         </div>
