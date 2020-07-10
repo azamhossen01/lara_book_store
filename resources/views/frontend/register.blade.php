@@ -38,20 +38,25 @@
                                     <div class="input__box">
                                         <label>Name <span>*</span></label>
                                         <input type="text" name="name" id="name" placeholder="Write Name" required>
+                                        <small class="text-danger">{{$errors->first('name')}}</small>
                                     </div>
                                     <div class="input__box">
                                         <label>Phone<span>*</span></label>
                                         <input type="text" name="phone" id="phone" placeholder="Write Phone" required>
+                                        <small class="text-danger">{{$errors->first('phone')}}</small>
                                     </div>
                                     <div class="input__box">
                                         <label>Password<span>*</span></label>
                                         <input type="password" name="password" id="password" placeholder="Write Password" required>
+                                        <small class="text-danger">{{$errors->first('password')}}</small>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input__box">
                                         <label>Email address <span>*</span></label>
                                         <input type="email" name="email" id="email" placeholder="Write Email" required>
+                                        <small class="text-danger">{{$errors->first('email')}}</small>
+                                        
                                     </div>
                                     <div class="input__box">
                                         <label>Address <span>(optional)</span></label>
@@ -60,10 +65,10 @@
                                     <div class="input__box">
                                         <label>Confirm Password<span>*</span></label>
                                         <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" required>
-                                        
-                                            @if($errors->has('password_confirmation'))
+                                        <small class="text-danger">{{$errors->first('password_confirmation')}}</small>
+                                            <!-- @if($errors->has('password_confirmation'))
                                                 <small class="error">{{ $errors->first('password_confirmation') }}</small>
-                                            @endif
+                                            @endif -->
                                     </div>
                                 </div>
                             </div>

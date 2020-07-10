@@ -53,7 +53,12 @@ class ShopController extends Controller
     }
 
     public function customer_login(){
-        return view('frontend.login');
+        if(Auth::check() == true){
+            return redirect()->route('/');
+        }else{
+            return view('frontend.login');
+        }
+        
     }
     public function customer_register(){
         return view('frontend.register');
@@ -128,6 +133,11 @@ class ShopController extends Controller
         $orders = Order::where('customer_id',Auth::user()->customer->id)->get();
         // return $orders;
         return view('frontend.order_history',compact('orders'));
+    }
+
+    public function order_details($id){
+        $order_details = OrderDetail::where('order_id',$id)->get();
+        return view('frontend.order_details',compact('order_details'));
     }
 
     public function book_return(){
