@@ -35,17 +35,19 @@
                             <div class="input__box">
                                 <label>Email address <span>*</span></label>
                                 <input type="email" name="email" id="email" placeholder="Write Email">
+                            <small class="text-danger">{{$errors->first('email')}}</small>
                             </div>
                             <div class="input__box">
                                 <label>Password<span>*</span></label>
                                 <input type="password" name="password" id="password" placeholder="Write Password">
+                                <small class="text-danger">{{$errors->first('password')}}</small>
                             </div>
                             <div class="form__btn">
                                 <button type="submit">Login</button>
-                                <label class="label-for-checkbox">
+                                {{-- <label class="label-for-checkbox">
                                     <input id="rememberme" class="input-checkbox" name="rememberme" value="forever" type="checkbox">
                                     <span>Remember me</span>
-                                </label>
+                                </label> --}}
                             </div>
                             <a class="forget_pass" href="#">Lost your password?</a>
                         </div>

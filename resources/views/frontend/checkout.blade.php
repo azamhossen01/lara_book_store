@@ -40,14 +40,14 @@
                             </div>
                             
                         {{-- </div> --}}
-                        <div class="input_box">
+                        {{-- <div class="input_box">
                             <label>Company name <span>*</span></label>
                             <input type="text" name="company_name">
                         </div>
                         <div class="input_box">
                             <label>Country<span>*</span></label>
                             <input type="text" name="country">
-                        </div>
+                        </div> --}}
                         <div class="input_box">
                             <label>Address <span>*</span></label>
                         <input type="text" required placeholder="Street address" name="address" value="{{Auth::user()->customer->address}}">
@@ -315,6 +315,17 @@
                         <a class="" href="{{route('customer_register')}}" style="color: #e59285;
     font-size: 12px;">Click here to register</a>
                     </div>
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                     <div class="checkout_login">
                     <form class="wn__checkout__form" action="{{route('login')}}" method="post">
                         @csrf 
@@ -323,19 +334,21 @@
                             <div class="input__box">
                                 <label>email <span>*</span></label>
                                 <input type="text" name="email">
+                                {{-- <small class="text-danger">{{$errors->first('email')}}</small> --}}
                             </div>
 
                             <div class="input__box">
                                 <label>password <span>*</span></label>
                                 <input type="password" name="password">
+                                {{-- <small class="text-danger">{{$errors->first('password')}}</small> --}}
                             </div>
                             <div class="form__btn">
                                 <button type="submit">Login</button>
-                                <label class="label-for-checkbox">
+                                {{-- <label class="label-for-checkbox">
                                     <input id="rememberme" name="rememberme" value="forever" type="checkbox">
                                     <span>Remember me</span>
                                 </label>
-                                <a href="#">Lost your password?</a>
+                                <a href="#">Lost your password?</a> --}}
                             </div>
                         </form>
                     </div>

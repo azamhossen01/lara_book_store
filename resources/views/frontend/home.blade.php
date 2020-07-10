@@ -8,6 +8,29 @@
     <div class="slide animation__style10 bg-image--1 fullscreen align__center--left" style="background-image:url({{asset('frontend/images/slider1.jpg')}})">
         <div class="container">
             <div class="row">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="slider__content">
+                            <div class="contentbox">
+                                <h2 class="text-danger"><ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul></h2>
+                                
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
                 <div class="col-lg-12">
                     <div class="slider__content">
                         <div class="contentbox">
@@ -130,7 +153,7 @@
                 <div class="section__title text-center">
                     <h2>Stay With Us</h2>
                 </div>
-                <div class="newsletter__block text-center">
+                {{-- <div class="newsletter__block text-center">
                     <p>Subscribe to our newsletters now and stay up-to-date with new collections, the latest lookbooks and exclusive offers.</p>
                     <form action="#">
                         <div class="newsletter__box">
@@ -138,7 +161,7 @@
                             <button>Subscribe</button>
                         </div>
                     </form>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

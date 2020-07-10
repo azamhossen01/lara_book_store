@@ -95,7 +95,12 @@ class CartController extends Controller
         $items = Cart::getContent();
         $sub_total = Cart::getSubTotal();
         // return $sub_total;
-         return view('frontend.checkout',compact('items','sub_total'));
+        if(count($items) > 0){
+            return view('frontend.checkout',compact('items','sub_total'));
+        }else{
+            return redirect()->back()->withErrors('please add book to cart first');
+        }
+         
     }
 
     public function order_placed(Request $request){
