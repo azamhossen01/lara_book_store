@@ -56,7 +56,7 @@
                             <input type="text"  placeholder="Apartment, suite, unit etc. (optional)">
                         </div> --}}
                         <div class="input_box">
-                            <label>District<span>*</span></label>
+                            <label>Districtaa<span>*</span></label>
                             <input type="text" name="district">
                         </div>
                         <div class="input_box">
