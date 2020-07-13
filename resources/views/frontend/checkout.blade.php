@@ -56,11 +56,11 @@
                             <input type="text"  placeholder="Apartment, suite, unit etc. (optional)">
                         </div> --}}
                         <div class="input_box">
-                            <label>Districtaa<span>*</span></label>
-                            <input type="text" name="district">
+                            <label>District<span>*</span></label>
+                            <input type="text" value="{{Auth::user()->customer->district}}" required name="district">
                         </div>
                         <div class="input_box">
-                            <label>Postcode / ZIP <span>*</span></label>
+                            <label>Postcode / ZIP <span>(Optional)</span></label>
                             <input type="text" name="postal_code">
                         </div>
                         <div class="margin_between">

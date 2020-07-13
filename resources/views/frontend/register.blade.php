@@ -45,11 +45,11 @@
                                         <input type="text" name="phone" id="phone" placeholder="Write Phone" required>
                                         <small class="text-danger">{{$errors->first('phone')}}</small>
                                     </div>
-                                    <div class="input__box">
+                                    <!-- <div class="input__box">
                                         <label>Password<span>*</span></label>
                                         <input type="password" name="password" id="password" placeholder="Write Password" required>
                                         <small class="text-danger">{{$errors->first('password')}}</small>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="input__box">
@@ -59,16 +59,41 @@
                                         
                                     </div>
                                     <div class="input__box">
-                                        <label>Address <span>(optional)</span></label>
-                                        <input type="text" name="address" id="address" placeholder="Write Address">
+                                        <label>District <span>*</span></label>
+                                        <input type="text" name="district" id="district" placeholder="Write District" required>
+                                        <small class="text-danger">{{$errors->first('district')}}</small>
+                                        
                                     </div>
-                                    <div class="input__box">
+                                    <!-- <div class="input__box">
                                         <label>Confirm Password<span>*</span></label>
                                         <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" required>
                                         <small class="text-danger">{{$errors->first('password_confirmation')}}</small>
-                                            <!-- @if($errors->has('password_confirmation'))
-                                                <small class="error">{{ $errors->first('password_confirmation') }}</small>
-                                            @endif -->
+                                         
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                <div class="input__box">
+                                        <label>Address <span>(optional)</span></label>
+                                        <input type="text" name="address" id="address" placeholder="Write Address">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6">
+                                 <div class="input__box">
+                                        <label>Password<span>*</span></label>
+                                        <input type="password" name="password" id="password" placeholder="Write Password" required>
+                                        <small class="text-danger">{{$errors->first('password')}}</small>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                <div class="input__box">
+                                        <label>Confirm Password<span>*</span></label>
+                                        <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password" required>
+                                        <small class="text-danger">{{$errors->first('password_confirmation')}}</small>
+                                         
                                     </div>
                                 </div>
                             </div>

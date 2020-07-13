@@ -77,6 +77,7 @@ class RegisterController extends Controller
         $customer->email = $data['email'];
         $customer->phone = $data['phone'];
         $customer->password = bcrypt($data['password']);
+        $customer->district = $data['district'];
         $customer->address = $data['address'];
         $customer->save();
         Alert::alert('Success', 'Customer Registration Successfull', 'success');

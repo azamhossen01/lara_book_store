@@ -61,6 +61,9 @@ class ShopController extends Controller
         
     }
     public function customer_register(){
+        if(Auth::check() == true ){
+            return redirect()->route('/');
+        }
         return view('frontend.register');
     }
 
