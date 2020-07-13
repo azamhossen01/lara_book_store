@@ -33,10 +33,12 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>SL No</th>
-                  <th>Customer</th>
+                  <th>Order No</th>
+                  <th>Name</th>
                   <th>Phone</th>
                   <th>Address</th>
+                  <th>District</th>
+                  <th>Postal Code</th>
                   <th>Total</th>
                   <th>Order Date</th>
                   <th>Status</th>
@@ -45,10 +47,12 @@
               </thead>
               <tfoot>
                 <tr>
-                  <th>SL No</th>
-                  <th>Customer</th>
+                  <th>Order No</th>
+                  <th>Name</th>
                   <th>Phone</th>
                   <th>Address</th>
+                  <th>District</th>
+                  <th>Postal Code</th>
                   <th>Total</th>
                   <th>Order Date</th>
                   <th>Status</th>
@@ -59,9 +63,11 @@
                 @forelse($orders as $key=>$order) 
                 <tr>
                 <td>{{$key+1}}</td>
-                <td>{{$order->customer->name}}</td>
+                <td>{{$order->shipping->name}}</td>
                 <td>{{$order->shipping->phone}}</td>
-                <td>{{$order->customer->address}}</td>
+                <td>{{$order->shipping->district}}</td>
+                <td>{{$order->shipping->postal_code}}</td>
+                <td>{{$order->shipping->address}}</td>
                 <td>{{$order->total}}</td>
                 <td>{{$order->created_at->format('F d Y')}}</td>
                 <td>
@@ -69,7 +75,7 @@
                 </td>
                 <td>
                   {{-- <button type="button" class="btn btn-success" onclick="edit_category({{$order->id}})">Details</button> --}}
-                <a  href="{{route('orders.edit',$order->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-success {{$order->status == 1 ? 'disabled btn-danger':''}}"> {{$order->status==1?'Confirmed':'Confirm'}}</a>
+                <a  href="{{route('orders.edit',$order->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-success btn-sm {{$order->status == 1 ? 'disabled btn-danger':''}}"> {{$order->status==1?'Confirmed':'Confirm'}}</a>
                 </td>
                 </tr>
                 @empty 
