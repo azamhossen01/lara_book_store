@@ -44,7 +44,7 @@
                         <tr>
                             <td>{{$order->id}}</td>
                             <td>{{$order->total}}</td>
-                            <td>{{$order->created_at->format('F d Y')}}</td>
+                            <td>{{$order->created_at->format('h:i A, F d, Y')}}</td>
                             <td>  <a href="{{route('order_details',$order->id)}}" class="btn btn-success">Details</a>  </td>
                         </tr>
                     @empty 
