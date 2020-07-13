@@ -26,7 +26,7 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fas fa-table"></i>
-          Categories
+          Orders
         {{-- <button class="btn btn-primary float-right" onclick="add_new_category()">Add New</button></div> --}}
         <div class="card-body">
           <div class="table-responsive">
@@ -36,6 +36,7 @@
                   <th>SL No</th>
                   <th>Customer</th>
                   <th>Phone</th>
+                  <th>Address</th>
                   <th>Total</th>
                   <th>Order Date</th>
                   <th>Status</th>
@@ -47,6 +48,7 @@
                   <th>SL No</th>
                   <th>Customer</th>
                   <th>Phone</th>
+                  <th>Address</th>
                   <th>Total</th>
                   <th>Order Date</th>
                   <th>Status</th>
@@ -59,13 +61,15 @@
                 <td>{{$key+1}}</td>
                 <td>{{$order->customer->name}}</td>
                 <td>{{$order->shipping->phone}}</td>
+                <td>{{$order->customer->address}}</td>
                 <td>{{$order->total}}</td>
                 <td>{{$order->created_at->format('F d Y')}}</td>
                 <td>
                 <span class="badge badge-{{$order->status==0?'warning':'success'}}">{{$order->status==0?'Pending':'Completed'}}</span>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-success" onclick="edit_category({{$order->id}})">Details</button>
+                  {{-- <button type="button" class="btn btn-success" onclick="edit_category({{$order->id}})">Details</button> --}}
+                <a  href="{{route('orders.edit',$order->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-success {{$order->status == 1 ? 'disabled btn-danger':''}}"> {{$order->status==1?'Confirmed':'Confirm'}}</a>
                 </td>
                 </tr>
                 @empty 

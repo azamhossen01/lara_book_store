@@ -26,7 +26,7 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fas fa-table"></i>
-          Categories
+          Book Return
         {{-- <button class="btn btn-primary float-right" onclick="add_new_category()">Add New</button></div> --}}
         <div class="card-body">
           <div class="table-responsive">
@@ -71,7 +71,7 @@
                 <span class="badge badge-{{$book_return->status==0?'warning':'success'}}">{{$book_return->status==0?'Pending':'Completed'}}</span>
                 </td>
                 <td>
-                <a onclick="return confirm('Are you sure?')" href="{{route('complete_book_return',$book_return->id)}}" class="btn btn-sm btn-primary">Done</a>
+                <a onclick="return confirm('Are you sure?')" href="{{route('complete_book_return',$book_return->id)}}" class="btn btn-sm btn-success {{$book_return->status == 1 ? 'disabled btn-danger':''}}">{{$book_return->status==1?'Confirmed':'Confirm'}}</a>
                  
                 </td>
                 </tr>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class OrderController extends Controller
 {
@@ -58,7 +59,13 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        $order->update([
+            'status' => 1
+        ]);
+        Alert::alert('Success', 'Order Confirmed Successfully', 'success');
+        return redirect()->route('orders.index');
+        
     }
 
     /**

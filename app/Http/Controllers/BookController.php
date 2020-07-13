@@ -144,7 +144,8 @@ class BookController extends Controller
     }
 
     public function book_return_index(){
-        $book_returns = BookReturn::where('status',0)->get();
+        // $book_returns = BookReturn::where('status',0)->get();
+        $book_returns = BookReturn::all();
         return view('backend.book_return.index',compact('book_returns'));
     }
 

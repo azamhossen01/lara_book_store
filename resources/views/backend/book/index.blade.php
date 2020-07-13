@@ -26,7 +26,7 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fas fa-table"></i>
-          Writers
+          Books
         <button class="btn btn-primary float-right" onclick="add_new_book()">Add New</button></div>
         <div class="card-body">
           <div class="table-responsive">

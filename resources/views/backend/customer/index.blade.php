@@ -26,7 +26,7 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fas fa-table"></i>
-          Categories
+          Customers
         <button class="btn btn-primary float-right" onclick="add_new_category()">Add New</button></div>
         <div class="card-body">
           <div class="table-responsive">
