@@ -235,23 +235,23 @@
                                     <div class="form-check">
                                         <input class="form-check-input" name="payment_method" required type="radio" value="cash_on_delivery" id="cash_payment" checked>
                                         <label class="form-check-label" for="cash_payment">
-                                          Cash On Delivery
                                     <img src="{{asset('frontend/images/logo/cash.png')}}" width="10%" alt="">
+                                          Cash On Delivery
                                         </label>
                                       </div>
                                       <div class="form-check">
                                         <input class="form-check-input"  name="payment_method" type="radio" value="bkash" id="bkash_payment" >
                                         <label class="form-check-label" for="bkash_payment">
-                                          Bkash Payment
                                     <img src="{{asset('frontend/images/logo/bkash.png')}}" width="10%" alt="">
+                                          Bkash Payment
                                         </label>
                                         
                                       </div>
                                       <div class="form-check">
                                         <input class="form-check-input"  name="payment_method" type="radio" value="pickup_method" id="pickup_method" >
                                         <label class="form-check-label" for="pickup_method">
-                                          Pickup Method
                                     <img src="{{asset('frontend/images/logo/pickup.png')}}" width="10%" alt="">
+                                          Pickup Method
                                         </label>
                                       </div>
                                       <div class="form-group" id="transaction_no" style="display:none">

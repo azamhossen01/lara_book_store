@@ -59,10 +59,19 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
+
         $order = Order::findOrFail($id);
-        $order->update([
-            'status' => 1
-        ]);
+        // return $order;
+        if($order->status == 0){
+            $order->update([
+                'status' => 1
+            ]);
+        }elseif($order->status == 1){
+            $order->update([
+                'status' => 2
+            ]);
+        }
+        
         Alert::alert('Success', 'Order Confirmed Successfully', 'success');
         return redirect()->route('orders.index');
         

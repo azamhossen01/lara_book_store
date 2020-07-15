@@ -15,7 +15,7 @@ class WriterController extends Controller
      */
     public function index()
     {
-        $writers = Writer::all();
+        $writers = Writer::orderBy('id','desc')->get();
         return view('backend.writer.index',compact('writers'));
     }
 
@@ -74,26 +74,26 @@ class WriterController extends Controller
      */
     public function show($id)
     {
-        $writer = Writer::findOrFail($id);
-        return $writer;
-        $writer->name = $request->name;
-        $writer->email = $request->email;
-        $writer->phone = $request->phone;
-        $writer->dob = $request->dob;
-        $writer->address = $request->address;
-        $writer->description = $request->description;
-        if($request->image){
-            if($writer->image){
-                $path = public_path('images/writers/'.$writer->image);
-                unlink($path);
-            }
-                $imageName = time().'.'.$request->image->getClientOriginalExtension();
-                $request->image->move(public_path('images/writers'),$imageName);
-                $writer->image = $imageName; 
-        }
-        $writer->update();
-        Alert::alert('Successs', 'Writer Updated Successfully', 'success');
-            return redirect()->route('writers.index');
+        // $writer = Writer::findOrFail($id);
+        // return $writer;
+        // $writer->name = $request->name;
+        // $writer->email = $request->email;
+        // $writer->phone = $request->phone;
+        // $writer->dob = $request->dob;
+        // $writer->address = $request->address;
+        // $writer->description = $request->description;
+        // if($request->image){
+        //     if($writer->image){
+        //         $path = public_path('images/writers/'.$writer->image);
+        //         unlink($path);
+        //     }
+        //         $imageName = time().'.'.$request->image->getClientOriginalExtension();
+        //         $request->image->move(public_path('images/writers'),$imageName);
+        //         $writer->image = $imageName; 
+        // }
+        // $writer->update();
+        // Alert::alert('Successs', 'Writer Updated Successfully', 'success');
+        //     return redirect()->route('writers.index');
     }
 
     /**
@@ -162,5 +162,11 @@ class WriterController extends Controller
         $writer->status = $request->status;
         $writer->update();
         return response()->json(['message'=>'Writer status updated successfully']);
+    }
+
+    public function all_writers(){
+        $writers = Writer::orderBy('id','desc')->get();
+        // return $writers;
+        return view('frontend.all_writers',compact('writers'));
     }
 }

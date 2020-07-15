@@ -50,6 +50,12 @@ Route::get('about','ShopController@about')->name('about');
 Route::get('order_history','ShopController@order_history')->name('order_history');
 Route::get('order_details/{id}','ShopController@order_details')->name('order_details');
 
+//route for view all writers 
+Route::get('all_writers','WriterController@all_writers')->name('all_writers');
+
+//route for view all categories
+Route::get('all_categories','CategoryController@all_categories')->name('all_categories');
+
 // cart route
 Route::get('add_to_cart','CartController@add_to_cart')->name('add_to_cart');
 Route::get('get_cart_data','CartController@get_cart_data')->name('get_cart_data');

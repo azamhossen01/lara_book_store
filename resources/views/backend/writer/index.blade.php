@@ -87,7 +87,7 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="modal_title">Ready to Leave?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
@@ -178,6 +178,7 @@
     });
 
       function add_new_writer(){
+        $('#modal_title').html('Add Writer');
         $('#writer_form').attr('action', "{{url('writers')}}");
         $('#writer_form').trigger('reset');
         $('#edit_button').css('display','none');
@@ -193,6 +194,7 @@
             url : "{{url('writers')}}/"+id,
             success : function(data){
               console.log(data);
+              $('#modal_title').html('Edit Writer');
               $('#name').val(data.name);
               $('#email').val(data.email);
               $('#phone').val(data.phone);

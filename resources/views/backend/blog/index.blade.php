@@ -86,7 +86,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="modal_title"></h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
@@ -133,6 +133,7 @@
   });</script>
   <script>
       function add_new_blog(){
+        $('#modal_title').html('Add Blog');
         $('#blog_form').attr('action', "{{url('blogs')}}");
         $('#blog_form').trigger('reset');
         $('#edit_button').css('display','none');
@@ -148,6 +149,7 @@
             url : "{{url('blogs')}}/"+id,
             success : function(data){
               console.log(data);
+              $('#modal_title').html('Edit Blog');
               $('#title').val(data.title);
               $('#description').val(data.description);
               $('#add_new_blog').modal('show');

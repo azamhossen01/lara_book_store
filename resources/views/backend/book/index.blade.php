@@ -88,7 +88,7 @@
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="modal_title">Ready to Leave?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
@@ -193,6 +193,7 @@
 
 
       function add_new_book(){
+        $('#modal_title').html('Add Book');
         $('#book_form').attr('action', "{{url('books')}}");
         $('#book_form').trigger('reset');
         $('#edit_button').css('display','none');
@@ -208,6 +209,7 @@
             url : "{{url('books')}}/"+id,
             success : function(data){
               console.log(data);
+              $('#modal_title').html('Edit Book');
               $('#title').val(data.title);
               $('#category_id').val(data.category_id);
               $('#writer_id').val(data.writer_id);

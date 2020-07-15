@@ -86,7 +86,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <h5 class="modal-title" id="modal_title">Ready to Leave?</h5>
           <button class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">×</span>
           </button>
@@ -129,6 +129,7 @@
   });</script>
   <script>
       function add_new_category(){
+        $('#modal_title').html('Add Category');
         $('#category_form').attr('action', "{{url('categories')}}");
         $('#category_form').trigger('reset');
         $('#edit_button').css('display','none');
@@ -143,6 +144,7 @@
             type : 'get',
             url : "{{url('categories')}}/"+id,
             success : function(data){
+              $('#modal_title').html('Edit Category');
               $('#name').val(data.name);
               $('#description').val(data.description);
               $('#add_new_category').modal('show');

@@ -71,11 +71,11 @@
                 <td>{{$order->total}}</td>
                 <td>{{$order->created_at->format('F d Y')}}</td>
                 <td>
-                <span class="badge badge-{{$order->status==0?'warning':'success'}}">{{$order->status==0?'Pending':'Completed'}}</span>
+                <span class="badge badge-{{$order->status==0?'warning':($order->status==1?'info':'success')}}">{{$order->status==0?'Pending':($order->status==1?'Processing':'Completed')}}</span>
                 </td>
                 <td>
                   {{-- <button type="button" class="btn btn-success" onclick="edit_category({{$order->id}})">Details</button> --}}
-                <a  href="{{route('orders.edit',$order->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-success btn-sm {{$order->status == 1 ? 'disabled btn-danger':''}}"> {{$order->status==1?'Confirmed':'Confirm'}}</a>
+                <a  href="{{route('orders.edit',$order->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-success btn-sm {{$order->status==2?'disabled btn-danger':''}}"> {{$order->status==0?'Pending':($order->status==1?'Processing':'Completed')}}</a>
                 </td>
                 </tr>
                 @empty 

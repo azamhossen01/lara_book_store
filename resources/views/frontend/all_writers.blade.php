@@ -10,11 +10,11 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="bradcaump__inner text-center">
-                    <h2 class="bradcaump-title">Order History</h2>
+                    <h2 class="bradcaump-title">All Writers</h2>
                     <nav class="bradcaump-content">
                         <a class="breadcrumb_item" href="index.html">Home</a>
                         <span class="brd-separetor">/</span>
-                        <span class="breadcrumb_item active">Order History</span>
+                        <span class="breadcrumb_item active">All Writers</span>
                     </nav>
                 </div>
             </div>
@@ -25,40 +25,43 @@
 <!-- Start Checkout Area -->
 <section class="wn__checkout__area section-padding--lg bg__white">
     <div class="container">
-        @if(Auth::check() == true)
+     
         <div class="row">
-            <div class="col-lg-6 col-12">
-                
-            <h1>Order History</h1><br>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>#Order ID</th>
-                        <th>Amount</th>
-                        <th>Status</th>
-                        <th>Date</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($orders as $key=>$order)
-                        <tr>
-                            <td>{{$order->id}}</td>
-                            <td>{{$order->total}}</td>
-                        <td>{{$order->status == 0 ? 'Pending':($order->status == 1 ? 'Processing' : 'Completed')}}</td>
-                            <td>{{$order->created_at->format('h:i A, F d, Y')}}</td>
-                            <td>  <a href="{{route('order_details',$order->id)}}" class="btn btn-success">Details</a>  </td>
-                        </tr>
-                    @empty 
+            <div class="col-lg-12">
 
-                    @endforelse
-                </tbody>
-            </table>
+                <h1>All Writers</h1>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#SL</th>
+                            <th>Name</th>
+                            <td>Photo</td>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <td>Address</td>
+                            <td>Description</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse($writers as $key=>$writer) 
+                        <tr>
+                        <td>{{$key+1}}</td>
+                        <td>{{$writer->name}}</td>
+                        <td><img src="{{asset('images/writers/'.$writer->image)}}" alt=""></td>
+                        <td>{{$writer->phone}}</td>
+                        <td>{{$writer->email}}</td>
+                        <td>{{$writer->address}}</td>
+                        <td>{{$writer->description}}</td>
+                        </tr>
+                        @empty 
+
+                        @endforelse
+                    </tbody>
+                </table>
+              
             </div>
 
         </div>
-
-        @endif
 
     </div>
 </section>

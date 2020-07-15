@@ -27,7 +27,7 @@
         <div class="card-header">
           <i class="fas fa-table"></i>
           Customers
-        <button class="btn btn-primary float-right" onclick="add_new_category()">Add New</button></div>
+        {{-- <button class="btn btn-primary float-right" onclick="add_new_category()">Add New</button></div> --}}
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -38,7 +38,7 @@
                   <th>Email</th>
                   <th>Phone</th>
                   <th>Register On</th>
-                  <th>Action</th>
+                  {{-- <th>Action</th> --}}
                 </tr>
               </thead>
               <tfoot>
@@ -48,7 +48,7 @@
                   <th>Email</th>
                   <th>Phone</th>
                   <th>Register On</th>
-                  <th>Action</th>
+                  {{-- <th>Action</th> --}}
                 </tr>
               </tfoot>
               <tbody>
@@ -60,9 +60,9 @@
                 <td>{{$customer->phone}}</td>
                 <td>{{$customer->created_at->format('F d Y')}}</td>
                 
-                <td>
+                {{-- <td>
                   <button type="button" class="btn btn-warning" onclick="edit_category({{$customer->id}})">Edit</button>
-                </td>
+                </td> --}}
                 </tr>
                 @empty 
                 

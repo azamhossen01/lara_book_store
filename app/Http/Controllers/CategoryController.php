@@ -111,4 +111,10 @@ class CategoryController extends Controller
         $category->update();
         return response()->json(['message' => 'User status updated successfully.']);
     }
+
+    public function all_categories(){
+        $categories = Category::orderBy('id','desc')->get();
+        // return $categories;
+        return view('frontend.all_categories',compact('categories'));
+    }
 }

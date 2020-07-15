@@ -39,8 +39,9 @@
                                 <ul class="item item03">
                                     
                                     <li class="title">Categories</li>
-                                    @forelse(App\Category::where('status',1)->get()->splice(12,6) as $category) 
+                                    @forelse(App\Category::where('status',1)->get()->splice(12,5) as $category) 
                                     <li><a href="{{route('shop_grid',$category->id)}}">{{$category->name}} </a></li>
+                                <li><a href="{{route('all_categories')}}">All Categories</a></li>
                                     @empty 
 
                                     @endforelse
@@ -59,8 +60,9 @@
                                 </ul>
                                 <ul class="item item02">
                                     <li class="title">All Writers</li>
-                                    @forelse(App\Writer::where('status',1)->get()->splice(10,10) as $writer)
+                                    @forelse(App\Writer::where('status',1)->get()->splice(10,9) as $writer)
                                 <li><a href="{{route('writer_books',$writer->id)}}">{{$writer->name}}</a></li>
+                                <li><a href="{{route('all_writers')}}">View All Writers</a></li>
                                     @empty 
                                     <li><a href="JavaScript:Void(0);">No Writer Available</a></li>
                                     @endforelse

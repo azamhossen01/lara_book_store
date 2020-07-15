@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2020 at 04:12 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Jul 14, 2020 at 04:55 AM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,7 +33,7 @@ CREATE TABLE `blogs` (
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -58,10 +58,10 @@ CREATE TABLE `books` (
   `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` double(8,2) NOT NULL,
-  `discounted_price` double(8,2) NOT NULL DEFAULT '0.00',
+  `discounted_price` double(8,2) NOT NULL DEFAULT 0.00,
   `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `marks` int(11) NOT NULL DEFAULT '0',
-  `status` int(11) NOT NULL DEFAULT '1',
+  `marks` int(11) NOT NULL DEFAULT 0,
+  `status` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -108,7 +108,7 @@ CREATE TABLE `book_returns` (
   `book_id` bigint(20) UNSIGNED NOT NULL,
   `bkash_number` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `bkash_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `status` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -134,8 +134,8 @@ INSERT INTO `book_returns` (`id`, `customer_id`, `order_id`, `book_id`, `bkash_n
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci,
-  `status` tinyint(1) NOT NULL DEFAULT '1',
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -195,7 +195,8 @@ CREATE TABLE `customers` (
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` text COLLATE utf8mb4_unicode_ci,
+  `address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `district` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -205,11 +206,12 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `user_id`, `name`, `email`, `phone`, `address`, `password`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Jamal Khan', 'jamal@gmail.com', '01728338728', 'nasirabad chittagong', '$2y$10$U6KweXq1JS/4YC8NNFkmeuIZAlEBln.FoRafqwx116MUBzNi2PXtK', '2020-06-30 08:55:43', '2020-06-30 08:55:43'),
-(2, 3, 'Kamal Khan', 'kamal@gmail.com', '01812339922', 'Dhaka Bangladesh', '$2y$10$/gHAT8kfFEffB84HyV3it.s4xv3Dy3W4oxWIMn/7NYO3rsCOsKTfy', '2020-06-30 11:01:26', '2020-06-30 11:01:26'),
-(3, 4, 'Salman khan', 'salman@gmail.com', '01812339922', 'Dhaka Bangladesh', '$2y$10$UShe.4QPlOMaJb80T0ZPCO8qNSMEnXM95lTOKJukoFoxIOjiDPSoq', '2020-07-07 09:29:32', '2020-07-07 09:29:32'),
-(4, 5, 'Imam Hasan', 'imam@gmail.com', '01728338728', 'nasirabad chittagong', '$2y$10$Kb1qNQ6clNw3bIZjcxXqNOXSwEitnhKaIWspJSJ76M6W0Aeyqnlua', '2020-07-07 10:11:10', '2020-07-07 10:11:10');
+INSERT INTO `customers` (`id`, `user_id`, `name`, `email`, `phone`, `address`, `district`, `password`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Jamal Khan', 'jamal@gmail.com', '01728338728', 'nasirabad chittagong', '', '$2y$10$U6KweXq1JS/4YC8NNFkmeuIZAlEBln.FoRafqwx116MUBzNi2PXtK', '2020-06-30 08:55:43', '2020-06-30 08:55:43'),
+(2, 3, 'Kamal Khan', 'kamal@gmail.com', '01812339922', 'Dhaka Bangladesh', '', '$2y$10$/gHAT8kfFEffB84HyV3it.s4xv3Dy3W4oxWIMn/7NYO3rsCOsKTfy', '2020-06-30 11:01:26', '2020-06-30 11:01:26'),
+(3, 4, 'Salman khan', 'salman@gmail.com', '01812339922', 'Dhaka Bangladesh', '', '$2y$10$UShe.4QPlOMaJb80T0ZPCO8qNSMEnXM95lTOKJukoFoxIOjiDPSoq', '2020-07-07 09:29:32', '2020-07-07 09:29:32'),
+(4, 5, 'Imam Hasan', 'imam@gmail.com', '01728338728', 'nasirabad chittagong', '', '$2y$10$Kb1qNQ6clNw3bIZjcxXqNOXSwEitnhKaIWspJSJ76M6W0Aeyqnlua', '2020-07-07 10:11:10', '2020-07-07 10:11:10'),
+(5, 6, 'Iqbal Bahar', 'iqbal@gmail.com', '01911256321', 'Uttara dhaka', 'Dhaka', '$2y$10$0TKQjcb1kRam5gbkEGEkzOa06MGjuj6qFAiaVUMroU6fxBh.wwShO', '2020-07-13 12:44:52', '2020-07-13 12:44:52');
 
 -- --------------------------------------------------------
 
@@ -256,7 +258,7 @@ CREATE TABLE `orders` (
   `purchase_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `payment_method` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `transaction_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -266,10 +268,11 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`id`, `customer_id`, `shipping_id`, `total`, `delivery_charge`, `purchase_type`, `payment_method`, `transaction_id`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 8, 3430.00, 70.00, 'full_purchase', 'cash_on_delivery', NULL, 0, '2020-07-01 10:23:53', '2020-07-01 10:23:53'),
-(2, 2, 9, 1980.00, 70.00, 'borrow_book', 'bkash', 'fytjfytfyutduydy5454', 0, '2020-07-02 10:16:48', '2020-07-02 10:16:48'),
-(3, 1, 10, 3190.00, 70.00, 'borrow_book', 'cash_on_delivery', NULL, 0, '2020-07-07 12:37:41', '2020-07-07 12:37:41'),
-(4, 1, 11, 1900.00, 70.00, 'borrow_book', 'bkash', 'uuu777yyyttt', 0, '2020-07-07 12:40:10', '2020-07-07 12:40:10');
+(1, 1, 8, 3430.00, 70.00, 'full_purchase', 'cash_on_delivery', NULL, 1, '2020-07-01 10:23:53', '2020-07-12 19:20:45'),
+(2, 2, 9, 1980.00, 70.00, 'borrow_book', 'bkash', 'fytjfytfyutduydy5454', 2, '2020-07-02 10:16:48', '2020-07-13 20:36:13'),
+(3, 1, 10, 3190.00, 70.00, 'borrow_book', 'cash_on_delivery', NULL, 2, '2020-07-07 12:37:41', '2020-07-12 19:37:59'),
+(4, 1, 11, 1900.00, 70.00, 'borrow_book', 'bkash', 'uuu777yyyttt', 1, '2020-07-07 12:40:10', '2020-07-13 20:34:18'),
+(5, 5, 12, 2380.00, 70.00, 'borrow_book', 'cash_on_delivery', NULL, 0, '2020-07-13 12:54:51', '2020-07-13 12:54:51');
 
 -- --------------------------------------------------------
 
@@ -303,7 +306,10 @@ INSERT INTO `order_details` (`id`, `order_id`, `book_id`, `qty`, `sub_total`, `s
 (8, 3, 23, 1, 980.00, 'complete', '2020-07-07 12:37:41', '2020-07-08 11:43:51'),
 (9, 3, 21, 2, 1560.00, 'pending', '2020-07-07 12:37:41', '2020-07-07 12:37:41'),
 (10, 4, 1, 2, 1000.00, 'pending', '2020-07-07 12:40:10', '2020-07-07 12:40:10'),
-(11, 4, 2, 2, 900.00, 'pending', '2020-07-07 12:40:10', '2020-07-07 12:40:10');
+(11, 4, 2, 2, 900.00, 'pending', '2020-07-07 12:40:10', '2020-07-07 12:40:10'),
+(12, 5, 23, 1, 980.00, 'pending', '2020-07-13 12:54:51', '2020-07-13 12:54:51'),
+(13, 5, 1, 1, 500.00, 'pending', '2020-07-13 12:54:51', '2020-07-13 12:54:51'),
+(14, 5, 2, 2, 900.00, 'pending', '2020-07-13 12:54:51', '2020-07-13 12:54:51');
 
 -- --------------------------------------------------------
 
@@ -353,7 +359,8 @@ INSERT INTO `shippings` (`id`, `customer_id`, `name`, `email`, `phone`, `address
 (8, 1, 'Jamal Khan', 'jamal@gmail.com', '01728338728', 'nasirabad chittagong', NULL, NULL, NULL, NULL, '2020-07-01 10:23:53', '2020-07-01 10:23:53'),
 (9, 2, 'Kamal Khan', 'kamal@gmail.com', '01812339922', 'Dhaka Bangladesh', NULL, NULL, NULL, NULL, '2020-07-02 10:16:48', '2020-07-02 10:16:48'),
 (10, 1, 'Jamal Khan', 'jamal@gmail.com', '01728338728', 'nasirabad chittagong', NULL, NULL, NULL, NULL, '2020-07-07 12:37:41', '2020-07-07 12:37:41'),
-(11, 1, 'Jamal Khan', 'jamal@gmail.com', '01728338728', 'nasirabad chittagong', NULL, NULL, NULL, NULL, '2020-07-07 12:40:10', '2020-07-07 12:40:10');
+(11, 1, 'Jamal Khan', 'jamal@gmail.com', '01728338728', 'nasirabad chittagong', NULL, NULL, NULL, NULL, '2020-07-07 12:40:10', '2020-07-07 12:40:10'),
+(12, 5, 'Iqbal Bahar', 'iqbal@gmail.com', '01911256321', 'Uttara dhaka', NULL, 'Dhaka', '1122', NULL, '2020-07-13 12:54:51', '2020-07-13 12:54:51');
 
 -- --------------------------------------------------------
 
@@ -363,7 +370,7 @@ INSERT INTO `shippings` (`id`, `customer_id`, `name`, `email`, `phone`, `address
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `is_admin` tinyint(1) NOT NULL DEFAULT '0',
+  `is_admin` tinyint(1) NOT NULL DEFAULT 0,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
@@ -382,7 +389,8 @@ INSERT INTO `users` (`id`, `is_admin`, `name`, `email`, `email_verified_at`, `pa
 (2, 0, 'Jamal Khan', 'jamal@gmail.com', NULL, '$2y$10$6mtQzbFQsHberyM12jIrm.MBvkvrEtE2Jq87RTIwZgHrgQKhKcEUC', NULL, '2020-06-30 08:55:43', '2020-06-30 08:55:43'),
 (3, 0, 'Kamal Khan', 'kamal@gmail.com', NULL, '$2y$10$KhsDhJxlafaP5zogNu6w0.cf4kTPWLLm1NSe5cWC7ltF7kRSTlOIC', NULL, '2020-06-30 11:01:26', '2020-06-30 11:01:26'),
 (4, 0, 'Salman khan', 'salman@gmail.com', NULL, '$2y$10$e/e.thtKjidtPYuw7sIo.Od85xbtRbl9jaF9GDxElhswAB2VAljoC', NULL, '2020-07-07 09:29:32', '2020-07-07 09:29:32'),
-(5, 0, 'Imam Hasan', 'imam@gmail.com', NULL, '$2y$10$Bjh8r4JXg80LFMAdpVVb8.sAUXsyJK3YLZwmt2b3YDBS1Xj5ivWEC', NULL, '2020-07-07 10:11:09', '2020-07-07 10:11:09');
+(5, 0, 'Imam Hasan', 'imam@gmail.com', NULL, '$2y$10$Bjh8r4JXg80LFMAdpVVb8.sAUXsyJK3YLZwmt2b3YDBS1Xj5ivWEC', NULL, '2020-07-07 10:11:09', '2020-07-07 10:11:09'),
+(6, 0, 'Iqbal Bahar', 'iqbal@gmail.com', NULL, '$2y$10$I8hjpZgIlAQaGH6TY3oDjuyNzBdyGfYzb.1eAaokrXQU/OW7ZW5ay', NULL, '2020-07-13 12:44:51', '2020-07-13 12:44:51');
 
 -- --------------------------------------------------------
 
@@ -396,10 +404,10 @@ CREATE TABLE `writers` (
   `email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `dob` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` text COLLATE utf8mb4_unicode_ci,
-  `description` text COLLATE utf8mb4_unicode_ci,
+  `address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT '1',
+  `status` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -547,7 +555,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -559,25 +567,25 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `shippings`
 --
 ALTER TABLE `shippings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `writers`
