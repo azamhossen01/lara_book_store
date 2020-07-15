@@ -32,7 +32,7 @@ class ShopController extends Controller
         $categories = Category::where('status',1)->get()->take(5);
         $all_categories = Category::where('status',1)->get();
         $books = Book::where('status',1)->get();
-        $recents = Book::orderBy('id', 'desc')->take(8)->get();
+        $recents = Book::orderBy('id', 'desc')->where('status',1)->take(8)->get();
         $blogs = Blog::orderBy('id', 'desc')->take(3)->get();
         return view('frontend.home',compact('books','categories','recents','all_categories','blogs'));
     }

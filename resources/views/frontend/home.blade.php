@@ -254,7 +254,7 @@
 
         <div class="row single__tab tab-pane fade" id="nav-{{$category->id}}" role="tabpanel">
                 <div class="product__indicator--4 arrows_style owl-carousel owl-theme">
-                    @forelse($category->books as $book)
+                    @forelse($category->books->where('status',1) as $book)
                     <div class="single__product">
                       
                         <div class="col-lg-3 col-md-4 col-sm-6 col-12">
@@ -267,7 +267,7 @@
                                     </div>
                                 </div>
                                 <div class="product__content content--center">
-                                <h4><a href="{{route('single_product',$book->id)}}">{{$book->name}}</a></h4>
+                                <h4><a href="{{route('single_product',$book->id)}}">{{$book->title}}</a></h4>
                                     <ul class="prize d-flex">
                                     <li>BDT {{$book->price}}</li>
                                     <li class="old_prize">BDT {{$book->discounted_price}}</li>
