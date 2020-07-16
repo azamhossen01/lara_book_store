@@ -76,6 +76,7 @@ class CartController extends Controller
 
     public function get_sub_total(Request $request){
         $book = Cart::get($request->row_id);
+        // return $book;
         return ($book->price * $request->qty);
     }
 
@@ -98,7 +99,7 @@ class CartController extends Controller
         if(count($items) > 0){
             return view('frontend.checkout',compact('items','sub_total'));
         }else{
-            return redirect()->back()->withErrors('please add book to cart first');
+            return redirect()->route('/')->withErrors('please add book to cart first');
         }
          
     }

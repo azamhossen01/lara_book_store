@@ -46,12 +46,18 @@
                         @forelse($writers as $key=>$writer) 
                         <tr>
                         <td>{{$key+1}}</td>
-                        <td>{{$writer->name}}</td>
-                        <td><img src="{{asset('images/writers/'.$writer->image)}}" alt=""></td>
-                        <td>{{$writer->phone}}</td>
-                        <td>{{$writer->email}}</td>
-                        <td>{{$writer->address}}</td>
-                        <td>{{$writer->description}}</td>
+                        <td><a href="{{route('writer_books',$writer->id)}}">{{$writer->name}}</a></td>
+                        <td>
+                            @if($writer->image)
+                            <img src="{{asset('images/writers/'.$writer->image)}}" alt="">
+                            @else 
+                            No Image
+                            @endif
+                        </td>
+                        <td>{{$writer->phone??'Not Available'}}</td>
+                        <td>{{$writer->email??'Not Available'}}</td>
+                        <td>{{$writer->address??'Not Available'}}</td>
+                        <td>{{$writer->description??'Not Available'}}</td>
                         </tr>
                         @empty 
 

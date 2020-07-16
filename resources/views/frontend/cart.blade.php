@@ -101,10 +101,10 @@
             url : "{{route('get_cart_data')}}",
             dataType : 'json',
             success : function(data){
-                console.log(data);
+                // console.log(data);
                 var html = ``;
                 $.each(data,function(key,value){
-                    // console.log(value);
+                    // console.log(key);
                     // console.log(value.associatedModel.image);
                     html += `
                     <tr>
@@ -114,9 +114,9 @@
                         </a></td>
                         <td class="product-name"><a href="#">${value.associatedModel.title}</a></td>
                         <td class="product-price"><span class="amount">BDT ${value.price}</span></td>
-                        <td class="product-quantity"><input type="number" name="qty[]" value="${value.quantity}"  onchange="get_sub_total(this.value,${key})"></td>
+                        <td class="product-quantity"><input type="number" min=1 name="qty[]" value="${value.quantity}"  onchange="get_sub_total(this.value,${key})"></td>
                         <input type="hidden" name="row_ids[]" value="${key}" />
-                        <td class="product-subtotal" id="product_subtotal">BDT ${(value.quantity * value.price)}</td>
+                        <td class="product-subtotal" id="product_subtotal${key}">BDT ${(value.quantity * value.price)}</td>
                         <td class="product-remove"><a href="#" onclick="delete_to_cart_from_edit(${key})">X</a></td>
                     </tr>
                 `;
@@ -145,6 +145,7 @@
     }
 
     function get_sub_total(qty,row_id){
+        // console.log(qty+'aaaa'+row_id);
         if(qty && row_id){
             $.ajax({
                 type : 'get',
@@ -152,7 +153,7 @@
                 data : {qty:qty,row_id:row_id},
                 success : function(data){
                     console.log(data);
-                    $('#product_subtotal').text("BDT "+data);
+                    $('#product_subtotal'+row_id).text("BDT "+data);
                     get_total_on_edit();
                 }
             });
@@ -164,7 +165,7 @@
             type : 'get',
             url : "{{route('get_total')}}",
             success : function(data){
-                console.log(data);
+                // console.log(data);
                 
                 $('#grand_total').text("BDT "+data);
                 $('#cart_total').text("BDT "+data);

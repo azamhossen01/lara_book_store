@@ -56,6 +56,9 @@ Route::get('all_writers','WriterController@all_writers')->name('all_writers');
 //route for view all categories
 Route::get('all_categories','CategoryController@all_categories')->name('all_categories');
 
+//route for search book
+Route::get('search_book','ShopController@search_book')->name('search_book');
+
 // cart route
 Route::get('add_to_cart','CartController@add_to_cart')->name('add_to_cart');
 Route::get('get_cart_data','CartController@get_cart_data')->name('get_cart_data');

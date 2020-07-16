@@ -42,8 +42,8 @@
                         @forelse($categories as $key=>$category) 
                         <tr>
                         <td>{{$key+1}}</td>
-                        <td>{{$category->name}}</td>
-                        <td>{{$category->description}}</td>
+                        <td><a href="{{route('shop_grid',$category->id)}}">{{$category->name}}</a></td>
+                        <td>{{$category->description??'Not Available'}}</td>
                         </tr>
                         @empty 
 

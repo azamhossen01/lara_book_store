@@ -28,32 +28,32 @@
     </li>
     <li class="nav-item">
     <a class="nav-link" href="{{route('writers.index')}}">
-        <i class="fas fa-fw fa-table"></i>
+        <i class="fas fa-fw fa-user"></i>
         <span>Writers</span></a>
     </li>
     <li class="nav-item">
     <a class="nav-link" href="{{route('books.index')}}">
-        <i class="fas fa-fw fa-table"></i>
+        <i class="fas fa-fw fa-book"></i>
         <span>Books</span></a>
     </li>
     <li class="nav-item">
     <a class="nav-link" href="{{route('customers.index')}}">
-        <i class="fas fa-fw fa-table"></i>
+        <i class="fas fa-fw fa-users"></i>
         <span>Customers</span></a>
     </li>
     <li class="nav-item">
     <a class="nav-link" href="{{route('orders.index')}}">
-        <i class="fas fa-fw fa-table"></i>
+        <i class="fas fa-fw fa-cubes"></i>
         <span>Orders</span></a>
     </li>
     <li class="nav-item">
     <a class="nav-link" href="{{route('book_return_index')}}">
-        <i class="fas fa-fw fa-table"></i>
+        <i class="fas fa-fw fa-book"></i>
         <span>Book Return</span></a>
     </li>
     <li class="nav-item">
     <a class="nav-link" href="{{route('blogs.index')}}">
-        <i class="fas fa-fw fa-table"></i>
+        <i class="fas fa-fw fa-newspaper"></i>
         <span>Blogs</span></a>
     </li>
     <li class="nav-item">
@@ -61,7 +61,7 @@
         <a class="nav-link" href="{{ route('logout') }}"
            {{-- data-target="#logoutModal"   --}}
            onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();"><i class="fas fa-fw fa-table"></i>
+          document.getElementById('logout-form').submit();"><i class="fas fa-fw fa-circle"></i>
         <span>Logout</span></a>
           <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf

@@ -95,7 +95,12 @@ class ShopController extends Controller
 
     public function cart(){
         $items = Cart::getContent();
-        return view('frontend.cart',compact('items'));
+        if(count($items) > 0){
+            return view('frontend.cart',compact('items'));
+        }else{
+            return redirect()->route('/')->withErrors('please add book to cart first');
+        }
+        
     }
 
     public function blog(){
@@ -171,6 +176,16 @@ class ShopController extends Controller
             ]);
         }
         return redirect()->back();
+    }
+
+    public function search_book(){
+        $searchTerm =  request()->search;
+        $categories = Category::where('status',1)->get();
+       $books = Book::query()
+   ->where('title', 'LIKE', "%{$searchTerm}%") 
+   ->orWhere('description', 'LIKE', "%{$searchTerm}%") 
+   ->get();
+   return view('frontend.search_result',compact('books','categories'));
     }
 
 

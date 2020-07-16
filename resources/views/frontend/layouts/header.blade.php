@@ -112,7 +112,7 @@
             </div>
             <div class="col-md-6 col-sm-6 col-6 col-lg-2">
                 <ul class="header__sidebar__right d-flex justify-content-end align-items-center">
-                    <li class="shop_search"><a class="search__active" href="JavaScript:Void(0);"></a></li>
+                    <li class="shop_search" ><a class="search__active"  href="JavaScript:Void(0);"><i style="margin-top:35px" class="fa fa-search fa-2x text-light"></i></a></li>
                     <li class="wishlist"><a href="JavaScript:Void(0);" class="text-light"></a></li>
                     <li class="shopcart"><i class="fa fa-shopping-cart fa-2x text-light"></i><a  class="cartbox_active" href="JavaScript:Void(0);"><span class="product_qun" id="product_qun"></span></a>
                         <!-- Start Shopping Cart -->
