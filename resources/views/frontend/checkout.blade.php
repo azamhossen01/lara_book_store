@@ -181,7 +181,7 @@
                     </ul>
                     <ul class="shipping__method">
                         <li>Cart Subtotal <span>BDT {{$sub_total}}</span></li>
-                        <li id="delivey_charge">Delivery Charge <span>BDT 70</span></li>
+                        <li id="delivey_charge">Delivery Charge <span>BDT 50</span></li>
                         {{-- <li>Shipping 
                             <ul>
                                 <li>
@@ -396,7 +396,7 @@
         $(document).ready(()=>{
             
          total = $('#order_total').text();
-         total_with_delivery_charge = (parseInt(total)+70);
+         total_with_delivery_charge = (parseInt(total)+50);
         //  total_without_delivery_charge = (parseInt(total)-70);
         $('#order_total').text('BDT ' + total_with_delivery_charge);
         });

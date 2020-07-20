@@ -34,7 +34,7 @@
                 <h3>Order Date : {{$order_details->first()->order->created_at->format('F d Y')}}</h3><br>
                 <ul class="list-group">
                 @forelse($order_details as $key=>$od)
-                <li class="list-group-item">{{$key+1}} ) {{$od->book->title}} : <span>{{$od->qty}} X {{($od->sub_total/$od->qty)}}</span> = <span>{{$od->sub_total}}</span></li>
+                <li class="list-group-item">{{$key+1}} ) {{$od->book['title']}} : <span>{{$od->qty}} X {{($od->sub_total/$od->qty)}}</span> = <span>{{$od->sub_total}}</span></li>
                 @empty
 
                 @endforelse

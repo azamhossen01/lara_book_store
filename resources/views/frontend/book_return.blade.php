@@ -42,7 +42,7 @@
                                 @forelse($order->orderDetails->where('status','pending') as $od)
                                 <div class="form-check">
                                     <label class="form-check-label">
-                                        <input type="checkbox" class="form-check-input" name="order_detail_id[]" value="{{$od->id}}">{{$od->book->title}}
+                                        <input type="checkbox" class="form-check-input" name="order_detail_id[]" value="{{$od->id}}">{{$od->book['title']}}
                                     </label>
                                 </div>
                                 @empty

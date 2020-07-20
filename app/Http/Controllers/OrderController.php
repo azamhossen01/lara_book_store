@@ -48,7 +48,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        // return $order;
+        return view('backend.order.show',compact('order'));
     }
 
     /**

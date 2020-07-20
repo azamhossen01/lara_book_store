@@ -27,61 +27,37 @@
         <div class="card-header">
           <i class="fas fa-table"></i>
           Orders
-        {{-- <button class="btn btn-primary float-right" onclick="add_new_category()">Add New</button></div> --}}
+        <a class="btn btn-primary float-right" href="{{route('orders.index')}}">Back</a></div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <table class="table table-bordered text-center">
               <thead>
                 <tr>
-                  <th>Order No</th>
-                  <th>Name</th>
-                  <th>Phone</th>
-                  <th>Address</th>
-                  <th>District</th>
-                  <th>Postal Code</th>
-                  <th>Total</th>
-                  <th>Order Date</th>
-                  <th>Status</th>
-                  <th>Action</th>
+                  <th width="10%">#SL</th>
+                  <th width="20%">Title</th>
+                  <th width="20%">Image</th>
+                  <th width="20%">Price</th>
+                  <th width="10%">Qty</th>
+                  <th width="20%">Total</th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                  <th>Order No</th>
-                  <th>Name</th>
-                  <th>Phone</th>
-                  <th>Address</th>
-                  <th>District</th>
-                  <th>Postal Code</th>
-                  <th>Total</th>
-                  <th>Order Date</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </tfoot>
               <tbody>
-                @forelse($orders as $key=>$order) 
+                @forelse($order->orderDetails as $key=>$od) 
                 <tr>
-                <td>{{$order->id}}</td>
-                <td>{{$order->shipping->name??'Not Available'}}</td>
-                <td>{{$order->shipping->phone??'Not Available'}}</td>
-                <td>{{$order->shipping->address??'Not Available'}}</td>
-                <td>{{$order->shipping->district??'Not Available'}}</td>
-                <td>{{$order->shipping->postal_code??'Not Available'}}</td>
-                <td>{{$order->total}}</td>
-                <td>{{$order->created_at->format('F d Y')}}</td>
-                <td>
-                <span class="badge badge-{{$order->status==0?'warning':($order->status==1?'info':'success')}}">{{$order->status==0?'Pending':($order->status==1?'Processing':'Completed')}}</span>
-                </td>
-                <td>
-                  {{-- <button type="button" class="btn btn-success" onclick="edit_category({{$order->id}})">Details</button> --}}
-                <a  href="{{route('orders.edit',$order->id)}}" onclick="return confirm('Are you sure?')" class="btn btn-success btn-sm {{$order->status==2?'disabled btn-danger':''}}"> {{$order->status==0?'Pending':($order->status==1?'Processing':'Completed')}}</a>
-                <a href="{{route('orders.show',$order->id)}}" class="btn btn-sm btn-info">Details</a>
-                </td>
+                <td>{{$key+1}}</td>
+                <td>{{$od->book['title']}}</td>
+                <td><img src="{{asset('images/books/'.$od->book['image'])}}" width="20%" alt=""></td>
+                <td>{{$od->book['price']}}</td>
+                <td>{{$od->qty}}</td>
+                <td>{{$od->sub_total}}</td>
                 </tr>
                 @empty 
-                
+
                 @endforelse
+                <tr>
+                  <th colspan="5">Total</th>
+                <td>{{$order->total}}</td>
+                </tr>
               </tbody>
             </table>
           </div>

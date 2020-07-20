@@ -145,6 +145,7 @@ class ShopController extends Controller
 
     public function order_details($id){
         $order_details = OrderDetail::where('order_id',$id)->get();
+        // return $order_details;
         return view('frontend.order_details',compact('order_details'));
     }
 
