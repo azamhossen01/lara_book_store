@@ -30,6 +30,10 @@
         <a class="btn btn-primary float-right" href="{{route('orders.index')}}">Back</a></div>
         <div class="card-body">
           <div class="table-responsive">
+            <h3>Payment Method : {{$order->payment_method=='cash_on_delivery'?'Cash On Delivery':($order->payment_method == 'bkash' ? 'Bkash' : 'Pick Up Method')}}</h3>
+            @if($order->payment_method == 'bkash') 
+          <h3>Transaction Number : {{$order->transaction_id}}</h3>
+            @endif
             <table class="table table-bordered text-center">
               <thead>
                 <tr>

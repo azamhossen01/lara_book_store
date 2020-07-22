@@ -3,6 +3,7 @@
 @section('title','Book Store')
 
 
+
 @section('content')
 
 <div class="ht__bradcaump__area bg-image--4 bg-danger">
@@ -26,10 +27,10 @@
 <section class="wn__checkout__area section-padding--lg bg__white">
     <div class="container">
         @if(Auth::check() == true)
-        <div class="row">
-            <div class="col-lg-6 col-12">
+        <div class="row" id="printableArea">
+            <div class="col-lg-12 col-12">
                 
-            <h1>Order History</h1><br>
+            <h1 class="d-inline-block">Order History ({{Auth::user()->name}})</h1> <button id="print_button" onclick="printDiv('printableArea')" class="btn btn-info float-right"><i class="fa fa-print"></i> Print</button><br>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -37,7 +38,7 @@
                         <th>Amount</th>
                         <th>Status</th>
                         <th>Date</th>
-                        <th>Action</th>
+                        <th class="hide_class">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,7 +48,7 @@
                             <td>{{$order->total}}</td>
                         <td>{{$order->status == 0 ? 'Pending':($order->status == 1 ? 'Processing' : 'Completed')}}</td>
                             <td>{{$order->created_at->format('h:i A, F d, Y')}}</td>
-                            <td>  <a href="{{route('order_details',$order->id)}}" class="btn btn-success">Details</a>  </td>
+                            <td  class="hide_class">  <a href="{{route('order_details',$order->id)}}" class="btn btn-success">Details</a>  </td>
                         </tr>
                     @empty 
 
@@ -80,6 +81,10 @@
     //         $("#defaultCheck1").prop('required',true);
     //     }
     // });
+    // $(document).ready(()=>{
+    //     $('#print_button').show();
+    // });
+
     $('#bkash_payment').click(function () {
         $('#transaction_no').show();
         $("#cash_payment").prop('required', false);
@@ -92,6 +97,23 @@
 
 
     });
+
+   
+
+    function printDiv(divName) {
+    $('#print_button').hide();
+    $('.hide_class').hide();
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+     $('#print_button').show();
+     $('.hide_class').show();
+}
 
 </script>
 

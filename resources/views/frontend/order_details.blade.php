@@ -26,10 +26,11 @@
 <section class="wn__checkout__area section-padding--lg bg__white">
     <div class="container">
         @if(Auth::check() == true)
-        <div class="row">
-            <div class="col-lg-6 col-12">
+        <div class="row" id="printableArea">
+            <div class="col-lg-12 col-12">
 
-                <h1 class="d-inline-block">Order Details</h1> <a href="{{route('order_history')}}" class="btn btn-primary float-right">Back</a>
+                <h1 class="d-inline-block">Order Details</h1> <a href="{{route('order_history')}}" class="btn btn-primary float-right print_button" style="margin-left:5px">Back</a>
+                <button  onclick="printDiv('printableArea')" class="lm-2 btn btn-info float-right print_button"><i class="fa fa-print"></i> Print</button>
                 <br><br>
                 <h3>Order Date : {{$order_details->first()->order->created_at->format('F d Y')}}</h3><br>
                 <ul class="list-group">
@@ -41,8 +42,10 @@
                    
                 </ul>
                 <br>
-                <h3>Payment Method : {{$od->order->payment_method=='cash_on_delivery'?'Cash On Delivery':'Bkash'}}</h3>
-                
+                <h3>Payment Method : {{$od->order->payment_method=='cash_on_delivery'?'Cash On Delivery':($od->order->payment_method == 'bkash' ? 'Bkash' : 'Pick Up Method')}}</h3>
+                @if($od->order->payment_method == 'bkash') 
+                <h3>Transaction Number : {{$od->order->transaction_id}}</h3>
+                  @endif
             </div>
 
         </div>
@@ -82,6 +85,18 @@
 
     });
 
+    function printDiv(divName) {
+    $('.print_button').hide();
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+     $('.print_button').show();
+    }
 </script>
 
 @endpush
